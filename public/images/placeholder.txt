@@ -1,0 +1,41 @@
+# Image Placeholders
+
+This directory should contain the following images for the All Structure Maintenance website:
+
+## Hero Section
+- hero-project.jpg (1200x600px) - Main hero image showing a completed project
+
+## Services Images
+- service-restoration.jpg (400x300px)
+- service-remodeling.jpg (400x300px) 
+- service-roofing.jpg (400x300px)
+- service-painting.jpg (400x300px)
+- service-tile.jpg (400x300px)
+- service-maintenance.jpg (400x300px)
+
+## Portfolio Images (Before/After Pairs)
+- portfolio-kitchen-before.jpg (600x400px)
+- portfolio-kitchen-after.jpg (600x400px)
+- portfolio-bathroom-before.jpg (600x400px)
+- portfolio-bathroom-after.jpg (600x400px)
+- portfolio-roof-before.jpg (600x400px)
+- portfolio-roof-after.jpg (600x400px)
+- portfolio-basement-before.jpg (600x400px)
+- portfolio-basement-after.jpg (600x400px)
+- portfolio-water-before.jpg (600x400px)
+- portfolio-water-after.jpg (600x400px)
+- portfolio-tile-before.jpg (600x400px)
+- portfolio-tile-after.jpg (600x400px)
+
+## Image Requirements
+- High quality, professional photos
+- Optimized for web (compressed but clear)
+- Consistent lighting and composition
+- Show actual work completed by All Structure Maintenance
+- Include variety of project types and styles
+
+## Recommended Sources
+- Before/after photos of actual projects
+- Professional photography of completed work
+- High-resolution images that can be cropped/resized as needed
+- Images that showcase the quality of workmanship
