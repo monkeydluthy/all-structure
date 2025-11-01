@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/emailConfig';
 
 const Contact = () => {
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(emailConfig.publicKey);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',

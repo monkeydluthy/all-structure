@@ -11,6 +11,11 @@ const ContactPage = () => {
     }
   };
 
+  // Initialize EmailJS
+  React.useEffect(() => {
+    emailjs.init(emailConfig.publicKey);
+  }, []);
+
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',
