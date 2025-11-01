@@ -35,11 +35,27 @@ const AdminLogin = () => {
     <div style={{ 
       minHeight: '100vh', 
       display: 'flex', 
+      flexDirection: 'column',
       alignItems: 'center', 
       justifyContent: 'center',
       background: 'linear-gradient(135deg, #0f172a 0%, #1f2937 100%)',
       padding: '2rem'
     }}>
+      <div style={{ 
+        marginBottom: '2rem',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <img 
+          src="/images/logo.png" 
+          alt="All Structure Maintenance Logo" 
+          style={{ 
+            maxWidth: '150px', 
+            height: 'auto' 
+          }} 
+        />
+      </div>
       <div style={{
         background: 'white',
         padding: '3rem',
