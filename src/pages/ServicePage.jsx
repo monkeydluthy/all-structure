@@ -40,11 +40,11 @@ const ServicePage = () => {
         },
       ],
       process: [
-        'Assessment & Inspection',
-        'Detailed Estimate & Planning',
-        'Restoration & Repair Work',
-        'Quality Inspection',
-        'Final Walkthrough',
+        { text: 'Assessment & Inspection', icon: '🔍' },
+        { text: 'Detailed Estimate & Planning', icon: '📋' },
+        { text: 'Restoration & Repair Work', icon: '🔧' },
+        { text: 'Quality Inspection', icon: '✅' },
+        { text: 'Final Walkthrough', icon: '🏁' },
       ],
       benefits: [
         'Fully Licensed & Insured',
@@ -87,11 +87,11 @@ const ServicePage = () => {
         },
       ],
       process: [
-        'Design Consultation',
-        'Detailed Planning & Permits',
-        'Material Selection',
-        'Professional Installation',
-        'Final Inspection & Delivery',
+        { text: 'Design Consultation', icon: '📐' },
+        { text: 'Detailed Planning & Permits', icon: '📝' },
+        { text: 'Material Selection', icon: '🎨' },
+        { text: 'Professional Installation', icon: '🔨' },
+        { text: 'Final Inspection & Delivery', icon: '🎉' },
       ],
       benefits: [
         'Custom Design Options',
@@ -134,11 +134,11 @@ const ServicePage = () => {
         },
       ],
       process: [
-        'Inspection & Assessment',
-        'Detailed Estimate',
-        'Material Selection',
-        'Professional Installation',
-        'Final Inspection & Warranty',
+        { text: 'Inspection & Assessment', icon: '🔎' },
+        { text: 'Detailed Estimate', icon: '💰' },
+        { text: 'Material Selection', icon: '🏠' },
+        { text: 'Professional Installation', icon: '⚙️' },
+        { text: 'Final Inspection & Warranty', icon: '🛡️' },
       ],
       benefits: [
         'Licensed Roofing Contractors',
@@ -181,11 +181,11 @@ const ServicePage = () => {
         },
       ],
       process: [
-        'Color Consultation',
-        'Surface Preparation',
-        'Professional Application',
-        'Quality Inspection',
-        'Final Touch-ups',
+        { text: 'Color Consultation', icon: '🎨' },
+        { text: 'Surface Preparation', icon: '🧹' },
+        { text: 'Professional Application', icon: '🖌️' },
+        { text: 'Quality Inspection', icon: '👁️' },
+        { text: 'Final Touch-ups', icon: '✨' },
       ],
       benefits: [
         'Premium Paint Brands',
@@ -228,11 +228,11 @@ const ServicePage = () => {
         },
       ],
       process: [
-        'Design Consultation',
-        'Material Selection',
-        'Surface Preparation',
-        'Precision Installation',
-        'Grouting & Sealing',
+        { text: 'Design Consultation', icon: '🎯' },
+        { text: 'Material Selection', icon: '🔲' },
+        { text: 'Surface Preparation', icon: '📏' },
+        { text: 'Precision Installation', icon: '🔧' },
+        { text: 'Grouting & Sealing', icon: '💎' },
       ],
       benefits: [
         'Expert Craftsmanship',
@@ -275,11 +275,11 @@ const ServicePage = () => {
         },
       ],
       process: [
-        'Property Assessment',
-        'Maintenance Plan Creation',
-        'Scheduled Service Visits',
-        'Quality Inspections',
-        'Ongoing Support',
+        { text: 'Property Assessment', icon: '🔍' },
+        { text: 'Maintenance Plan Creation', icon: '📋' },
+        { text: 'Scheduled Service Visits', icon: '📅' },
+        { text: 'Quality Inspections', icon: '✅' },
+        { text: 'Ongoing Support', icon: '🔄' },
       ],
       benefits: [
         'Prevent Major Repairs',
@@ -341,8 +341,9 @@ const ServicePage = () => {
           <div className="process-steps">
             {service.process.map((step, index) => (
               <div key={index} className="process-step">
+                <div className="process-icon">{step.icon}</div>
                 <div className="process-number">{index + 1}</div>
-                <div className="process-text">{step}</div>
+                <div className="process-text">{step.text}</div>
               </div>
             ))}
           </div>

@@ -866,7 +866,7 @@ body {
 
 .service-process {
   padding: 4rem 0;
-  background: #f8fafc;
+  background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
 }
 
 .service-process h2 {
@@ -878,10 +878,22 @@ body {
 
 .process-steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: linear-gradient(to right, #d4a017 0%, #d4a017 100%);
+  z-index: 0;
 }
 
 .process-step {
@@ -893,6 +905,7 @@ body {
   border: 2px solid #e5e7eb;
   transition: all 0.3s ease;
   position: relative;
+  z-index: 1;
 }
 
 .process-step:hover {
@@ -901,18 +914,26 @@ body {
   box-shadow: 0 10px 25px rgba(212, 160, 23, 0.2);
 }
 
+.process-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
 .process-number {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: #d4a017;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin: 0 auto 1rem;
+  border: 3px solid white;
+  box-shadow: 0 4px 8px rgba(212, 160, 23, 0.3);
 }
 
 .process-text {
@@ -1591,6 +1612,11 @@ body {
 
   .process-steps {
     max-width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps::before {
+    display: none;
   }
 
   .benefits-grid {
