@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
   const scrollToSection = (sectionId) => {
@@ -26,25 +27,32 @@ const ContactPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Create email subject and body
-    const subject = `Free Estimate Request - ${formData.service}`;
-    const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Service Needed: ${formData.service}
-
-Project Details:
-${formData.message}
-    `.trim();
-    
-    // Create mailto link
-    const mailtoLink = `mailto:luthdigitalconsult@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Open default email client
-    window.location.href = mailtoLink;
-    
     setSubmitted(true);
+    
+    // EmailJS configuration - REPLACE THESE WITH YOUR ACTUAL VALUES
+    const serviceId = 'YOUR_SERVICE_ID'; // Your Gmail service ID
+    const templateId = 'YOUR_TEMPLATE_ID'; // Template you'll create in EmailJS
+    const publicKey = 'YOUR_PUBLIC_KEY'; // Your EmailJS public key
+    
+    emailjs.send(serviceId, templateId, {
+      to_email: 'AllstructureMainLLC@yahoo.com',
+      from_name: formData.name,
+      from_email: formData.email,
+      phone: formData.phone,
+      service: formData.service,
+      message: formData.message,
+    }, publicKey)
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+    })
+    .catch((error) => {
+      console.log('FAILED...', error);
+      // Fallback to mailto if EmailJS fails
+      const subject = `Free Estimate Request - ${formData.service}`;
+      const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\n${formData.message}`;
+      window.location.href = `mailto:AllstructureMainLLC@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+    
     setFormData({
       name: '',
       email: '',
@@ -156,9 +164,9 @@ ${formData.message}
                 <button type="submit" className="submit-btn">
                   {submitted ? (
                     <>
-                      ✅ Opening Email...
+                      ✅ Sending...
                       <p style={{ fontSize: '0.9rem', marginTop: '0.5rem', fontWeight: 'normal' }}>
-                        Your default email client should open now.
+                        Your estimate request is being sent.
                       </p>
                     </>
                   ) : (
