@@ -2,9 +2,8 @@
 // Replace these values with your actual EmailJS credentials
 
 export const emailConfig = {
-  serviceId: 'YOUR_SERVICE_ID',        // Your Gmail service ID from EmailJS
-  templateId: 'YOUR_TEMPLATE_ID',      // Template ID from EmailJS
-  publicKey: 'YOUR_PUBLIC_KEY',         // Your EmailJS Public Key
-  recipientEmail: 'AllstructureMainLLC@yahoo.com',  // Where to send the emails
+  serviceId: 'service_edk54w9', // Your Gmail service ID from EmailJS
+  templateId: 'template_4uqt8xj', // Template ID from EmailJS
+  publicKey: 'G2ELisyne1NmRDuF8', // Your EmailJS Public Key
+  recipientEmail: 'luthdigitalconsult@gmail.com', // Where to send the emails
 };
-
