@@ -39,7 +39,7 @@ ${formData.message}
     `.trim();
     
     // Create mailto link
-    const mailtoLink = `mailto:AllstructureMainLLC@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:luthdigitalconsult@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     // Open default email client
     window.location.href = mailtoLink;
