@@ -52,6 +52,7 @@ const ServicePage = () => {
         'Emergency Response Available',
         'Quality Materials & Workmanship',
         'Satisfaction Guaranteed',
+        'Free Estimates',
       ],
     },
     remodeling: {
@@ -99,6 +100,7 @@ const ServicePage = () => {
         'Energy-Efficient Upgrades',
         'On-Time Project Completion',
         'Increase Your Home Value',
+        'Free Consultations',
       ],
     },
     roofing: {
@@ -146,6 +148,7 @@ const ServicePage = () => {
         'Lifetime Material Warranty',
         'Insurance Claim Assistance',
         'Free Estimates',
+        '24/7 Emergency Service',
       ],
     },
     painting: {
@@ -193,6 +196,7 @@ const ServicePage = () => {
         'Extended Warranty Coverage',
         'Minimal Disruption',
         'Expert Color Matching',
+        'Free Color Consultations',
       ],
     },
     tile: {
@@ -240,6 +244,7 @@ const ServicePage = () => {
         'Custom Design Services',
         'Lifetime Warranty',
         'Professional Grouting',
+        'Free Design Consultations',
       ],
     },
     maintenance: {
@@ -287,6 +292,7 @@ const ServicePage = () => {
         'Maintain Property Value',
         'Peace of Mind',
         'Flexible Scheduling',
+        'Priority Service',
       ],
     },
   };
