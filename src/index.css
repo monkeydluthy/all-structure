@@ -852,6 +852,8 @@ body {
   border: 1px solid #e5e7eb;
   transition: all 0.3s ease;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card-large:hover {
@@ -878,6 +880,9 @@ body {
 
 .service-content-large {
   padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .service-content-large .service-icon-large {
@@ -916,6 +921,12 @@ body {
 
 .service-features li:last-child {
   border-bottom: none;
+}
+
+.service-card-large .learn-more-btn {
+  width: 100%;
+  text-align: center;
+  margin-top: auto;
 }
 
 /* Service Page Styles */

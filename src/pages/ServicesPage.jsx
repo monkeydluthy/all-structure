@@ -139,7 +139,7 @@ const ServicesPage = () => {
                   <Link
                     to={service.link}
                     state={{ serviceKey: service.key }}
-                    className="service-btn"
+                    className="service-btn learn-more-btn"
                   >
                     Learn More →
                   </Link>
