@@ -30,23 +30,40 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    
+    // Create email subject and body
+    const subject = `Free Estimate Request - ${formData.service}`;
+    const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service Needed: ${formData.service}
 
-    // Simulate form submission
+Project Details:
+${formData.message}
+    `.trim();
+    
+    // Create mailto link
+    const mailtoLink = `mailto:luthdigitalconsult@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    setIsSubmitting(true);
+    setSubmitStatus('success');
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      message: '',
+    });
+
+    // Reset status after 5 seconds
     setTimeout(() => {
       setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: '',
-      });
-
-      // Reset status after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 2000);
+      setSubmitStatus(null);
+    }, 5000);
   };
 
   const services = [
