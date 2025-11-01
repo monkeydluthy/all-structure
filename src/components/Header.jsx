@@ -14,14 +14,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
-
   return (
     <header className={`sticky-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
@@ -34,26 +26,10 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="desktop-nav">
-            <a href="/services">Services</a>
-            <a href="/portfolio">Portfolio</a>
-            <a
-              href="#about"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('about');
-              }}
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('contact');
-              }}
-            >
-              Contact
-            </a>
+            <Link to="/services">Services</Link>
+            <Link to="/portfolio">Portfolio</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </nav>
 
           <div className="header-cta">
@@ -85,40 +61,17 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="mobile-nav">
-            <a href="/services">Services</a>
-            <a href="/portfolio">Portfolio</a>
-            <a
-              href="#about"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('about');
-              }}
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('contact');
-              }}
-            >
-              Contact
-            </a>
+            <Link to="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
+            <Link to="/portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
+            <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             <div className="mobile-cta">
               <a href="tel:2032333862" className="phone-btn">
                 📞 203.233.3862
               </a>
-              <a
-                href="#contact"
-                className="cta-btn"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('contact');
-                }}
-              >
+              <Link to="/contact" className="cta-btn" onClick={() => setIsMenuOpen(false)}>
                 Get Free Estimate
-              </a>
+              </Link>
             </div>
           </nav>
         )}
