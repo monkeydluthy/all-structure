@@ -25,8 +25,25 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    
+    // Create email subject and body
+    const subject = `Free Estimate Request - ${formData.service}`;
+    const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service Needed: ${formData.service}
+
+Project Details:
+${formData.message}
+    `.trim();
+    
+    // Create mailto link
+    const mailtoLink = `mailto:AllstructureMainLLC@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
     setSubmitted(true);
     setFormData({
       name: '',
@@ -139,13 +156,13 @@ const ContactPage = () => {
                 <button type="submit" className="submit-btn">
                   {submitted ? (
                     <>
-                      ✅ Message Sent!
+                      ✅ Opening Email...
                       <p style={{ fontSize: '0.9rem', marginTop: '0.5rem', fontWeight: 'normal' }}>
-                        We'll get back to you within 24 hours.
+                        Your default email client should open now.
                       </p>
                     </>
                   ) : (
-                    'Send Message →'
+                    'Get Free Estimate →'
                   )}
                 </button>
               </form>
