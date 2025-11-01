@@ -34,15 +34,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="desktop-nav">
-            <a
-              href="#services"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('services');
-              }}
-            >
-              Services
-            </a>
+            <a href="/services">Services</a>
             <a href="/portfolio">Portfolio</a>
             <a
               href="#about"
@@ -93,15 +85,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="mobile-nav">
-            <a
-              href="#services"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('services');
-              }}
-            >
-              Services
-            </a>
+            <a href="/services">Services</a>
             <a href="/portfolio">Portfolio</a>
             <a
               href="#about"
