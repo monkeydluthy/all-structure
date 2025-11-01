@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,7 +27,9 @@ const Header = () => {
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <h2>All Structure Maintenance</h2>
+            <Link to="/">
+              <h2>All Structure Maintenance</h2>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
