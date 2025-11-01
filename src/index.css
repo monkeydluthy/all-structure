@@ -1105,6 +1105,46 @@ body {
   line-height: 1.8;
 }
 
+/* Legal Pages Styles */
+.privacy-content h2,
+.terms-content h2 {
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e5e7eb;
+}
+
+.privacy-content h2:first-child,
+.terms-content h2:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.privacy-content p,
+.terms-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.privacy-content ul,
+.terms-content ul {
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.privacy-content li,
+.terms-content li {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
 /* Service Page Styles */
 .service-hero {
   padding: 6rem 0 4rem;
