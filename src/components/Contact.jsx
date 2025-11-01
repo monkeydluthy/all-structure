@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { emailConfig } from '../config/emailConfig';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,19 +35,14 @@ const Contact = () => {
     
     setIsSubmitting(true);
     
-    // EmailJS configuration - REPLACE THESE WITH YOUR ACTUAL VALUES
-    const serviceId = 'YOUR_SERVICE_ID'; // Your Gmail service ID
-    const templateId = 'YOUR_TEMPLATE_ID'; // Template you'll create in EmailJS
-    const publicKey = 'YOUR_PUBLIC_KEY'; // Your EmailJS public key
-    
-    emailjs.send(serviceId, templateId, {
-      to_email: 'AllstructureMainLLC@yahoo.com',
+    emailjs.send(emailConfig.serviceId, emailConfig.templateId, {
+      to_email: emailConfig.recipientEmail,
       from_name: formData.name,
       from_email: formData.email,
       phone: formData.phone,
       service: formData.service,
       message: formData.message,
-    }, publicKey)
+    }, emailConfig.publicKey)
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text);
       setSubmitStatus('success');
@@ -56,7 +52,7 @@ const Contact = () => {
       // Fallback to mailto if EmailJS fails
       const subject = `Free Estimate Request - ${formData.service}`;
       const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\n${formData.message}`;
-      window.location.href = `mailto:AllstructureMainLLC@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = `mailto:${emailConfig.recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
     
     setFormData({
