@@ -41,7 +41,7 @@ const Contact = () => {
     setIsSubmitting(true);
     
     emailjs.send(emailConfig.serviceId, emailConfig.templateId, {
-      to_email: 'luthdigitalconsult@gmail.com,AllstructureMainLLC@yahoo.com',
+      to_email: emailConfig.recipientEmail,
       from_name: formData.name,
       from_email: formData.email,
       phone: formData.phone,
