@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -9,6 +10,7 @@ const Services = () => {
         'Complete property restoration from water damage, fire damage, and general wear. We bring your property back to its original condition.',
       image: '/images/restore.jpg',
       link: '/services/restoration',
+      key: 'restoration',
     },
     {
       icon: '🔧',
@@ -17,6 +19,7 @@ const Services = () => {
         'Transform your space with our expert remodeling services. Kitchens, bathrooms, basements, and whole-home renovations.',
       image: '/images/remodel.jpg',
       link: '/services/remodeling',
+      key: 'remodeling',
     },
     {
       icon: '🏠',
@@ -25,6 +28,7 @@ const Services = () => {
         'Expert roof repairs, gutter cleaning, and maintenance to protect your property from the elements.',
       image: '/images/roof.JPEG',
       link: '/services/roofing',
+      key: 'roofing',
     },
     {
       icon: '🎨',
@@ -33,6 +37,7 @@ const Services = () => {
         'Professional interior and exterior painting, sheetrock installation, and drywall repairs.',
       image: '/images/sheetrock.JPG',
       link: '/services/painting',
+      key: 'painting',
     },
     {
       icon: '🔲',
@@ -41,6 +46,7 @@ const Services = () => {
         'Beautiful tile work for bathrooms, kitchens, and floors. Custom designs and expert installation.',
       image: '/images/tile.jpg',
       link: '/services/tile',
+      key: 'tile',
     },
     {
       icon: '⚙️',
@@ -49,6 +55,7 @@ const Services = () => {
         'Regular maintenance services to keep your property in perfect condition year-round.',
       image: '/images/lawn.jpg',
       link: '/services/maintenance',
+      key: 'maintenance',
     },
   ];
 
@@ -75,9 +82,9 @@ const Services = () => {
                 <div className="service-icon">{service.icon}</div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <a href={service.link} className="service-btn">
+                <Link to={service.link} state={{ serviceKey: service.key }} className="service-btn">
                   Learn More →
-                </a>
+                </Link>
               </div>
             </div>
           ))}
