@@ -1063,14 +1063,13 @@ body {
 }
 
 .contact-card-link {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: bold;
   color: #d4a017;
   text-decoration: none;
   display: block;
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
-  word-break: break-word;
 }
 
 .contact-card-link:hover {
