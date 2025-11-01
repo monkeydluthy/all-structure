@@ -193,34 +193,31 @@ const ContactPage = () => {
                 <div className="contact-card">
                   <div className="contact-card-icon">📞</div>
                   <h4>Call Us</h4>
-                  <a href="tel:2032333862" className="contact-card-link">
+                  <a href="tel:2032333862" className="contact-card-link phone-link">
                     203.233.3862
                   </a>
                   <p>Available 7 days a week</p>
                 </div>
 
-                <div className="contact-card">
+                <a href="mailto:info@allstructuremaintenance.com" className="contact-card" style={{ textDecoration: 'none' }}>
                   <div className="contact-card-icon">✉️</div>
                   <h4>Email Us</h4>
-                  <a href="mailto:info@allstructuremaintenance.com" className="contact-card-link">
-                    info@allstructuremaintenance.com
-                  </a>
                   <p>We respond within 24 hours</p>
-                </div>
+                </a>
 
                 <div className="contact-card">
                   <div className="contact-card-icon">📍</div>
                   <h4>Visit Us</h4>
-                  <p className="contact-card-text">Meriden, CT 06451</p>
+                  <p>Meriden, CT 06451</p>
                   <p>Serving all of Connecticut</p>
                 </div>
 
                 <div className="contact-card">
                   <div className="contact-card-icon">🕒</div>
                   <h4>Business Hours</h4>
-                  <p className="contact-card-text">Monday - Friday: 7:00 AM - 6:00 PM</p>
-                  <p className="contact-card-text">Saturday: 8:00 AM - 4:00 PM</p>
-                  <p className="contact-card-text">Sunday: Emergency Service Only</p>
+                  <p>Monday - Friday: 7:00 AM - 6:00 PM</p>
+                  <p>Saturday: 8:00 AM - 4:00 PM</p>
+                  <p>Sunday: Emergency Service Only</p>
                 </div>
               </div>
 

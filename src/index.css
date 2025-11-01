@@ -1063,7 +1063,7 @@ body {
 }
 
 .contact-card-link {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: bold;
   color: #d4a017;
   text-decoration: none;
@@ -1076,9 +1076,8 @@ body {
   color: #b8870d;
 }
 
-.contact-card-text {
-  color: #6b7280;
-  margin-bottom: 0.5rem;
+.contact-card a:hover {
+  text-decoration: none;
 }
 
 .contact-card p {
