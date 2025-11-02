@@ -115,15 +115,29 @@ The admin dashboard now includes an analytics widget that displays pageviews, se
 1. In Google Analytics, go to **Admin** → **Property Settings**
 2. Copy your **Property ID** (numeric, like `123456789`)
 
-### Step 6: Update AnalyticsWidget.jsx
+### Step 6: Configure Netlify Function
 
-Replace the mock data in `src/components/AnalyticsWidget.jsx` with actual API calls using:
+The website uses a Netlify Function to securely proxy Google Analytics API calls.
 
-- The JSON key file (keep secure - use environment variables)
-- Your Property ID
-- Google Analytics Data API
+**Set these environment variables in Netlify:**
 
-**Note:** For security, API calls should go through a backend/API route, not directly from the frontend.
+1. Go to your Netlify site dashboard → **Site settings** → **Environment variables**
+2. Add these variables:
+   - `GA_SERVICE_ACCOUNT_EMAIL`: The email from your JSON key file (e.g., `analytics-reader@your-project.iam.gserviceaccount.com`)
+   - `GA_SERVICE_ACCOUNT_PRIVATE_KEY`: The entire `private_key` value from your JSON key file (including `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----`)
+   - `GA_PROPERTY_ID`: Your Property ID from Google Analytics (numeric value)
+
+**Important:**
+
+- Never commit your JSON key file to Git
+- The private key should be copied exactly as it appears in the JSON, including the newlines (`\n`)
+
+### Step 7: Deploy
+
+Push your changes to trigger a new deployment on Netlify. The analytics widget will automatically fetch real data from Google Analytics.
+
+**For local testing:**
+Run `npm run netlify:dev` to test the function locally (requires Netlify CLI).
 
 See: https://developers.google.com/analytics/devguides/reporting/data/v1
 

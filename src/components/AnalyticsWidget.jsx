@@ -12,33 +12,28 @@ const AnalyticsWidget = () => {
   }, []);
 
   const fetchAnalytics = async () => {
-    // TODO: Replace with actual Google Analytics API calls
-    // This requires:
-    // 1. Google Cloud Project with Analytics Reporting API enabled
-    // 2. Service Account credentials
-    // 3. Property ID from Google Analytics
-    
     try {
-      // Simulate API call for now
-      setTimeout(() => {
-        // Mock data - replace with real API response
-        setAnalyticsData({
-          pageviews: 1250,
-          sessions: 892,
-          users: 654,
-          avgSessionDuration: '2m 34s',
-          topPages: [
-            { page: '/', views: 450 },
-            { page: '/services', views: 320 },
-            { page: '/portfolio', views: 280 },
-            { page: '/contact', views: 200 },
-          ]
-        });
-        setLoading(false);
-      }, 1000);
+      // Determine the base URL for the Netlify function
+      const isDevelopment =
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1';
+      const baseUrl = isDevelopment
+        ? 'http://localhost:8888/.netlify/functions'
+        : '/.netlify/functions';
+
+      const response = await fetch(`${baseUrl}/analytics`);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setAnalyticsData(data);
+      setLoading(false);
     } catch (err) {
       setError(err.message);
       setLoading(false);
+      console.error('Error fetching analytics:', err);
     }
   };
 
@@ -52,12 +47,14 @@ const AnalyticsWidget = () => {
 
   if (error) {
     return (
-      <div style={{ 
-        padding: '2rem', 
-        background: '#fee2e2', 
-        borderRadius: '8px',
-        color: '#dc2626'
-      }}>
+      <div
+        style={{
+          padding: '2rem',
+          background: '#fee2e2',
+          borderRadius: '8px',
+          color: '#dc2626',
+        }}
+      >
         Error loading analytics: {error}
         <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>
           Make sure Google Analytics API is configured correctly.
@@ -69,47 +66,55 @@ const AnalyticsWidget = () => {
   return (
     <div>
       {/* Key Metrics */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', 
-        gap: '1rem',
-        marginBottom: '2rem'
-      }}>
-        <MetricCard 
-          label="Pageviews" 
-          value={analyticsData?.pageviews?.toLocaleString() || '0'} 
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gap: '1rem',
+          marginBottom: '2rem',
+        }}
+      >
+        <MetricCard
+          label="Pageviews"
+          value={analyticsData?.pageviews?.toLocaleString() || '0'}
         />
-        <MetricCard 
-          label="Sessions" 
-          value={analyticsData?.sessions?.toLocaleString() || '0'} 
+        <MetricCard
+          label="Sessions"
+          value={analyticsData?.sessions?.toLocaleString() || '0'}
         />
-        <MetricCard 
-          label="Users" 
-          value={analyticsData?.users?.toLocaleString() || '0'} 
+        <MetricCard
+          label="Users"
+          value={analyticsData?.users?.toLocaleString() || '0'}
         />
-        <MetricCard 
-          label="Avg. Session" 
-          value={analyticsData?.avgSessionDuration || '0:00'} 
+        <MetricCard
+          label="Avg. Session"
+          value={analyticsData?.avgSessionDuration || '0:00'}
         />
       </div>
 
       {/* Top Pages */}
-      <div style={{
-        background: 'white',
-        padding: '1.5rem',
-        borderRadius: '12px',
-        border: '1px solid #e5e7eb'
-      }}>
-        <h3 style={{ 
-          marginBottom: '1rem', 
-          color: '#1f2937',
-          fontSize: '1.25rem'
-        }}>
+      <div
+        style={{
+          background: 'white',
+          padding: '1.5rem',
+          borderRadius: '12px',
+          border: '1px solid #e5e7eb',
+        }}
+      >
+        <h3
+          style={{
+            marginBottom: '1rem',
+            color: '#1f2937',
+            fontSize: '1.25rem',
+          }}
+        >
           Top Pages (Last 30 Days)
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+        <div
+          style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}
+        >
           {analyticsData?.topPages?.map((page, index) => (
-            <div 
+            <div
               key={index}
               style={{
                 display: 'flex',
@@ -117,7 +122,7 @@ const AnalyticsWidget = () => {
                 alignItems: 'center',
                 padding: '0.75rem',
                 background: '#f8fafc',
-                borderRadius: '8px'
+                borderRadius: '8px',
               }}
             >
               <span style={{ color: '#374151', fontWeight: '500' }}>
@@ -144,13 +149,21 @@ const AnalyticsWidget = () => {
             textDecoration: 'none',
             borderRadius: '8px',
             fontWeight: '600',
-            fontSize: '1rem'
+            fontSize: '1rem',
           }}
         >
           View Full Analytics Dashboard →
         </a>
-        <p style={{ fontSize: '0.85rem', color: '#9ca3af', marginTop: '1rem', marginBottom: 0 }}>
-          See detailed reports, real-time data, and advanced insights in Google Analytics
+        <p
+          style={{
+            fontSize: '0.85rem',
+            color: '#9ca3af',
+            marginTop: '1rem',
+            marginBottom: 0,
+          }}
+        >
+          See detailed reports, real-time data, and advanced insights in Google
+          Analytics
         </p>
       </div>
     </div>
@@ -158,26 +171,27 @@ const AnalyticsWidget = () => {
 };
 
 const MetricCard = ({ label, value }) => (
-  <div style={{
-    background: 'white',
-    padding: '1.5rem',
-    borderRadius: '12px',
-    border: '1px solid #e5e7eb',
-    textAlign: 'center'
-  }}>
-    <div style={{ 
-      fontSize: '2rem', 
-      fontWeight: 'bold', 
-      color: '#d4a017',
-      marginBottom: '0.5rem'
-    }}>
+  <div
+    style={{
+      background: 'white',
+      padding: '1.5rem',
+      borderRadius: '12px',
+      border: '1px solid #e5e7eb',
+      textAlign: 'center',
+    }}
+  >
+    <div
+      style={{
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        color: '#d4a017',
+        marginBottom: '0.5rem',
+      }}
+    >
       {value}
     </div>
-    <div style={{ color: '#6b7280', fontSize: '0.9rem' }}>
-      {label}
-    </div>
+    <div style={{ color: '#6b7280', fontSize: '0.9rem' }}>{label}</div>
   </div>
 );
 
 export default AnalyticsWidget;
-
