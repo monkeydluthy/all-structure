@@ -7,6 +7,7 @@ const AdminDashboard = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [editingProject, setEditingProject] = useState(null);
   const [showModal, setShowModal] = useState({ show: false, type: '', message: '' });
   const [activeTab, setActiveTab] = useState('analytics');
   const navigate = useNavigate();
@@ -186,8 +187,23 @@ const AdminDashboard = () => {
                   />
                 )}
 
+                {/* Edit Project Form */}
+                {editingProject && (
+                  <AddProjectForm 
+                    project={editingProject}
+                    onClose={() => setEditingProject(null)} 
+                    onSuccess={(message) => {
+                      setShowModal({ show: true, type: 'success', message });
+                      setEditingProject(null);
+                    }}
+                    onError={(message) => {
+                      setShowModal({ show: true, type: 'error', message });
+                    }}
+                  />
+                )}
+
                 {/* Projects List */}
-                <ProjectsList />
+                <ProjectsList onEditClick={(project) => setEditingProject(project)} />
               </div>
             )}
           </div>
@@ -249,7 +265,7 @@ const AdminDashboard = () => {
 };
 
 // Projects List Component
-const ProjectsList = () => {
+const ProjectsList = ({ onEditClick }) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState({ show: false, projectId: null });
@@ -430,6 +446,21 @@ const ProjectsList = () => {
             {/* Actions */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
               <button
+                onClick={() => onEditClick(project)}
+                style={{
+                  padding: '0.5rem 1rem',
+                  background: '#d4a017',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontWeight: '600',
+                  fontSize: '0.9rem'
+                }}
+              >
+                Edit
+              </button>
+              <button
                 onClick={() => handleDeleteClick(project.id)}
                 style={{
                   padding: '0.5rem 1rem',
@@ -515,13 +546,14 @@ const ProjectsList = () => {
 };
 
 // Add Project Form Component
-const AddProjectForm = ({ onClose, onSuccess, onError }) => {
+const AddProjectForm = ({ project, onClose, onSuccess, onError }) => {
+  const isEditing = !!project;
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    service: 'Remodeling',
-    location: '',
-    is_before_after: false
+    title: project?.title || '',
+    description: project?.description || '',
+    service: project?.service || 'Remodeling',
+    location: project?.location || '',
+    is_before_after: project?.is_before_after || false
   });
   const [beforeImage, setBeforeImage] = useState(null);
   const [afterImage, setAfterImage] = useState(null);
@@ -544,14 +576,27 @@ const AddProjectForm = ({ onClose, onSuccess, onError }) => {
     setUploading(true);
 
     try {
-      // Create project in database
-      const { data: project, error: projectError } = await supabase
-        .from('projects')
-        .insert([formData])
-        .select()
-        .single();
-
-      if (projectError) throw projectError;
+      let projectResult;
+      if (isEditing) {
+        // Update existing project
+        const { data, error } = await supabase
+          .from('projects')
+          .update(formData)
+          .eq('id', project.id)
+          .select()
+          .single();
+        if (error) throw error;
+        projectResult = { id: project.id };
+      } else {
+        // Create new project
+        const { data, error: projectError } = await supabase
+          .from('projects')
+          .insert([formData])
+          .select()
+          .single();
+        if (projectError) throw projectError;
+        projectResult = data;
+      }
 
       // Upload images if provided
       const imageUploads = [];
@@ -559,16 +604,16 @@ const AddProjectForm = ({ onClose, onSuccess, onError }) => {
       if (formData.is_before_after) {
         if (beforeImage) {
           const beforeUrl = await uploadImage(beforeImage, `before-${Date.now()}`);
-          imageUploads.push({ project_id: project.id, image_url: beforeUrl, image_type: 'before', display_order: 1 });
+          imageUploads.push({ project_id: projectResult.id, image_url: beforeUrl, image_type: 'before', display_order: 1 });
         }
         if (afterImage) {
           const afterUrl = await uploadImage(afterImage, `after-${Date.now()}`);
-          imageUploads.push({ project_id: project.id, image_url: afterUrl, image_type: 'after', display_order: 2 });
+          imageUploads.push({ project_id: projectResult.id, image_url: afterUrl, image_type: 'after', display_order: 2 });
         }
       } else {
         if (galleryImage) {
           const galleryUrl = await uploadImage(galleryImage, `gallery-${Date.now()}`);
-          imageUploads.push({ project_id: project.id, image_url: galleryUrl, image_type: 'gallery', display_order: 1 });
+          imageUploads.push({ project_id: projectResult.id, image_url: galleryUrl, image_type: 'gallery', display_order: 1 });
         }
       }
 
@@ -592,10 +637,10 @@ const AddProjectForm = ({ onClose, onSuccess, onError }) => {
       setBeforeImage(null);
       setAfterImage(null);
       setGalleryImage(null);
-      onSuccess('Project added successfully!');
+      onSuccess(isEditing ? 'Project updated successfully!' : 'Project added successfully!');
     } catch (error) {
-      console.error('Error adding project:', error);
-      onError('Failed to add project: ' + error.message);
+      console.error('Error saving project:', error);
+      onError(isEditing ? 'Failed to update project: ' + error.message : 'Failed to add project: ' + error.message);
     } finally {
       setUploading(false);
     }
@@ -628,7 +673,7 @@ const AddProjectForm = ({ onClose, onSuccess, onError }) => {
       border: '1px solid #e5e7eb'
     }}>
       <h3 style={{ marginBottom: '1.5rem', color: '#1f2937' }}>
-        Add New Project
+        {isEditing ? 'Edit Project' : 'Add New Project'}
       </h3>
 
       <form onSubmit={handleSubmit}>
@@ -830,7 +875,7 @@ const AddProjectForm = ({ onClose, onSuccess, onError }) => {
               opacity: uploading ? 0.7 : 1
             }}
           >
-            {uploading ? 'Uploading...' : 'Add Project'}
+            {uploading ? 'Uploading...' : (isEditing ? 'Update Project' : 'Add Project')}
           </button>
         </div>
       </form>
