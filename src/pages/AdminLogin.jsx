@@ -32,46 +32,50 @@ const AdminLogin = () => {
   };
 
   return (
-    <div style={{ 
-      minHeight: '100vh', 
-      display: 'flex', 
-      flexDirection: 'column',
-      alignItems: 'center', 
-      justifyContent: 'center',
-      background: 'linear-gradient(135deg, #0f172a 0%, #1f2937 100%)',
-      padding: '2rem'
-    }}>
+    <div>
+      {/* Top Bar with Logo */}
       <div style={{ 
-        marginBottom: '2rem',
+        background: 'white',
+        padding: '1.5rem 2rem',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
       }}>
         <img 
           src="/images/logo.png" 
           alt="All Structure Maintenance Logo" 
           style={{ 
-            maxWidth: '150px', 
-            height: 'auto' 
+            height: '100px',
+            width: 'auto' 
           }} 
         />
       </div>
-      <div style={{
-        background: 'white',
-        padding: '3rem',
-        borderRadius: '16px',
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-        maxWidth: '400px',
-        width: '100%'
+
+      {/* Login Form */}
+      <div style={{ 
+        minHeight: 'calc(100vh - 72px)', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #0f172a 0%, #1f2937 100%)',
+        padding: '2rem'
       }}>
-        <h2 style={{ 
-          marginBottom: '1.5rem', 
-          fontSize: '2rem',
-          color: '#1f2937',
-          textAlign: 'center'
+        <div style={{
+          background: 'white',
+          padding: '3rem',
+          borderRadius: '16px',
+          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+          maxWidth: '400px',
+          width: '100%'
         }}>
-          Admin Login
-        </h2>
+          <h2 style={{ 
+            marginBottom: '1.5rem', 
+            fontSize: '2rem',
+            color: '#1f2937',
+            textAlign: 'center'
+          }}>
+            Admin Login
+          </h2>
 
         <form onSubmit={handleLogin}>
           <div style={{ marginBottom: '1.5rem' }}>
@@ -158,6 +162,7 @@ const AdminLogin = () => {
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
+        </div>
       </div>
     </div>
   );

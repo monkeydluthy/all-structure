@@ -27,6 +27,15 @@ function App() {
   const location = useLocation();
   const isAdminPage = location.pathname.startsWith('/admin');
 
+  // Add class to body for admin pages
+  useEffect(() => {
+    if (isAdminPage) {
+      document.body.classList.add('admin-page');
+    } else {
+      document.body.classList.remove('admin-page');
+    }
+  }, [isAdminPage]);
+
   return (
     <div className="App">
       <ScrollToTop />
