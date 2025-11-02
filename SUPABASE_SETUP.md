@@ -9,6 +9,7 @@
 5. Click **Run** or press `Ctrl/Cmd + Enter`
 
 This will create:
+
 - `projects` table - stores project information
 - `project_images` table - stores images for each project
 - Proper indexes for performance
@@ -29,13 +30,15 @@ This will create:
 3. Click **New Policy**
 
 **For Upload (Insert) - POL1:**
+
 - Policy name: `Allow authenticated uploads`
 - Allowed operation: `INSERT`
 - Target roles: Select `authenticated`
-- USING expression: Leave blank or put `(true)`
-- WITH CHECK expression: `bucket_id = 'project-images'::text`
+- USING expression: `bucket_id = 'project-images'::text`
+- WITH CHECK expression: (if visible) `bucket_id = 'project-images'::text` or leave blank
 
 **For Read (Select) - POL2:**
+
 - Policy name: `Allow public reads`
 - Allowed operation: `SELECT`
 - Target roles: Leave as default (public)
@@ -43,6 +46,7 @@ This will create:
 - WITH CHECK expression: Leave blank
 
 **For Delete - POL3:**
+
 - Policy name: `Allow authenticated deletes`
 - Allowed operation: `DELETE`
 - Target roles: Select `authenticated`
@@ -50,6 +54,7 @@ This will create:
 - WITH CHECK expression: Leave blank
 
 **For Update - POL4 (if you want to allow re-uploading images):**
+
 - Policy name: `Allow authenticated updates`
 - Allowed operation: `UPDATE`
 - Target roles: Select `authenticated`
@@ -59,6 +64,7 @@ This will create:
 ## Step 4: Test the Setup
 
 Once these tables and storage are set up, you can:
+
 1. Upload images through the admin panel at `/admin`
 2. Images will be stored in Supabase Storage
 3. Image URLs will be saved in the `project_images` table
@@ -67,6 +73,7 @@ Once these tables and storage are set up, you can:
 ## Database Schema
 
 ### Projects Table
+
 - `id` - UUID (auto-generated)
 - `title` - Project title
 - `description` - Project description
@@ -77,6 +84,7 @@ Once these tables and storage are set up, you can:
 - `updated_at` - Timestamp
 
 ### Project Images Table
+
 - `id` - UUID (auto-generated)
 - `project_id` - Foreign key to projects table
 - `image_url` - URL to the image in Supabase Storage
@@ -90,4 +98,3 @@ Once these tables and storage are set up, you can:
 - Only authenticated users can INSERT, UPDATE, or DELETE
 - Images are stored in Supabase Storage and served via CDN
 - All images are automatically publicly accessible once uploaded to the public bucket
-
