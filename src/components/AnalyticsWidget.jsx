@@ -92,6 +92,33 @@ const AnalyticsWidget = () => {
         />
       </div>
 
+      {/* Conversion Metrics */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gap: '1rem',
+          marginBottom: '2rem',
+        }}
+      >
+        <MetricCard
+          label="Form Submits"
+          value={analyticsData?.formSubmits?.toLocaleString() || '0'}
+        />
+        <MetricCard
+          label="Phone Calls"
+          value={analyticsData?.phoneCalls?.toLocaleString() || '0'}
+        />
+        <MetricCard
+          label="Email Clicks"
+          value={analyticsData?.emailClicks?.toLocaleString() || '0'}
+        />
+        <MetricCard
+          label="CTA Clicks"
+          value={analyticsData?.ctaClicks?.toLocaleString() || '0'}
+        />
+      </div>
+
       {/* Top Pages */}
       <div
         style={{
