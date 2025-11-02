@@ -251,7 +251,7 @@ const PortfolioPage = () => {
                   <div className="project-details">
                     <span className="service">{project.service}</span>
                     <span className="location">{project.location}</span>
-                    {project.imageCount > 2 && (
+                    {project.imageCount && project.imageCount > 1 && (
                       <span className="image-count">📷 {project.imageCount} images</span>
                     )}
                   </div>
@@ -284,7 +284,7 @@ const PortfolioPage = () => {
                   <div className="project-details">
                     <span className="service">{project.service}</span>
                     <span className="location">{project.location}</span>
-                    {project.imageCount > 1 && (
+                    {project.imageCount && project.imageCount > 1 && (
                       <span className="image-count">📷 {project.imageCount} images</span>
                     )}
                   </div>
@@ -307,7 +307,7 @@ const PortfolioPage = () => {
               <p>{selectedProject.description}</p>
             </div>
             <div className="modal-images">
-              {selectedProject.allImages && selectedProject.allImages.length > 2 ? (
+              {selectedProject.allImages && selectedProject.allImages.length >= 2 ? (
                 // Gallery view for multiple images
                 <div style={{ position: 'relative', width: '100%' }}>
                   <img 
