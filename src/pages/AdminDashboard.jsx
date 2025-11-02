@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../config/supabaseConfig';
+import AnalyticsWidget from '../components/AnalyticsWidget';
 
 const AdminDashboard = () => {
   const [user, setUser] = useState(null);
@@ -97,29 +98,7 @@ const AdminDashboard = () => {
                 borderRadius: '12px',
                 border: '1px solid #e5e7eb'
               }}>
-                <p style={{ color: '#6b7280', marginBottom: '1rem' }}>
-                  View detailed analytics in your Google Analytics dashboard:
-                </p>
-                <a
-                  href="https://analytics.google.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-block',
-                    padding: '0.75rem 1.5rem',
-                    background: '#d4a017',
-                    color: 'white',
-                    textDecoration: 'none',
-                    borderRadius: '8px',
-                    fontWeight: '600',
-                    fontSize: '1rem'
-                  }}
-                >
-                  Open Google Analytics Dashboard →
-                </a>
-                <p style={{ color: '#9ca3af', fontSize: '0.9rem', marginTop: '1rem' }}>
-                  Track pageviews, user behavior, traffic sources, form submissions, and more.
-                </p>
+                <AnalyticsWidget />
               </div>
             </div>
 

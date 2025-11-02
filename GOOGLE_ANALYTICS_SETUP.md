@@ -65,14 +65,48 @@ ReactGA.event({
 3. Track page views, user behavior, traffic sources
 4. See conversion events (form submissions, phone clicks)
 
-## Admin Dashboard Widget (Future Enhancement)
+## Admin Dashboard Widget Setup
 
-To show analytics **inside** your admin dashboard, you would need:
-1. **Google Analytics Reporting API** with service account
-2. **API credentials** (JSON file)
-3. **Custom React component** to fetch and display data
+The admin dashboard now includes an analytics widget that displays pageviews, sessions, users, and top pages. To connect real data:
 
-This is more complex and requires additional setup. For now, use the Google Analytics dashboard directly.
+### Step 1: Enable Google Analytics Reporting API
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Select or create a project
+3. Enable **Google Analytics Reporting API** and **Google Analytics Data API**
+
+### Step 2: Create Service Account
+1. In Google Cloud Console, go to **IAM & Admin** → **Service Accounts**
+2. Click **Create Service Account**
+3. Name it (e.g., "Analytics Reader")
+4. Grant role: **Viewer** or **Analytics Viewer**
+5. Click **Done**
+
+### Step 3: Create JSON Key
+1. Click on the service account
+2. Go to **Keys** tab
+3. Click **Add Key** → **Create new key** → **JSON**
+4. Download the JSON file (keep it secure!)
+
+### Step 4: Grant Access in Google Analytics
+1. Go to [Google Analytics](https://analytics.google.com/)
+2. Click **Admin** → **Property** → **Property Access Management**
+3. Click **+** → **Add users**
+4. Add the service account email (from the JSON file)
+5. Grant **Viewer** role
+
+### Step 5: Get Your Property ID
+1. In Google Analytics, go to **Admin** → **Property Settings**
+2. Copy your **Property ID** (numeric, like `123456789`)
+
+### Step 6: Update AnalyticsWidget.jsx
+Replace the mock data in `src/components/AnalyticsWidget.jsx` with actual API calls using:
+- The JSON key file (keep secure - use environment variables)
+- Your Property ID
+- Google Analytics Data API
+
+**Note:** For security, API calls should go through a backend/API route, not directly from the frontend.
+
+See: https://developers.google.com/analytics/devguides/reporting/data/v1
 
 ## Quick Setup (Recommendation)
 
