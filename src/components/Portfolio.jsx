@@ -194,11 +194,28 @@ const Portfolio = () => {
               <div className="modal-images">
                 {selectedProject.allImages && selectedProject.allImages.length >= 2 ? (
                   // Gallery view for multiple images
-                  <div style={{ position: 'relative', width: '100%' }}>
+                  <div style={{ 
+                    position: 'relative', 
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    minHeight: '400px',
+                    maxHeight: '600px',
+                    overflow: 'hidden'
+                  }}>
                     <img 
                       src={selectedProject.allImages[currentImageIndex]} 
                       alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
-                      style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+                      style={{ 
+                        maxWidth: '100%',
+                        maxHeight: '100%',
+                        width: 'auto',
+                        height: 'auto',
+                        objectFit: 'contain',
+                        borderRadius: '8px',
+                        display: 'block'
+                      }}
                     />
                     {selectedProject.allImages.length > 1 && (
                       <>
