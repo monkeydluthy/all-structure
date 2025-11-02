@@ -28,29 +28,33 @@ This will create:
 2. Go to **Policies** tab
 3. Click **New Policy**
 
-**For Upload (Insert):**
+**For Upload (Insert) - POL1:**
 - Policy name: `Allow authenticated uploads`
 - Allowed operation: `INSERT`
-- Policy definition:
-```sql
-(role() = 'authenticated')
-```
+- Target roles: Select `authenticated`
+- USING expression: Leave blank or put `(true)`
+- WITH CHECK expression: `bucket_id = 'project-images'::text`
 
-**For Read (Select):**
+**For Read (Select) - POL2:**
 - Policy name: `Allow public reads`
 - Allowed operation: `SELECT`
-- Policy definition:
-```sql
-(true)
-```
+- Target roles: Leave as default (public)
+- USING expression: `bucket_id = 'project-images'::text`
+- WITH CHECK expression: Leave blank
 
-**For Delete:**
+**For Delete - POL3:**
 - Policy name: `Allow authenticated deletes`
 - Allowed operation: `DELETE`
-- Policy definition:
-```sql
-(role() = 'authenticated')
-```
+- Target roles: Select `authenticated`
+- USING expression: `bucket_id = 'project-images'::text`
+- WITH CHECK expression: Leave blank
+
+**For Update - POL4 (if you want to allow re-uploading images):**
+- Policy name: `Allow authenticated updates`
+- Allowed operation: `UPDATE`
+- Target roles: Select `authenticated`
+- USING expression: `bucket_id = 'project-images'::text`
+- WITH CHECK expression: `bucket_id = 'project-images'::text`
 
 ## Step 4: Test the Setup
 
