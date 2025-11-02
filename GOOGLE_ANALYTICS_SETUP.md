@@ -69,10 +69,11 @@ ReactGA.event({
 
 The admin dashboard now includes an analytics widget that displays pageviews, sessions, users, and top pages. To connect real data:
 
-### Step 1: Enable Google Analytics Reporting API
+### Step 1: Enable Google Analytics Data API
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Select or create a project
-3. Enable **Google Analytics Reporting API** and **Google Analytics Data API**
+3. Search for and enable **Google Analytics Data API**
+4. (Optional) Also enable **Google Analytics Admin API** if you want to manage properties programmatically
 
 ### Step 2: Create Service Account
 1. In Google Cloud Console, go to **IAM & Admin** → **Service Accounts**
