@@ -1,4 +1,5 @@
 import React from 'react';
+import { trackPhoneCall, trackCTAClick } from '../utils/analytics';
 
 const Hero = () => {
   const scrollToSection = (sectionId) => {
@@ -28,7 +29,7 @@ const Hero = () => {
               commitment to client satisfaction.
             </p>
             <div className="hero-buttons">
-              <a href="tel:2032333862" className="cta-primary">
+              <a href="tel:2032333862" className="cta-primary" onClick={() => trackPhoneCall('203.233.3862')}>
                 📞 Call 203.233.3862
               </a>
               <a
@@ -36,6 +37,7 @@ const Hero = () => {
                 className="cta-secondary"
                 onClick={(e) => {
                   e.preventDefault();
+                  trackCTAClick('Hero Get Free Estimate');
                   scrollToSection('contact');
                 }}
               >

@@ -5,17 +5,21 @@
 Add these three environment variables to your Netlify site dashboard:
 
 ### 1. GA_SERVICE_ACCOUNT_EMAIL
+
 **Value:** Copy the `client_email` value from your service account JSON file.
 
 Example format:
+
 ```
 analytics-reader@your-project.iam.gserviceaccount.com
 ```
 
 ### 2. GA_SERVICE_ACCOUNT_PRIVATE_KEY
+
 **Value:** Copy the entire `private_key` value from your service account JSON file, including the BEGIN and END headers.
 
 Example format:
+
 ```
 -----BEGIN PRIVATE KEY-----
 YOUR_ACTUAL_PRIVATE_KEY_HERE
@@ -23,7 +27,9 @@ YOUR_ACTUAL_PRIVATE_KEY_HERE
 ```
 
 ### 3. GA_PROPERTY_ID
+
 **Value:**
+
 ```
 495490739
 ```
@@ -43,4 +49,3 @@ YOUR_ACTUAL_PRIVATE_KEY_HERE
 - Copy it exactly as shown above
 - Netlify will store these securely and never expose them to the frontend
 - After adding variables, trigger a new deployment if the function isn't working
-

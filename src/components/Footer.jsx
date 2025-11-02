@@ -1,4 +1,5 @@
 import React from 'react';
+import { trackPhoneCall, trackEmailClick } from '../utils/analytics';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -105,11 +106,11 @@ const Footer = () => {
             <div className="contact-details">
               <div className="contact-detail">
                 📞
-                <a href="tel:2032333862">203.233.3862</a>
+                <a href="tel:2032333862" onClick={() => trackPhoneCall('203.233.3862')}>203.233.3862</a>
               </div>
               <div className="contact-detail">
                 ✉️
-                <a href="mailto:info@allstructuremaintenance.com">
+                <a href="mailto:info@allstructuremaintenance.com" onClick={() => trackEmailClick('info@allstructuremaintenance.com')}>
                   info@allstructuremaintenance.com
                 </a>
               </div>

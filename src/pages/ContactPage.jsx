@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/emailConfig';
+import { trackFormSubmit, trackPhoneCall, trackEmailClick } from '../utils/analytics';
 
 const ContactPage = () => {
   const scrollToSection = (sectionId) => {
@@ -45,6 +46,7 @@ const ContactPage = () => {
     }, emailConfig.publicKey)
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text);
+      trackFormSubmit('Contact Page Form', formData.service);
     })
     .catch((error) => {
       console.log('FAILED...', error);
@@ -52,6 +54,7 @@ const ContactPage = () => {
       const subject = `Free Estimate Request - ${formData.service}`;
       const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\n${formData.message}`;
       window.location.href = `mailto:${emailConfig.recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      trackFormSubmit('Contact Page Form (Failed)', formData.service);
     });
     
     setFormData({
@@ -219,13 +222,13 @@ const ContactPage = () => {
                 <div className="contact-card">
                   <div className="contact-card-icon">📞</div>
                   <h4>Call Us</h4>
-                  <a href="tel:2032333862" className="contact-card-link phone-link">
+                  <a href="tel:2032333862" className="contact-card-link phone-link" onClick={() => trackPhoneCall('203.233.3862')}>
                     203.233.3862
                   </a>
                   <p>Available 7 days a week</p>
                 </div>
 
-                <a href="mailto:info@allstructuremaintenance.com" className="contact-card" style={{ textDecoration: 'none' }}>
+                <a href="mailto:info@allstructuremaintenance.com" className="contact-card" style={{ textDecoration: 'none' }} onClick={() => trackEmailClick('info@allstructuremaintenance.com')}>
                   <div className="contact-card-icon">✉️</div>
                   <h4>Email Us</h4>
                   <p>We respond within 24 hours</p>
@@ -270,7 +273,7 @@ const ContactPage = () => {
                 for emergency situations.
               </p>
               <div className="cta-buttons">
-                <a href="tel:2032333862" className="cta-primary">
+                <a href="tel:2032333862" className="cta-primary" onClick={() => trackPhoneCall('203.233.3862')}>
                   📞 Call 203.233.3862 Now
                 </a>
               </div>
