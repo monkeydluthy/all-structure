@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { supabase } from '../config/supabaseConfig';
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [supabaseProjects, setSupabaseProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const projects = [
+  // Hardcoded projects (always shown first)
+  const hardcodedProjects = [
     {
       id: 1,
       title: 'Kitchen Remodel',
@@ -59,6 +63,52 @@ const Portfolio = () => {
       location: 'Wallingford, CT',
     },
   ];
+
+  // Fetch Supabase projects on mount
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const { data: projects, error } = await supabase
+          .from('projects')
+          .select(`
+            *,
+            project_images (*)
+          `)
+          .eq('is_before_after', true)
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        // Transform the data to match our hardcoded format
+        const transformedProjects = projects.map(project => {
+          const images = project.project_images || [];
+          const beforeImage = images.find(img => img.image_type === 'before')?.image_url || '';
+          const afterImage = images.find(img => img.image_type === 'after')?.image_url || '';
+          
+          return {
+            id: project.id,
+            title: project.title,
+            description: project.description,
+            beforeImage,
+            afterImage,
+            service: project.service,
+            location: project.location,
+          };
+        });
+
+        setSupabaseProjects(transformedProjects);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  // Combine hardcoded and Supabase projects
+  const projects = [...hardcodedProjects, ...supabaseProjects];
 
   const openModal = (project) => {
     setSelectedProject(project);

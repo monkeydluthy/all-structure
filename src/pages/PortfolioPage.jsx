@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { supabase } from '../config/supabaseConfig';
 
 const PortfolioPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [supabaseBeforeAfter, setSupabaseBeforeAfter] = useState([]);
+  const [supabaseGallery, setSupabaseGallery] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  // Hardcoded projects (always shown first)
   const beforeAfterProjects = [
     {
       id: 1,
@@ -111,6 +116,76 @@ const PortfolioPage = () => {
     },
   ];
 
+  // Fetch Supabase projects on mount
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        // Fetch before/after projects
+        const { data: beforeAfterData, error: beforeAfterError } = await supabase
+          .from('projects')
+          .select(`
+            *,
+            project_images (*)
+          `)
+          .eq('is_before_after', true)
+          .order('created_at', { ascending: false });
+
+        if (beforeAfterError) throw beforeAfterError;
+
+        const transformedBeforeAfter = beforeAfterData.map(project => {
+          const images = project.project_images || [];
+          const beforeImage = images.find(img => img.image_type === 'before')?.image_url || '';
+          const afterImage = images.find(img => img.image_type === 'after')?.image_url || '';
+          
+          return {
+            id: project.id,
+            title: project.title,
+            description: project.description,
+            beforeImage,
+            afterImage,
+            service: project.service,
+            location: project.location,
+          };
+        });
+
+        // Fetch gallery projects
+        const { data: galleryData, error: galleryError } = await supabase
+          .from('projects')
+          .select(`
+            *,
+            project_images (*)
+          `)
+          .eq('is_before_after', false)
+          .order('created_at', { ascending: false });
+
+        if (galleryError) throw galleryError;
+
+        const transformedGallery = galleryData.map(project => {
+          const images = project.project_images || [];
+          const image = images.find(img => img.image_type === 'gallery')?.image_url || '';
+          
+          return {
+            id: project.id,
+            title: project.title,
+            description: project.description,
+            image,
+            service: project.service,
+            location: project.location,
+          };
+        });
+
+        setSupabaseBeforeAfter(transformedBeforeAfter);
+        setSupabaseGallery(transformedGallery);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   const openModal = (project) => {
     setSelectedProject(project);
   };
@@ -128,7 +203,7 @@ const PortfolioPage = () => {
           <p className="section-subtitle">See the transformation of our recent projects</p>
 
           <div className="portfolio-grid">
-            {beforeAfterProjects.map((project) => (
+            {[...beforeAfterProjects, ...supabaseBeforeAfter].map((project) => (
               <div
                 key={project.id}
                 className="portfolio-item"
@@ -171,7 +246,7 @@ const PortfolioPage = () => {
           <p className="section-subtitle">Browse our completed projects</p>
 
           <div className="portfolio-grid">
-            {projectGallery.map((project) => (
+            {[...projectGallery, ...supabaseGallery].map((project) => (
               <div
                 key={project.id}
                 className="portfolio-item"
