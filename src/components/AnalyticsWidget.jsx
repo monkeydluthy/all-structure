@@ -131,16 +131,26 @@ const AnalyticsWidget = () => {
         </div>
       </div>
 
-      <div style={{
-        marginTop: '1.5rem',
-        padding: '1rem',
-        background: '#fef3c7',
-        borderRadius: '8px',
-        border: '1px solid #fbbf24'
-      }}>
-        <p style={{ fontSize: '0.9rem', color: '#92400e', margin: 0 }}>
-          <strong>Note:</strong> This is showing mock data. To display real analytics, 
-          configure the Google Analytics Reporting API. See setup instructions.
+      <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+        <a
+          href="https://analytics.google.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            padding: '1rem 2rem',
+            background: '#d4a017',
+            color: 'white',
+            textDecoration: 'none',
+            borderRadius: '8px',
+            fontWeight: '600',
+            fontSize: '1rem'
+          }}
+        >
+          View Full Analytics Dashboard →
+        </a>
+        <p style={{ fontSize: '0.85rem', color: '#9ca3af', marginTop: '1rem', marginBottom: 0 }}>
+          See detailed reports, real-time data, and advanced insights in Google Analytics
         </p>
       </div>
     </div>
