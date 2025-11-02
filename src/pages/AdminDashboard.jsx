@@ -7,6 +7,7 @@ const AdminDashboard = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [activeTab, setActiveTab] = useState('analytics');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -87,50 +88,94 @@ const AdminDashboard = () => {
             maxWidth: '800px',
             margin: '0 auto'
           }}>
-            {/* Analytics Section */}
-            <div style={{ marginBottom: '3rem' }}>
-              <h2 style={{ marginBottom: '1.5rem', color: '#1f2937' }}>
-                📊 Website Analytics
-              </h2>
-              <div style={{
-                background: '#f8fafc',
-                padding: '2rem',
-                borderRadius: '12px',
-                border: '1px solid #e5e7eb'
-              }}>
-                <AnalyticsWidget />
-              </div>
-            </div>
-
+            {/* Tab Navigation */}
             <div style={{ 
               display: 'flex', 
-              justifyContent: 'space-between', 
-              alignItems: 'center',
-              marginBottom: '2rem'
+              borderBottom: '2px solid #e5e7eb',
+              marginBottom: '2rem',
+              gap: '1rem'
             }}>
-              <h2 style={{ margin: 0, color: '#1f2937' }}>
-                🖼️ Portfolio Management
-              </h2>
               <button
-                onClick={() => setShowAddForm(true)}
+                onClick={() => setActiveTab('analytics')}
                 style={{
-                  padding: '0.75rem 1.5rem',
-                  background: '#d4a017',
-                  color: 'white',
+                  padding: '1rem 1.5rem',
+                  background: 'transparent',
                   border: 'none',
-                  borderRadius: '8px',
+                  borderBottom: activeTab === 'analytics' ? '3px solid #d4a017' : '3px solid transparent',
+                  color: activeTab === 'analytics' ? '#d4a017' : '#6b7280',
+                  fontWeight: activeTab === 'analytics' ? '600' : '400',
                   cursor: 'pointer',
-                  fontWeight: '600',
-                  fontSize: '1rem'
+                  fontSize: '1rem',
+                  marginBottom: '-2px'
                 }}
               >
-                + Add New Project
+                📊 Analytics
+              </button>
+              <button
+                onClick={() => setActiveTab('portfolio')}
+                style={{
+                  padding: '1rem 1.5rem',
+                  background: 'transparent',
+                  border: 'none',
+                  borderBottom: activeTab === 'portfolio' ? '3px solid #d4a017' : '3px solid transparent',
+                  color: activeTab === 'portfolio' ? '#d4a017' : '#6b7280',
+                  fontWeight: activeTab === 'portfolio' ? '600' : '400',
+                  cursor: 'pointer',
+                  fontSize: '1rem',
+                  marginBottom: '-2px'
+                }}
+              >
+                🖼️ Portfolio
               </button>
             </div>
 
-            {/* Add Project Form */}
-            {showAddForm && (
-              <AddProjectForm onClose={() => setShowAddForm(false)} />
+            {/* Tab Content */}
+            {activeTab === 'analytics' && (
+              <div>
+                <div style={{
+                  background: '#f8fafc',
+                  padding: '2rem',
+                  borderRadius: '12px',
+                  border: '1px solid #e5e7eb'
+                }}>
+                  <AnalyticsWidget />
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'portfolio' && (
+              <div>
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'space-between', 
+                  alignItems: 'center',
+                  marginBottom: '2rem'
+                }}>
+                  <h3 style={{ margin: 0, color: '#1f2937' }}>
+                    Manage Your Portfolio Projects
+                  </h3>
+                  <button
+                    onClick={() => setShowAddForm(true)}
+                    style={{
+                      padding: '0.75rem 1.5rem',
+                      background: '#d4a017',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                      fontWeight: '600',
+                      fontSize: '1rem'
+                    }}
+                  >
+                    + Add New Project
+                  </button>
+                </div>
+
+                {/* Add Project Form */}
+                {showAddForm && (
+                  <AddProjectForm onClose={() => setShowAddForm(false)} />
+                )}
+              </div>
             )}
           </div>
         </div>
