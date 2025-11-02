@@ -6,8 +6,6 @@ const AnalyticsWidget = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // For now, this will show a placeholder
-    // Once GA4 API is configured, replace this with actual API calls
     fetchAnalytics();
   }, []);
 
