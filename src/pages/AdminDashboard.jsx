@@ -7,6 +7,7 @@ const AdminDashboard = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [showModal, setShowModal] = useState({ show: false, type: '', message: '' });
   const [activeTab, setActiveTab] = useState('analytics');
   const navigate = useNavigate();
 
@@ -173,19 +174,347 @@ const AdminDashboard = () => {
 
                 {/* Add Project Form */}
                 {showAddForm && (
-                  <AddProjectForm onClose={() => setShowAddForm(false)} />
+                  <AddProjectForm 
+                    onClose={() => setShowAddForm(false)} 
+                    onSuccess={(message) => {
+                      setShowModal({ show: true, type: 'success', message });
+                      setShowAddForm(false);
+                    }}
+                    onError={(message) => {
+                      setShowModal({ show: true, type: 'error', message });
+                    }}
+                  />
                 )}
+
+                {/* Projects List */}
+                <ProjectsList />
               </div>
             )}
           </div>
         </div>
       </div>
+
+      {/* Success/Error Modal */}
+      {showModal.show && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000
+        }}>
+          <div style={{
+            background: 'white',
+            padding: '2rem',
+            borderRadius: '12px',
+            maxWidth: '400px',
+            width: '90%',
+            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)'
+          }}>
+            <h3 style={{ 
+              marginTop: 0,
+              color: showModal.type === 'success' ? '#10b981' : '#dc2626'
+            }}>
+              {showModal.type === 'success' ? '✓ Success' : '✕ Error'}
+            </h3>
+            <p style={{ marginBottom: '1.5rem', color: '#374151' }}>
+              {showModal.message}
+            </p>
+            <button
+              onClick={() => setShowModal({ show: false, type: '', message: '' })}
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                background: showModal.type === 'success' ? '#10b981' : '#dc2626',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontWeight: '600',
+                fontSize: '1rem'
+              }}
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Projects List Component
+const ProjectsList = () => {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState({ show: false, projectId: null });
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('projects')
+        .select(`
+          *,
+          project_images (*)
+        `)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setProjects(data || []);
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDeleteClick = (projectId) => {
+    setShowDeleteConfirm({ show: true, projectId });
+  };
+
+  const handleDeleteConfirm = async () => {
+    const { projectId } = showDeleteConfirm;
+
+    try {
+      // Delete images from storage
+      const { data: images, error: imagesError } = await supabase
+        .from('project_images')
+        .select('image_url')
+        .eq('project_id', projectId);
+
+      if (!imagesError && images) {
+        for (const img of images) {
+          const imagePath = img.image_url.split('/').pop();
+          await supabase.storage.from('project-images').remove([imagePath]);
+        }
+      }
+
+      // Delete image records
+      const { error: deleteImagesError } = await supabase
+        .from('project_images')
+        .delete()
+        .eq('project_id', projectId);
+
+      if (deleteImagesError) throw deleteImagesError;
+
+      // Delete project
+      const { error: deleteProjectError } = await supabase
+        .from('projects')
+        .delete()
+        .eq('id', projectId);
+
+      if (deleteProjectError) throw deleteProjectError;
+
+      // Refresh list
+      fetchProjects();
+      setShowDeleteConfirm({ show: false, projectId: null });
+    } catch (error) {
+      console.error('Error deleting project:', error);
+      alert('Failed to delete project: ' + error.message);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div style={{ textAlign: 'center', padding: '2rem', color: '#6b7280' }}>
+        Loading projects...
+      </div>
+    );
+  }
+
+  if (projects.length === 0) {
+    return (
+      <div style={{ textAlign: 'center', padding: '2rem', color: '#6b7280' }}>
+        No projects uploaded yet. Click "+ Add New Project" to get started.
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ display: 'grid', gap: '1rem' }}>
+      {projects.map((project) => {
+        const images = project.project_images || [];
+        const beforeImage = images.find(img => img.image_type === 'before')?.image_url;
+        const afterImage = images.find(img => img.image_type === 'after')?.image_url;
+        const galleryImage = images.find(img => img.image_type === 'gallery')?.image_url;
+
+        return (
+          <div
+            key={project.id}
+            style={{
+              border: '1px solid #e5e7eb',
+              borderRadius: '8px',
+              padding: '1.5rem',
+              background: 'white',
+              display: 'flex',
+              gap: '1.5rem'
+            }}
+          >
+            {/* Image Preview */}
+            <div style={{ minWidth: '150px', maxWidth: '150px' }}>
+              {project.is_before_after && beforeImage && afterImage ? (
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+                  <img
+                    src={beforeImage}
+                    alt="Before"
+                    style={{
+                      width: '100%',
+                      height: '75px',
+                      objectFit: 'cover',
+                      borderRadius: '4px'
+                    }}
+                  />
+                  <img
+                    src={afterImage}
+                    alt="After"
+                    style={{
+                      width: '100%',
+                      height: '75px',
+                      objectFit: 'cover',
+                      borderRadius: '4px'
+                    }}
+                  />
+                </div>
+              ) : galleryImage ? (
+                <img
+                  src={galleryImage}
+                  alt={project.title}
+                  style={{
+                    width: '100%',
+                    height: '150px',
+                    objectFit: 'cover',
+                    borderRadius: '8px'
+                  }}
+                />
+              ) : (
+                <div style={{
+                  width: '100%',
+                  height: '150px',
+                  background: '#f3f4f6',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#9ca3af'
+                }}>
+                  No image
+                </div>
+              )}
+            </div>
+
+            {/* Project Info */}
+            <div style={{ flex: 1 }}>
+              <h4 style={{ margin: '0 0 0.5rem 0', color: '#1f2937' }}>
+                {project.title}
+              </h4>
+              <p style={{ margin: '0 0 0.5rem 0', color: '#6b7280', fontSize: '0.9rem' }}>
+                {project.description}
+              </p>
+              <div style={{ display: 'flex', gap: '1rem', fontSize: '0.85rem', color: '#9ca3af' }}>
+                <span>📍 {project.location}</span>
+                <span>🔧 {project.service}</span>
+                <span>{project.is_before_after ? '📊 Before/After' : '🖼️ Gallery'}</span>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+              <button
+                onClick={() => handleDeleteClick(project.id)}
+                style={{
+                  padding: '0.5rem 1rem',
+                  background: '#dc2626',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontWeight: '600',
+                  fontSize: '0.9rem'
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        );
+      })}
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteConfirm.show && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000
+        }}>
+          <div style={{
+            background: 'white',
+            padding: '2rem',
+            borderRadius: '12px',
+            maxWidth: '400px',
+            width: '90%',
+            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)'
+          }}>
+            <h3 style={{ marginTop: 0, color: '#1f2937' }}>
+              Confirm Delete
+            </h3>
+            <p style={{ marginBottom: '1.5rem', color: '#374151' }}>
+              Are you sure you want to delete this project? This action cannot be undone.
+            </p>
+            <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end' }}>
+              <button
+                onClick={() => setShowDeleteConfirm({ show: false, projectId: null })}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  background: 'white',
+                  color: '#374151',
+                  border: '1px solid #d1d5db',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontWeight: '600'
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteConfirm}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  background: '#dc2626',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontWeight: '600'
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 // Add Project Form Component
-const AddProjectForm = ({ onClose }) => {
+const AddProjectForm = ({ onClose, onSuccess, onError }) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -262,11 +591,10 @@ const AddProjectForm = ({ onClose }) => {
       setBeforeImage(null);
       setAfterImage(null);
       setGalleryImage(null);
-      onClose();
-      alert('Project added successfully!');
+      onSuccess('Project added successfully!');
     } catch (error) {
       console.error('Error adding project:', error);
-      alert('Failed to add project: ' + error.message);
+      onError('Failed to add project: ' + error.message);
     } finally {
       setUploading(false);
     }
