@@ -309,7 +309,7 @@ const PortfolioPage = () => {
             <div className="modal-images">
               {selectedProject.allImages && selectedProject.allImages.length >= 2 ? (
                 // Gallery view for multiple images
-                <div style={{ 
+                <div className="modal-gallery-container" style={{ 
                   position: 'relative', 
                   width: '100%',
                   display: 'flex',

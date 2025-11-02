@@ -610,6 +610,12 @@ body.admin-page {
   padding: 0 2rem;
 }
 
+/* Single image gallery view */
+.modal-gallery-container {
+  display: flex !important;
+  grid-column: 1 / -1;
+}
+
 .modal-before,
 .modal-after {
   position: relative;
