@@ -86,6 +86,43 @@ const AdminDashboard = () => {
             maxWidth: '800px',
             margin: '0 auto'
           }}>
+            {/* Analytics Section */}
+            <div style={{ marginBottom: '3rem' }}>
+              <h2 style={{ marginBottom: '1.5rem', color: '#1f2937' }}>
+                📊 Website Analytics
+              </h2>
+              <div style={{
+                background: '#f8fafc',
+                padding: '2rem',
+                borderRadius: '12px',
+                border: '1px solid #e5e7eb'
+              }}>
+                <p style={{ color: '#6b7280', marginBottom: '1rem' }}>
+                  View detailed analytics in your Google Analytics dashboard:
+                </p>
+                <a
+                  href="https://analytics.google.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-block',
+                    padding: '0.75rem 1.5rem',
+                    background: '#d4a017',
+                    color: 'white',
+                    textDecoration: 'none',
+                    borderRadius: '8px',
+                    fontWeight: '600',
+                    fontSize: '1rem'
+                  }}
+                >
+                  Open Google Analytics Dashboard →
+                </a>
+                <p style={{ color: '#9ca3af', fontSize: '0.9rem', marginTop: '1rem' }}>
+                  Track pageviews, user behavior, traffic sources, form submissions, and more.
+                </p>
+              </div>
+            </div>
+
             <div style={{ 
               display: 'flex', 
               justifyContent: 'space-between', 
@@ -93,7 +130,7 @@ const AdminDashboard = () => {
               marginBottom: '2rem'
             }}>
               <h2 style={{ margin: 0, color: '#1f2937' }}>
-                Portfolio Management
+                🖼️ Portfolio Management
               </h2>
               <button
                 onClick={() => setShowAddForm(true)}
