@@ -3,6 +3,7 @@ import { supabase } from '../config/supabaseConfig';
 
 const PortfolioPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [supabaseBeforeAfter, setSupabaseBeforeAfter] = useState([]);
   const [supabaseGallery, setSupabaseGallery] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -134,15 +135,18 @@ const PortfolioPage = () => {
 
         const transformedBeforeAfter = beforeAfterData.map(project => {
           const images = project.project_images || [];
-          const beforeImage = images.find(img => img.image_type === 'before')?.image_url || '';
-          const afterImage = images.find(img => img.image_type === 'after')?.image_url || '';
+          const beforeImages = images.filter(img => img.image_type === 'before').map(img => img.image_url);
+          const afterImages = images.filter(img => img.image_type === 'after').map(img => img.image_url);
+          const allImages = [...beforeImages, ...afterImages];
           
           return {
             id: project.id,
             title: project.title,
             description: project.description,
-            beforeImage,
-            afterImage,
+            beforeImage: beforeImages[0] || '',
+            afterImage: afterImages[0] || '',
+            allImages,
+            imageCount: allImages.length,
             service: project.service,
             location: project.location,
           };
@@ -162,13 +166,15 @@ const PortfolioPage = () => {
 
         const transformedGallery = galleryData.map(project => {
           const images = project.project_images || [];
-          const image = images.find(img => img.image_type === 'gallery')?.image_url || '';
+          const galleryImages = images.filter(img => img.image_type === 'gallery').map(img => img.image_url);
           
           return {
             id: project.id,
             title: project.title,
             description: project.description,
-            image,
+            image: galleryImages[0] || '',
+            allImages: galleryImages,
+            imageCount: galleryImages.length,
             service: project.service,
             location: project.location,
           };
@@ -188,10 +194,24 @@ const PortfolioPage = () => {
 
   const openModal = (project) => {
     setSelectedProject(project);
+    setCurrentImageIndex(0);
   };
 
   const closeModal = () => {
     setSelectedProject(null);
+    setCurrentImageIndex(0);
+  };
+
+  const nextImage = () => {
+    if (selectedProject?.allImages) {
+      setCurrentImageIndex((prev) => (prev + 1) % selectedProject.allImages.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedProject?.allImages) {
+      setCurrentImageIndex((prev) => (prev - 1 + selectedProject.allImages.length) % selectedProject.allImages.length);
+    }
   };
 
   return (
@@ -231,6 +251,9 @@ const PortfolioPage = () => {
                   <div className="project-details">
                     <span className="service">{project.service}</span>
                     <span className="location">{project.location}</span>
+                    {project.imageCount > 2 && (
+                      <span className="image-count">📷 {project.imageCount} images</span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -261,6 +284,9 @@ const PortfolioPage = () => {
                   <div className="project-details">
                     <span className="service">{project.service}</span>
                     <span className="location">{project.location}</span>
+                    {project.imageCount > 1 && (
+                      <span className="image-count">📷 {project.imageCount} images</span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -281,7 +307,70 @@ const PortfolioPage = () => {
               <p>{selectedProject.description}</p>
             </div>
             <div className="modal-images">
-              {selectedProject.beforeImage && selectedProject.afterImage ? (
+              {selectedProject.allImages && selectedProject.allImages.length > 2 ? (
+                // Gallery view for multiple images
+                <div style={{ position: 'relative', width: '100%' }}>
+                  <img 
+                    src={selectedProject.allImages[currentImageIndex]} 
+                    alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
+                    style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+                  />
+                  {selectedProject.allImages.length > 1 && (
+                    <>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                        style={{
+                          position: 'absolute',
+                          left: '10px',
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          background: 'rgba(0, 0, 0, 0.5)',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '50%',
+                          width: '40px',
+                          height: '40px',
+                          fontSize: '20px',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        ‹
+                      </button>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                        style={{
+                          position: 'absolute',
+                          right: '10px',
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          background: 'rgba(0, 0, 0, 0.5)',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '50%',
+                          width: '40px',
+                          height: '40px',
+                          fontSize: '20px',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        ›
+                      </button>
+                      <div style={{
+                        position: 'absolute',
+                        bottom: '10px',
+                        right: '10px',
+                        background: 'rgba(0, 0, 0, 0.7)',
+                        color: 'white',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '20px',
+                        fontSize: '0.9rem'
+                      }}>
+                        {currentImageIndex + 1} / {selectedProject.allImages.length}
+                      </div>
+                    </>
+                  )}
+                </div>
+              ) : selectedProject.beforeImage && selectedProject.afterImage ? (
                 <>
                   <div className="modal-before">
                     <img src={selectedProject.beforeImage} alt="Before" />
