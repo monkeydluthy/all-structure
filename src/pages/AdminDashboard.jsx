@@ -58,9 +58,16 @@ const AdminDashboard = () => {
             justifyContent: 'space-between', 
             alignItems: 'center' 
           }}>
-            <h1 style={{ margin: 0 }}>Admin Dashboard</h1>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <img 
+                src="/images/logo.png" 
+                alt="All Structure Maintenance Logo" 
+                style={{ height: '50px', width: 'auto' }}
+              />
+              <h1 style={{ margin: 0 }}>Admin Dashboard</h1>
+            </div>
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <span>Welcome, {user?.email}</span>
+              <span>Welcome, {user?.email === 'luthdigitalconsult@gmail.com' ? 'Anthony' : user?.email === 'AllstructureMainLLC@yahoo.com' ? 'Steve' : user?.email}</span>
               <button
                 onClick={handleLogout}
                 style={{
