@@ -2129,14 +2129,14 @@ body.admin-page {
   }
 
   /* Stack portfolio header and button */
-  .admin-dashboard .container > div > div:last-child > div:first-child > div:first-child {
+  .portfolio-header {
     flex-direction: column !important;
     gap: 1rem !important;
     align-items: stretch !important;
   }
 
   /* Make Add Project button full width on mobile */
-  .admin-dashboard .container > div > div:last-child > div:first-child > div:first-child > button {
+  .portfolio-header button {
     width: 100% !important;
   }
 

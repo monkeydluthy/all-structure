@@ -154,7 +154,7 @@ const AdminDashboard = () => {
 
             {activeTab === 'portfolio' && (
               <div>
-                <div style={{ 
+                <div className="portfolio-header" style={{ 
                   display: 'flex', 
                   justifyContent: 'space-between', 
                   alignItems: 'center',
