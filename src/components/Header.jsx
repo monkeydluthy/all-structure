@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { trackPhoneCall, trackCTAClick } from '../utils/analytics';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +16,22 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleCTAClick = (e) => {
+    e.preventDefault();
+    trackCTAClick('Header Get Free Estimate');
+    
+    // If on homepage, scroll to contact section
+    if (location.pathname === '/') {
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Otherwise navigate to contact page
+      navigate('/contact');
+    }
+  };
 
   return (
     <header className={`sticky-header ${isScrolled ? 'scrolled' : ''}`}>
@@ -38,13 +56,9 @@ const Header = () => {
               📞 203.233.3862
             </a>
             <a
-              href="#contact"
+              href={location.pathname === '/' ? '#contact' : '/contact'}
               className="cta-btn"
-              onClick={(e) => {
-                e.preventDefault();
-                trackCTAClick('Header Get Free Estimate');
-                scrollToSection('contact');
-              }}
+              onClick={handleCTAClick}
             >
               Get Free Estimate
             </a>

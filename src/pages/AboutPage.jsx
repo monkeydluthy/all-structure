@@ -1,12 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const values = [
     {
@@ -180,16 +175,9 @@ const AboutPage = () => {
                 <a href="tel:2032333862" className="cta-primary">
                   📞 Call 203.233.3862
                 </a>
-                <a
-                  href="#contact"
-                  className="cta-secondary"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('contact');
-                  }}
-                >
+                <Link to="/contact" className="cta-secondary">
                   Get Free Estimate
-                </a>
+                </Link>
               </div>
             </div>
           </div>

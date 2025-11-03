@@ -99,8 +99,8 @@ const Footer = () => {
               reserved.
             </p>
             <div className="footer-links">
-              <a href="/privacy">Privacy Policy</a>
-              <a href="/terms">Terms of Service</a>
+              <Link to="/privacy">Privacy Policy</Link>
+              <Link to="/terms">Terms of Service</Link>
             </div>
           </div>
         </div>
