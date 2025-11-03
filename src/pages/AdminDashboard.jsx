@@ -46,8 +46,8 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div>
-      <div style={{ 
+    <div className="admin-dashboard">
+      <div className="admin-header" style={{ 
         background: 'linear-gradient(135deg, #0f172a 0%, #1f2937 100%)',
         padding: '2rem 0',
         color: 'white'
@@ -66,8 +66,8 @@ const AdminDashboard = () => {
               />
               <h1 style={{ margin: 0 }}>Admin Dashboard</h1>
             </div>
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <span>Welcome, {user?.email === 'luthdigitalconsult@gmail.com' ? 'Anthony' : user?.email === 'AllstructureMainLLC@yahoo.com' ? 'Steve' : user?.email}</span>
+            <div className="admin-header-right" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+              <span className="admin-welcome-text">Welcome, {user?.email === 'luthdigitalconsult@gmail.com' ? 'Anthony' : user?.email === 'AllstructureMainLLC@yahoo.com' ? 'Steve' : user?.email}</span>
               <button
                 onClick={handleLogout}
                 style={{
@@ -180,34 +180,36 @@ const AdminDashboard = () => {
                   </button>
                 </div>
 
-                {/* Add Project Form */}
-                {showAddForm && (
-                  <AddProjectForm 
-                    onClose={() => setShowAddForm(false)} 
-                    onSuccess={(message) => {
-                      setShowModal({ show: true, type: 'success', message });
-                      setShowAddForm(false);
-                    }}
-                    onError={(message) => {
-                      setShowModal({ show: true, type: 'error', message });
-                    }}
-                  />
-                )}
+            {/* Add Project Form */}
+            {showAddForm && (
+              <AddProjectForm 
+                onClose={() => setShowAddForm(false)} 
+                onSuccess={(message) => {
+                  setShowModal({ show: true, type: 'success', message });
+                  setShowAddForm(false);
+                }}
+                onError={(message) => {
+                  setShowModal({ show: true, type: 'error', message });
+                }}
+                isModal={true}
+              />
+            )}
 
-                {/* Edit Project Form */}
-                {editingProject && (
-                  <AddProjectForm 
-                    project={editingProject}
-                    onClose={() => setEditingProject(null)} 
-                    onSuccess={(message) => {
-                      setShowModal({ show: true, type: 'success', message });
-                      setEditingProject(null);
-                    }}
-                    onError={(message) => {
-                      setShowModal({ show: true, type: 'error', message });
-                    }}
-                  />
-                )}
+            {/* Edit Project Form */}
+            {editingProject && (
+              <AddProjectForm 
+                project={editingProject}
+                onClose={() => setEditingProject(null)} 
+                onSuccess={(message) => {
+                  setShowModal({ show: true, type: 'success', message });
+                  setEditingProject(null);
+                }}
+                onError={(message) => {
+                  setShowModal({ show: true, type: 'error', message });
+                }}
+                isModal={true}
+              />
+            )}
 
                 {/* Projects List */}
                 <ProjectsList onEditClick={(project) => setEditingProject(project)} />
@@ -553,7 +555,7 @@ const ProjectsList = ({ onEditClick }) => {
 };
 
 // Add Project Form Component
-const AddProjectForm = ({ project, onClose, onSuccess, onError }) => {
+const AddProjectForm = ({ project, onClose, onSuccess, onError, isModal = false }) => {
   const isEditing = !!project;
   const [formData, setFormData] = useState({
     title: project?.title || '',
@@ -671,14 +673,8 @@ const AddProjectForm = ({ project, onClose, onSuccess, onError }) => {
     return publicUrl;
   };
 
-  return (
-    <div style={{
-      background: '#f8fafc',
-      padding: '2rem',
-      borderRadius: '12px',
-      marginBottom: '2rem',
-      border: '1px solid #e5e7eb'
-    }}>
+  const formContent = (
+    <>
       <h3 style={{ marginBottom: '1.5rem', color: '#1f2937' }}>
         {isEditing ? 'Edit Project' : 'Add New Project'}
       </h3>
@@ -886,6 +882,51 @@ const AddProjectForm = ({ project, onClose, onSuccess, onError }) => {
           </button>
         </div>
       </form>
+    </>
+  );
+
+  // If modal mode, wrap in modal overlay
+  if (isModal) {
+    return (
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'rgba(0, 0, 0, 0.5)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1000,
+        padding: '1rem'
+      }}>
+        <div style={{
+          background: '#f8fafc',
+          padding: '2rem',
+          borderRadius: '12px',
+          border: '1px solid #e5e7eb',
+          maxWidth: '600px',
+          width: '100%',
+          maxHeight: '90vh',
+          overflowY: 'auto'
+        }}>
+          {formContent}
+        </div>
+      </div>
+    );
+  }
+
+  // Otherwise render inline
+  return (
+    <div style={{
+      background: '#f8fafc',
+      padding: '2rem',
+      borderRadius: '12px',
+      marginBottom: '2rem',
+      border: '1px solid #e5e7eb'
+    }}>
+      {formContent}
     </div>
   );
 };

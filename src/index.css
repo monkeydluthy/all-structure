@@ -2066,3 +2066,77 @@ body.admin-page {
     gap: 0.5rem;
   }
 }
+
+/* Admin Dashboard Mobile Styles */
+@media (max-width: 768px) {
+  body.admin-page .container {
+    padding: 0 1rem;
+  }
+
+  /* Admin header mobile */
+  .admin-header {
+    padding: 1rem 0 !important;
+  }
+
+  /* Hide welcome name on mobile */
+  .admin-welcome-text {
+    display: none !important;
+  }
+
+  /* Adjust admin content padding */
+  .admin-dashboard > div:last-child {
+    padding: 2rem 0 !important;
+  }
+
+  /* Make admin card full width and adjust padding */
+  .admin-dashboard .container > div[style*="maxWidth"] {
+    max-width: 100% !important;
+    padding: 2rem 1.5rem !important;
+    margin: 0 !important;
+  }
+
+  /* Header adjustments for mobile */
+  .admin-header h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .admin-header img {
+    height: 40px !important;
+  }
+
+  .admin-header-right button {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Tab navigation adjustments */
+  .admin-dashboard > div:last-child .container > div > div:first-child {
+    overflow-x: auto;
+    gap: 0.5rem !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .admin-dashboard > div:last-child .container > div > div:first-child > button {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
+    white-space: nowrap;
+  }
+
+  /* Portfolio section header */
+  .admin-dashboard h3 {
+    font-size: 1.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Stack portfolio header and button */
+  .admin-dashboard .container > div > div:last-child > div:first-child > div:first-child {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: stretch !important;
+  }
+
+  /* Make Add Project button full width on mobile */
+  .admin-dashboard .container > div > div:last-child > div:first-child > div:first-child > button {
+    width: 100% !important;
+  }
+}
