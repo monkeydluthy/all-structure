@@ -2104,7 +2104,8 @@ body.admin-page {
     height: 40px !important;
   }
 
-  .admin-header-right button {
+  .admin-header-right button,
+  .admin-header-right a {
     padding: 0.5rem 1rem !important;
     font-size: 0.9rem !important;
   }

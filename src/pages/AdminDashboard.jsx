@@ -68,6 +68,32 @@ const AdminDashboard = () => {
             </div>
             <div className="admin-header-right" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
               <span className="admin-welcome-text">Welcome, {user?.email === 'luthdigitalconsult@gmail.com' ? 'Anthony' : user?.email === 'AllstructureMainLLC@yahoo.com' ? 'Steve' : user?.email}</span>
+              <a 
+                href="https://all-structure-maintenance.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  padding: '0.5rem 1.5rem',
+                  background: 'transparent',
+                  color: 'white',
+                  border: '2px solid white',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.background = 'white';
+                  e.target.style.color = '#1f2937';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.background = 'transparent';
+                  e.target.style.color = 'white';
+                }}
+              >
+                Visit Website
+              </a>
               <button
                 onClick={handleLogout}
                 style={{
