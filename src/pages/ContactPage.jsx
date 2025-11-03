@@ -228,7 +228,7 @@ const ContactPage = () => {
                   <p>Available 7 days a week</p>
                 </div>
 
-                <a href="mailto:info@allstructuremaintenance.com" className="contact-card" style={{ textDecoration: 'none' }} onClick={() => trackEmailClick('info@allstructuremaintenance.com')}>
+                <a href="mailto:AllstructureMainLLC@yahoo.com" className="contact-card" style={{ textDecoration: 'none' }} onClick={() => trackEmailClick('AllstructureMainLLC@yahoo.com')}>
                   <div className="contact-card-icon">✉️</div>
                   <h4>Email Us</h4>
                   <p>We respond within 24 hours</p>

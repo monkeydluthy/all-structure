@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { trackPhoneCall, trackEmailClick } from '../utils/analytics';
 
 const Footer = () => {
@@ -13,12 +14,6 @@ const Footer = () => {
     { name: 'Maintenance', link: '/services/maintenance' },
   ];
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <footer className="footer">
@@ -55,48 +50,16 @@ const Footer = () => {
             <h4>Quick Links</h4>
             <ul>
               <li>
-                <a
-                  href="#services"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('services');
-                  }}
-                >
-                  Our Services
-                </a>
+                <Link to="/services">Our Services</Link>
               </li>
               <li>
-                <a
-                  href="#portfolio"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('portfolio');
-                  }}
-                >
-                  Portfolio
-                </a>
+                <Link to="/portfolio">Portfolio</Link>
               </li>
               <li>
-                <a
-                  href="#about"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('about');
-                  }}
-                >
-                  About Us
-                </a>
+                <Link to="/about">About Us</Link>
               </li>
               <li>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('contact');
-                  }}
-                >
-                  Contact
-                </a>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>
@@ -110,8 +73,8 @@ const Footer = () => {
               </div>
               <div className="contact-detail">
                 ✉️
-                <a href="mailto:info@allstructuremaintenance.com" onClick={() => trackEmailClick('info@allstructuremaintenance.com')}>
-                  info@allstructuremaintenance.com
+                <a href="mailto:AllstructureMainLLC@yahoo.com" onClick={() => trackEmailClick('AllstructureMainLLC@yahoo.com')}>
+                  AllstructureMainLLC@yahoo.com
                 </a>
               </div>
               <div className="contact-detail">

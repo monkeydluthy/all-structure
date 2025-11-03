@@ -115,8 +115,8 @@ const Contact = () => {
               <span style={{ fontSize: '1.5rem', color: '#3b82f6' }}>✉️</span>
               <div>
                 <h4>Email Us</h4>
-                <a href="mailto:info@allstructuremaintenance.com" onClick={() => trackEmailClick('info@allstructuremaintenance.com')}>
-                  info@allstructuremaintenance.com
+                <a href="mailto:AllstructureMainLLC@yahoo.com" onClick={() => trackEmailClick('AllstructureMainLLC@yahoo.com')}>
+                  AllstructureMainLLC@yahoo.com
                 </a>
                 <p>We respond within 24 hours</p>
               </div>

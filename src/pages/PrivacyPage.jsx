@@ -83,7 +83,7 @@ const PrivacyPage = () => {
                 If you have questions about this Privacy Policy, please contact us:
               </p>
               <div style={{ marginLeft: '2rem', marginBottom: '2rem' }}>
-                <p><strong>Email:</strong> info@allstructuremaintenance.com</p>
+                <p><strong>Email:</strong> AllstructureMainLLC@yahoo.com</p>
                 <p><strong>Phone:</strong> 203.233.3862</p>
                 <p><strong>Address:</strong> Meriden, CT 06451</p>
               </div>
