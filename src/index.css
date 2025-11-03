@@ -2139,4 +2139,26 @@ body.admin-page {
   .admin-dashboard .container > div > div:last-child > div:first-child > div:first-child > button {
     width: 100% !important;
   }
+
+  /* Stack project cards on mobile */
+  .admin-project-card {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .admin-project-card > div:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .admin-project-actions {
+    width: 100% !important;
+    justify-content: flex-end !important;
+  }
+
+  .admin-project-actions button {
+    flex: 1 !important;
+    max-width: none !important;
+  }
 }

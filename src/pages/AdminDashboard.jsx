@@ -376,6 +376,7 @@ const ProjectsList = ({ onEditClick }) => {
         return (
           <div
             key={project.id}
+            className="admin-project-card"
             style={{
               border: '1px solid #e5e7eb',
               borderRadius: '8px',
@@ -438,7 +439,7 @@ const ProjectsList = ({ onEditClick }) => {
             </div>
 
             {/* Project Info */}
-            <div style={{ flex: 1 }}>
+            <div className="admin-project-info" style={{ flex: 1 }}>
               <h4 style={{ margin: '0 0 0.5rem 0', color: '#1f2937' }}>
                 {project.title}
               </h4>
@@ -453,7 +454,7 @@ const ProjectsList = ({ onEditClick }) => {
             </div>
 
             {/* Actions */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+            <div className="admin-project-actions" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
               <button
                 onClick={() => onEditClick(project)}
                 style={{
