@@ -14,11 +14,24 @@ const Hero = () => {
       <div className="hero-content">
         <div className="container">
           <div className="hero-image">
-            <img
-              src="/images/logo.png"
-              alt="All Structure Maintenance Logo"
-              loading="eager"
-            />
+            <div className="hero-before-after">
+              <div className="hero-before-after-item">
+                <div className="hero-before-after-label">Before</div>
+                <img
+                  src="/images/kitchen-before.jpg"
+                  alt="Kitchen Remodel Before - All Structure Maintenance"
+                  loading="eager"
+                />
+              </div>
+              <div className="hero-before-after-item">
+                <div className="hero-before-after-label">After</div>
+                <img
+                  src="/images/kitchen-after.jpg"
+                  alt="Kitchen Remodel After - All Structure Maintenance"
+                  loading="eager"
+                />
+              </div>
+            </div>
           </div>
           <div className="hero-text">
             <h1>Connecticut's Trusted General Contractor</h1>
