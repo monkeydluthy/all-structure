@@ -11,6 +11,34 @@ import usePageMetadata from '../hooks/usePageMetadata';
 const SITE_URL = 'https://all-structure-maintenance.netlify.app';
 
 const Home = () => {
+  const highlightServices = [
+    {
+      title: 'Kitchen Remodeling & Bathroom Renovations',
+      description: 'Design-build upgrades with custom cabinetry, tile, and fixtures tailored to your lifestyle.',
+      link: '/services/remodeling',
+    },
+    {
+      title: '24/7 Water Damage Restoration in Meriden',
+      description: 'Emergency dry-out, remediation, and structural repairs handled by licensed pros.',
+      link: '/services/restoration',
+    },
+    {
+      title: 'Roofing Contractor Serving Wallingford & Meriden',
+      description: 'Leak repairs, full replacements, and gutter protection to keep your property secure.',
+      link: '/services/roofing',
+    },
+    {
+      title: 'Property Maintenance Services Near Me',
+      description: 'Seasonal upkeep, preventative inspections, and on-call technicians for peace of mind.',
+      link: '/services/maintenance',
+    },
+    {
+      title: 'Painting Contractor for Interior & Exterior Projects',
+      description: 'Flawless finishes, drywall repair, and color consultations for homes and commercial spaces.',
+      link: '/services/painting',
+    },
+  ];
+
   usePageMetadata({
     title: 'General Contractor Meriden CT | All Structure Maintenance',
     description:
@@ -89,31 +117,43 @@ const Home = () => {
       </section>
       <section className="home-seo">
         <div className="container">
-          <h2>Meriden&apos;s Trusted General Contractor for Remodeling &amp; Restoration</h2>
-          <p>
-            When you search for a general contractor in Meriden, CT, you want a partner who can manage every detail—from design consultations and permitting to the final cleanup. All Structure Maintenance brings licensed expertise to kitchen remodeling across Connecticut, bathroom renovation projects in Meriden, and emergency water damage restoration for New Haven County homeowners. Our crew responds quickly, communicates clearly, and documents every milestone so you always know what is happening inside your property.
-          </p>
-          <p>
-            We support busy homeowners, landlords, and commercial property managers with preventive maintenance plans, emergency roof repairs, interior and exterior painting, and custom tile installations. Explore our most popular services:
-          </p>
-          <ul className="home-seo-links">
-            <li><Link to="/services/remodeling">Kitchen Remodeling &amp; Bathroom Renovations</Link></li>
-            <li><Link to="/services/restoration">24/7 Water Damage Restoration in Meriden</Link></li>
-            <li><Link to="/services/roofing">Roofing Contractor Serving Wallingford &amp; Meriden</Link></li>
-            <li><Link to="/services/maintenance">Property Maintenance Services Near Me</Link></li>
-            <li><Link to="/services/painting">Painting Contractor for Interior &amp; Exterior Projects</Link></li>
-          </ul>
-          <p>
-            Need guidance on permits or inspections? Review the{' '}
-            <a
-              href="https://www.meridenct.gov/government/departments/building/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              City of Meriden Building Department resources
-            </a>{' '}
-            and let our team coordinate the paperwork while you focus on design decisions and daily life. When you are ready, contact us for a no-obligation estimate or call <a href="tel:2032333862">203.233.3862</a> to speak with a project specialist.
-          </p>
+          <div className="home-seo-intro">
+            <h2>Meriden&apos;s Trusted General Contractor for Remodeling &amp; Restoration</h2>
+            <p>
+              When you search for a general contractor in Meriden, CT, you want a partner who can manage every detail—from design consultations and permitting to the final cleanup. All Structure Maintenance brings licensed expertise to kitchen remodeling across Connecticut, bathroom renovation projects in Meriden, and emergency water damage restoration for New Haven County homeowners. Our crew responds quickly, communicates clearly, and documents every milestone so you always know what is happening inside your property.
+            </p>
+            <p>
+              We support busy homeowners, landlords, and commercial property managers with preventive maintenance plans, emergency roof repairs, interior and exterior painting, and custom tile installations. Explore our most popular services:
+            </p>
+          </div>
+          <div className="home-seo-grid">
+            {highlightServices.map((service) => (
+              <div key={service.title} className="home-seo-card">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <Link to={service.link} className="cta-text-link">
+                  Learn more →
+                </Link>
+              </div>
+            ))}
+          </div>
+          <div className="home-seo-cta">
+            <p>
+              Need guidance on permits or inspections? Review the{' '}
+              <a
+                href="https://www.meridenct.gov/government/departments/building/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                City of Meriden Building Department resources
+              </a>{' '}
+              and let our team coordinate the paperwork while you focus on design decisions and daily life.
+            </p>
+            <div className="cta-buttons">
+              <Link to="/contact" className="cta-primary">Request a Free Estimate</Link>
+              <a href="tel:2032333862" className="cta-secondary">Call 203.233.3862</a>
+            </div>
+          </div>
         </div>
       </section>
       <Contact />

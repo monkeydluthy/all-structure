@@ -122,9 +122,10 @@ const ContactPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="services-hero">
+      <section className="services-hero contact-hero">
         <div className="container">
-          <h1>Contact Meriden&apos;s Trusted General Contractor</h1>
+          <div className="contact-hero-content">
+            <h1>Contact Meriden&apos;s Trusted General Contractor</h1>
           <p className="services-hero-description">
             Ready to schedule kitchen remodeling, bathroom renovations, emergency water damage restoration, or property maintenance in Connecticut? Reach out for a free, no-obligation estimate and fast support across Meriden, Wallingford, Cheshire, and nearby towns.
           </p>
@@ -132,35 +133,88 @@ const ContactPage = () => {
             Call <a href="tel:2032333862" onClick={() => trackPhoneCall('203.233.3862')}>203.233.3862</a>, email{' '}
             <a href="mailto:AllstructureMainLLC@yahoo.com" onClick={() => trackEmailClick('AllstructureMainLLC@yahoo.com')}>
               AllstructureMainLLC@yahoo.com
-            </a>, or complete the form below to start your project. For permit information, consult the{' '}
-            <a
-              href="https://www.meridenct.gov/government/departments/building/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Meriden Building Department
-            </a>{' '}and let our team coordinate the paperwork.
+            </a>, or complete the form below to start your project.
           </p>
+          <p>
+            For permit information, consult the{' '}
+              <a
+                href="https://www.meridenct.gov/government/departments/building/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Meriden Building Department
+              </a>{' '}and let our team coordinate the paperwork.
+            </p>
+            <div className="contact-hero-actions">
+              <a href="tel:2032333862" className="cta-primary">
+                <span aria-hidden="true">📞</span>
+                <span>Call 203.233.3862</span>
+              </a>
+              <a href="#contact" className="cta-secondary">
+                <span aria-hidden="true">📝</span>
+                <span>Request an Estimate</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="contact-services-summary">
         <div className="container">
           <h2>How We Help Connecticut Property Owners</h2>
-          <p>
-            All Structure Maintenance is a licensed general contractor delivering:
-          </p>
-          <ul>
-            <li><Link to="/services/remodeling">Kitchen Remodeling &amp; Bathroom Renovations across Connecticut</Link></li>
-            <li><Link to="/services/restoration">24/7 Water Damage Restoration in Meriden, CT</Link></li>
-            <li><Link to="/services/roofing">Emergency Roof Repair &amp; Gutter Cleaning in Wallingford</Link></li>
-            <li><Link to="/services/painting">Interior/Exterior Painting &amp; Sheetrock Services</Link></li>
-            <li><Link to="/services/tile">Custom Tile Installation and Heated Floor Upgrades</Link></li>
-            <li><Link to="/services/maintenance">Property Maintenance Programs in Cheshire and New Haven County</Link></li>
-          </ul>
-          <p>
+          <div className="contact-services-grid">
+            <div className="contact-service-card">
+              <span className="contact-service-icon">🏠</span>
+              <h3>Kitchen &amp; Bathroom Remodeling</h3>
+              <p>
+                Design-build renovations, custom cabinetry, and zero-entry showers for modern living.
+              </p>
+              <Link to="/services/remodeling" className="cta-text-link">Explore remodeling services →</Link>
+            </div>
+            <div className="contact-service-card">
+              <span className="contact-service-icon">💧</span>
+              <h3>24/7 Water Damage Restoration</h3>
+              <p>
+                Emergency mitigation, drying, and rebuilds for homes and businesses across Meriden.
+              </p>
+              <Link to="/services/restoration" className="cta-text-link">Learn about restoration →</Link>
+            </div>
+            <div className="contact-service-card">
+              <span className="contact-service-icon">🔧</span>
+              <h3>Roof Repair &amp; Gutter Care</h3>
+              <p>
+                Leak repair, replacements, and maintenance programs for Wallingford and surrounding towns.
+              </p>
+              <Link to="/services/roofing" className="cta-text-link">Roofing solutions →</Link>
+            </div>
+            <div className="contact-service-card">
+              <span className="contact-service-icon">🎨</span>
+              <h3>Painting &amp; Sheetrock Services</h3>
+              <p>
+                Interior/exterior painting, drywall repairs, and texture finishing for homes and commercial spaces.
+              </p>
+              <Link to="/services/painting" className="cta-text-link">Painting services →</Link>
+            </div>
+            <div className="contact-service-card">
+              <span className="contact-service-icon">🪟</span>
+              <h3>Custom Tile &amp; Heated Floors</h3>
+              <p>
+                Precision tile installation, waterproofing, and heated floor upgrades for kitchens and baths.
+              </p>
+              <Link to="/services/tile" className="cta-text-link">Tile installation →</Link>
+            </div>
+            <div className="contact-service-card">
+              <span className="contact-service-icon">🛠️</span>
+              <h3>Property Maintenance Programs</h3>
+              <p>
+                Seasonal upkeep, preventative inspections, and on-call technicians serving Cheshire &amp; New Haven County.
+              </p>
+              <Link to="/services/maintenance" className="cta-text-link">Maintenance plans →</Link>
+            </div>
+          </div>
+          <div className="contact-services-footer">
             Tell us about your project goals, timeline, and budget. We&apos;ll respond quickly with next steps and schedule your on-site consultation.
-          </p>
+          </div>
         </div>
       </section>
 

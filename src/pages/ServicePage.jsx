@@ -3,6 +3,7 @@ import { useLocation, useParams, Link } from 'react-router-dom';
 import Contact from '../components/Contact';
 import usePageMetadata from '../hooks/usePageMetadata';
 import { servicesByKey, servicesList } from '../data/services';
+import FaqAccordion from '../components/FaqAccordion';
 
 const SITE_URL = 'https://all-structure-maintenance.netlify.app';
 
@@ -87,7 +88,6 @@ const ServicePage = () => {
         <div className="container">
           <div className="service-hero-content">
             <div className="service-hero-text">
-              <div className="service-icon-large">{service.icon}</div>
               <h1>{service.heroHeading}</h1>
               <p className="service-hero-description">
                 {service.overview}
@@ -95,14 +95,6 @@ const ServicePage = () => {
               <p>
                 As licensed general contractors serving {service.serviceAreas[0]} and nearby Connecticut towns, we manage every stage—from planning and permits to the final walkthrough—so you can enjoy stress-free results. Whether you need {service.primaryKeyword.toLowerCase()} or want to explore related upgrades, our team delivers craftsmanship backed by warranties and real local references.
               </p>
-              <div className="service-cta-buttons">
-                <a href="#contact-section" className="cta-primary">
-                  📞 Get Free Estimate
-                </a>
-                <a href="tel:2032333862" className="cta-secondary">
-                  Call 203.233.3862
-                </a>
-              </div>
               {service.externalResource && (
                 <p className="service-external-resource">
                   Stay informed: review the latest guidelines from{' '}
@@ -119,6 +111,16 @@ const ServicePage = () => {
                 alt={`${service.heroHeading} by All Structure Maintenance`}
               />
             </div>
+          </div>
+          <div className="service-hero-actions">
+            <a href="#contact-section" className="cta-primary">
+              <span aria-hidden="true">⭐</span>
+              <span>Get Free Estimate</span>
+            </a>
+            <a href="tel:2032333862" className="cta-secondary">
+              <span aria-hidden="true">📞</span>
+              <span>Call 203.233.3862</span>
+            </a>
           </div>
         </div>
       </section>
@@ -188,19 +190,12 @@ const ServicePage = () => {
       <section className="service-faq">
         <div className="container">
           <h2>{service.listTitle} FAQs</h2>
-          <div className="faq-grid">
-            {service.faq.map((item) => (
-              <div key={item.question} className="faq-item">
-                <h3>{item.question}</h3>
-                <p>{item.answer}</p>
-              </div>
-            ))}
-          </div>
+          <FaqAccordion items={service.faq} />
         </div>
       </section>
 
       {/* Related Services */}
-      <section className="service-related">
+      <section className="service-related related-services-section">
         <div className="container">
           <h2>Related Services You May Need</h2>
           <div className="related-services-grid">
@@ -210,7 +205,8 @@ const ServicePage = () => {
                 <h3>{item.listTitle}</h3>
                 <p>{item.cardDescription}</p>
                 <Link to={`/services/${item.slug}`} className="service-btn">
-                  Explore {item.listTitle} →
+                  <span>Explore {item.listTitle}</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
               </div>
             ))}
@@ -221,11 +217,16 @@ const ServicePage = () => {
       {/* CTA Section */}
       <section className="service-cta">
         <div className="container">
-          <h2>Let&apos;s Plan Your Next Project</h2>
-          <p>{service.ctaBlurb}</p>
-          <div className="cta-buttons">
-            <a href="tel:2032333862" className="cta-primary">📞 Call 203.233.3862</a>
-            <Link to="/contact" className="cta-secondary">Request a Detailed Estimate</Link>
+          <div className="service-cta-card">
+            <h2>Let&apos;s Plan Your Next Project</h2>
+            <p>{service.ctaBlurb}</p>
+            <div className="cta-buttons">
+              <a href="tel:2032333862" className="cta-primary">
+                <span aria-hidden="true">📞</span>
+                <span>Call 203.233.3862</span>
+              </a>
+              <Link to="/contact" className="cta-secondary">Request a Detailed Estimate</Link>
+            </div>
           </div>
         </div>
       </section>
