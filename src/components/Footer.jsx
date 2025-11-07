@@ -26,10 +26,20 @@ const Footer = () => {
               insured, and committed to excellence in every project.
             </p>
             <div className="social-links">
-              <a href="#" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/allstructuremaintenance/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
                 📘
               </a>
-              <a href="#" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/allstructuremaintenance/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
                 📷
               </a>
             </div>
@@ -101,6 +111,7 @@ const Footer = () => {
             <div className="footer-links">
               <Link to="/privacy">Privacy Policy</Link>
               <Link to="/terms">Terms of Service</Link>
+              <a href="/sitemap.xml">Sitemap</a>
             </div>
           </div>
         </div>

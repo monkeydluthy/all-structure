@@ -651,6 +651,241 @@ body.admin-page {
   grid-column: 1 / -1;
 }
 
+/* SEO & Services Enhancements */
+.home-seo,
+.services-overview,
+.services-faq,
+.services-cta,
+.service-areas,
+.service-faq,
+.service-related,
+.service-cta,
+.contact-services-summary,
+.portfolio-hero {
+  padding: 4rem 0;
+  background: #ffffff;
+}
+
+.home-seo .container,
+.services-overview .container,
+.services-faq .container,
+.services-cta .container,
+.service-areas .container,
+.service-faq .container,
+.service-related .container,
+.service-cta .container,
+.contact-services-summary .container,
+.portfolio-hero .container {
+  max-width: 1100px;
+}
+
+.home-seo h2,
+.services-overview h2,
+.services-faq h2,
+.services-cta h2,
+.service-areas h2,
+.service-faq h2,
+.service-related h2,
+.service-cta h2,
+.contact-services-summary h2,
+.portfolio-hero h1,
+.portfolio-hero h2 {
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.home-seo p,
+.services-overview p,
+.services-faq p,
+.services-cta p,
+.service-areas p,
+.service-faq p,
+.service-related p,
+.service-cta p,
+.contact-services-summary p,
+.portfolio-hero p {
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}
+
+.home-seo-links,
+.services-overview-links ul,
+.contact-services-summary ul,
+.service-areas-list,
+.portfolio-hero-links,
+.related-services-grid,
+.faq-grid,
+.service-details-grid,
+.process-steps,
+.benefits-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.home-seo-links li,
+.services-overview-links ul li,
+.contact-services-summary ul li,
+.service-areas-list li {
+  font-weight: 500;
+}
+
+.home-seo a,
+.services-overview a,
+.services-cta a,
+.service-areas a,
+.service-faq a,
+.service-related a,
+.contact-services-summary a,
+.portfolio-hero a {
+  color: #d4a017;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.portfolio-hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.portfolio-hero-links a {
+  background: #f1f5f9;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+}
+
+.faq-grid,
+.related-services-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.faq-item,
+.related-service-card {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.related-service-card h3 {
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+
+.related-service-card .service-btn {
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+.service-areas-list {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.service-external-resource {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cta-primary,
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-primary {
+  background: #d4a017;
+  color: #ffffff;
+}
+
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(212, 160, 23, 0.25);
+}
+
+.cta-secondary {
+  background: transparent;
+  border: 2px solid #d4a017;
+  color: #d4a017;
+}
+
+.cta-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(212, 160, 23, 0.15);
+}
+
+.home-review {
+  padding: 3.5rem 0;
+  background: #0f172a;
+  color: #f8fafc;
+  text-align: center;
+}
+
+.home-review .container {
+  max-width: 720px;
+}
+
+.home-review h2 {
+  color: #facc15;
+  margin-bottom: 1rem;
+}
+
+.home-review p {
+  margin-bottom: 1.5rem;
+  color: #e2e8f0;
+}
+
+.home-review .cta-primary {
+  background: #facc15;
+  color: #0f172a;
+  display: inline-flex;
+  margin: 0 auto;
+}
+
+.home-review .cta-primary:hover {
+  box-shadow: 0 12px 24px rgba(250, 204, 21, 0.35);
+}
+
+.contact-services-summary ul {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .portfolio-hero-links,
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+  }
+
+  .faq-grid,
+  .related-services-grid,
+  .contact-services-summary ul {
+    grid-template-columns: 1fr;
+  }
+}
+
 .modal-before,
 .modal-after {
   position: relative;

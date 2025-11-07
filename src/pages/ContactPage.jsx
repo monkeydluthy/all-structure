@@ -3,8 +3,44 @@ import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/emailConfig';
 import { trackFormSubmit, trackPhoneCall, trackEmailClick } from '../utils/analytics';
+import usePageMetadata from '../hooks/usePageMetadata';
+
+const SITE_URL = 'https://all-structure-maintenance.netlify.app';
 
 const ContactPage = () => {
+  usePageMetadata({
+    title: 'Contact All Structure Maintenance | Meriden CT General Contractor',
+    description:
+      'Request a free estimate from All Structure Maintenance, a licensed general contractor serving Meriden, Wallingford, Cheshire, and surrounding Connecticut towns.',
+    keywords: [
+      'contact general contractor meriden ct',
+      'free estimate kitchen remodeling connecticut',
+      'roofing contractor wallingford ct contact',
+      'property maintenance cheshire ct quote',
+      'water damage restoration meriden contact',
+    ],
+    canonicalPath: '/contact',
+    openGraph: {
+      title: 'Contact All Structure Maintenance | Meriden, CT',
+      description:
+        'Reach out to Meriden’s trusted general contractor for remodeling, restoration, roofing, painting, tile, and maintenance projects across Connecticut.',
+      type: 'website',
+    },
+    structuredData: [
+      {
+        id: 'contact-page',
+        data: {
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          name: 'Contact All Structure Maintenance',
+          url: `${SITE_URL}/contact`,
+          description:
+            'Contact All Structure Maintenance to schedule remodeling, restoration, roofing, painting, tile, or property maintenance services in Connecticut.',
+        },
+      },
+    ],
+  });
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -88,9 +124,42 @@ const ContactPage = () => {
       {/* Hero Section */}
       <section className="services-hero">
         <div className="container">
-          <h1>Get In Touch</h1>
+          <h1>Contact Meriden&apos;s Trusted General Contractor</h1>
           <p className="services-hero-description">
-            Ready to start your project? Contact us today for a free, no-obligation estimate.
+            Ready to schedule kitchen remodeling, bathroom renovations, emergency water damage restoration, or property maintenance in Connecticut? Reach out for a free, no-obligation estimate and fast support across Meriden, Wallingford, Cheshire, and nearby towns.
+          </p>
+          <p>
+            Call <a href="tel:2032333862" onClick={() => trackPhoneCall('203.233.3862')}>203.233.3862</a>, email{' '}
+            <a href="mailto:AllstructureMainLLC@yahoo.com" onClick={() => trackEmailClick('AllstructureMainLLC@yahoo.com')}>
+              AllstructureMainLLC@yahoo.com
+            </a>, or complete the form below to start your project. For permit information, consult the{' '}
+            <a
+              href="https://www.meridenct.gov/government/departments/building/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Meriden Building Department
+            </a>{' '}and let our team coordinate the paperwork.
+          </p>
+        </div>
+      </section>
+
+      <section className="contact-services-summary">
+        <div className="container">
+          <h2>How We Help Connecticut Property Owners</h2>
+          <p>
+            All Structure Maintenance is a licensed general contractor delivering:
+          </p>
+          <ul>
+            <li><Link to="/services/remodeling">Kitchen Remodeling &amp; Bathroom Renovations across Connecticut</Link></li>
+            <li><Link to="/services/restoration">24/7 Water Damage Restoration in Meriden, CT</Link></li>
+            <li><Link to="/services/roofing">Emergency Roof Repair &amp; Gutter Cleaning in Wallingford</Link></li>
+            <li><Link to="/services/painting">Interior/Exterior Painting &amp; Sheetrock Services</Link></li>
+            <li><Link to="/services/tile">Custom Tile Installation and Heated Floor Upgrades</Link></li>
+            <li><Link to="/services/maintenance">Property Maintenance Programs in Cheshire and New Haven County</Link></li>
+          </ul>
+          <p>
+            Tell us about your project goals, timeline, and budget. We&apos;ll respond quickly with next steps and schedule your on-site consultation.
           </p>
         </div>
       </section>

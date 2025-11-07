@@ -44,12 +44,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/services/restoration" element={<ServicePage />} />
-        <Route path="/services/remodeling" element={<ServicePage />} />
-        <Route path="/services/roofing" element={<ServicePage />} />
-        <Route path="/services/painting" element={<ServicePage />} />
-        <Route path="/services/tile" element={<ServicePage />} />
-        <Route path="/services/maintenance" element={<ServicePage />} />
+        <Route path="/services/:serviceKey" element={<ServicePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />

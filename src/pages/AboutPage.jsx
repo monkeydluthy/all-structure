@@ -1,7 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import usePageMetadata from '../hooks/usePageMetadata';
 
 const AboutPage = () => {
+  usePageMetadata({
+    title: 'About All Structure Maintenance | Meriden CT General Contractor',
+    description:
+      'Learn about All Structure Maintenance, a licensed general contractor based in Meriden, CT providing remodeling, restoration, roofing, painting, tile, and property maintenance services across Connecticut.',
+    keywords: [
+      'general contractor meriden ct',
+      'about all structure maintenance',
+      'licensed contractor connecticut',
+      'best general contractor near meriden',
+    ],
+    canonicalPath: '/about',
+    openGraph: {
+      title: 'About All Structure Maintenance | Meriden CT Contractors',
+      description:
+        'Discover the mission, values, and experience behind All Structure Maintenance—trusted general contractors serving Connecticut homeowners and businesses.',
+      type: 'article',
+    },
+  });
 
   const values = [
     {
@@ -42,7 +61,7 @@ const AboutPage = () => {
       {/* Hero Section */}
       <section className="services-hero">
         <div className="container">
-          <h1>About All Structure Maintenance</h1>
+          <h1>About Our Meriden, CT General Contracting Team</h1>
           <p className="services-hero-description">
             Your trusted partner for all your property maintenance and improvement needs across Connecticut.
           </p>

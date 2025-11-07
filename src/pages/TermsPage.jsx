@@ -1,6 +1,17 @@
 import React from 'react';
+import usePageMetadata from '../hooks/usePageMetadata';
 
 const TermsPage = () => {
+  usePageMetadata({
+    title: 'Terms of Service | All Structure Maintenance',
+    description: 'Review the terms of service for working with All Structure Maintenance, Meriden CT contractors.',
+    canonicalPath: '/terms',
+    openGraph: {
+      title: 'Terms of Service | All Structure Maintenance',
+      description: 'Understand the terms and conditions that apply to All Structure Maintenance projects in Connecticut.',
+      type: 'article',
+    },
+  });
   return (
     <div>
       {/* Hero Section */}

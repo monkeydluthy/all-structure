@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../config/supabaseConfig';
+import usePageMetadata from '../hooks/usePageMetadata';
+
+const SITE_URL = 'https://all-structure-maintenance.netlify.app';
 
 const PortfolioPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -7,6 +11,41 @@ const PortfolioPage = () => {
   const [supabaseBeforeAfter, setSupabaseBeforeAfter] = useState([]);
   const [supabaseGallery, setSupabaseGallery] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  usePageMetadata({
+    title: 'Construction Portfolio Meriden CT | All Structure Maintenance Projects',
+    description:
+      'Browse remodeling, roofing, restoration, and property maintenance projects completed by All Structure Maintenance in Meriden, Wallingford, Cheshire, and across Connecticut.',
+    keywords: [
+      'general contractor meriden ct portfolio',
+      'kitchen remodeling connecticut projects',
+      'bathroom renovation meriden ct before and after',
+      'roofing contractor wallingford ct photos',
+      'water damage restoration meriden examples',
+      'best general contractor near meriden work',
+    ],
+    canonicalPath: '/portfolio',
+    openGraph: {
+      title: 'Project Portfolio | All Structure Maintenance',
+      description:
+        'See before-and-after photos from Connecticut remodeling, roofing, restoration, and maintenance projects completed by All Structure Maintenance.',
+      type: 'website',
+      image: `${SITE_URL}/images/kitchen-after.jpg`,
+    },
+    structuredData: [
+      {
+        id: 'portfolio-collection',
+        data: {
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: 'All Structure Maintenance Project Portfolio',
+          url: `${SITE_URL}/portfolio`,
+          description:
+            'Remodeling, roofing, restoration, painting, tile, and property maintenance projects completed across Meriden, Wallingford, Cheshire, and surrounding Connecticut communities.',
+        },
+      },
+    ],
+  });
 
   // Hardcoded projects (always shown first)
   const beforeAfterProjects = [
@@ -216,6 +255,29 @@ const PortfolioPage = () => {
 
   return (
     <div>
+      <section className="portfolio-hero">
+        <div className="container">
+          <h1>General Contractor Portfolio in Meriden &amp; Connecticut</h1>
+          <p>
+            Explore how All Structure Maintenance—Meriden’s trusted general contractor—delivers kitchen remodeling, bathroom renovation, emergency water damage restoration, roofing repairs, and property maintenance across Connecticut. Each project highlights our commitment to clean job sites, detailed craftsmanship, and responsive communication.
+          </p>
+          <p>
+            Looking for inspiration? Review the transformations below, then schedule a consultation to discuss your project in Meriden, Wallingford, Cheshire, or nearby towns. You can also revisit our{' '}
+            <Link to="/services">service pages</Link> for detailed scopes of work and connect with us on the{' '}
+            <a href="https://www.facebook.com/people/All-Structure-Maintenance/100063566413883/" target="_blank" rel="noopener noreferrer">
+              All Structure Maintenance Facebook page
+            </a>{' '}for current updates.
+          </p>
+          <div className="portfolio-hero-links">
+            <Link to="/services/remodeling">Kitchen &amp; Bathroom Remodeling</Link>
+            <Link to="/services/roofing">Roofing &amp; Gutter Projects</Link>
+            <Link to="/services/restoration">Water Damage Restoration</Link>
+            <Link to="/services/maintenance">Property Maintenance Programs</Link>
+            <Link to="/contact">Request a Project Estimate</Link>
+          </div>
+        </div>
+      </section>
+
       {/* Before & After Section */}
       <section className="portfolio-section before-after-section">
         <div className="container">

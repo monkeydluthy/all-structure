@@ -1,6 +1,17 @@
 import React from 'react';
+import usePageMetadata from '../hooks/usePageMetadata';
 
 const PrivacyPage = () => {
+  usePageMetadata({
+    title: 'Privacy Policy | All Structure Maintenance',
+    description: 'Read the privacy practices for All Structure Maintenance, Meriden CT general contractors.',
+    canonicalPath: '/privacy',
+    openGraph: {
+      title: 'Privacy Policy | All Structure Maintenance',
+      description: 'Learn how All Structure Maintenance collects and protects information from website visitors and clients.',
+      type: 'article',
+    },
+  });
   return (
     <div>
       {/* Hero Section */}
