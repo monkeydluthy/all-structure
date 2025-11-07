@@ -2511,13 +2511,25 @@ body.admin-page {
 }
 
 .social-links a {
-  color: #9ca3af;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #d4a017;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.25);
+}
+
+.social-links img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .contact-details {

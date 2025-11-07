@@ -32,7 +32,12 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Facebook"
               >
-                📘
+                <img
+                  src="/images/facebook.png"
+                  alt="Facebook logo"
+                  className="social-icon"
+                  loading="lazy"
+                />
               </a>
               <a
                 href="https://www.instagram.com/allstructuremaintenance/"
@@ -40,7 +45,12 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
               >
-                📷
+                <img
+                  src="/images/instagram.png"
+                  alt="Instagram logo"
+                  className="social-icon"
+                  loading="lazy"
+                />
               </a>
             </div>
           </div>
