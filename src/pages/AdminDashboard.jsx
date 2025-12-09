@@ -591,21 +591,64 @@ const AddProjectForm = ({ project, onClose, onSuccess, onError, isModal = false 
     location: project?.location || '',
     is_before_after: project?.is_before_after || false
   });
-  const [beforeImage, setBeforeImage] = useState(null);
-  const [afterImage, setAfterImage] = useState(null);
-  const [galleryImage, setGalleryImage] = useState(null);
+  const [beforeImages, setBeforeImages] = useState([]);
+  const [afterImages, setAfterImages] = useState([]);
+  const [galleryImages, setGalleryImages] = useState([]);
+  const [beforeImagePreviews, setBeforeImagePreviews] = useState([]);
+  const [afterImagePreviews, setAfterImagePreviews] = useState([]);
+  const [galleryImagePreviews, setGalleryImagePreviews] = useState([]);
   const [uploading, setUploading] = useState(false);
 
   const services = ['Remodeling', 'Restoration', 'Roofing', 'Painting', 'Tile', 'Maintenance'];
 
   const handleImageChange = (type, e) => {
-    const file = e.target.files[0];
-    if (file) {
-      if (type === 'before') setBeforeImage(file);
-      if (type === 'after') setAfterImage(file);
-      if (type === 'gallery') setGalleryImage(file);
+    const files = Array.from(e.target.files);
+    if (files.length > 0) {
+      const previews = files.map(file => URL.createObjectURL(file));
+      if (type === 'before') {
+        setBeforeImages(prev => [...prev, ...files]);
+        setBeforeImagePreviews(prev => [...prev, ...previews]);
+      }
+      if (type === 'after') {
+        setAfterImages(prev => [...prev, ...files]);
+        setAfterImagePreviews(prev => [...prev, ...previews]);
+      }
+      if (type === 'gallery') {
+        setGalleryImages(prev => [...prev, ...files]);
+        setGalleryImagePreviews(prev => [...prev, ...previews]);
+      }
+    }
+    // Reset input to allow selecting the same files again
+    e.target.value = '';
+  };
+
+  const removeImage = (type, index) => {
+    if (type === 'before') {
+      // Revoke the object URL before removing
+      URL.revokeObjectURL(beforeImagePreviews[index]);
+      setBeforeImages(prev => prev.filter((_, i) => i !== index));
+      setBeforeImagePreviews(prev => prev.filter((_, i) => i !== index));
+    }
+    if (type === 'after') {
+      URL.revokeObjectURL(afterImagePreviews[index]);
+      setAfterImages(prev => prev.filter((_, i) => i !== index));
+      setAfterImagePreviews(prev => prev.filter((_, i) => i !== index));
+    }
+    if (type === 'gallery') {
+      URL.revokeObjectURL(galleryImagePreviews[index]);
+      setGalleryImages(prev => prev.filter((_, i) => i !== index));
+      setGalleryImagePreviews(prev => prev.filter((_, i) => i !== index));
     }
   };
+
+  // Cleanup object URLs on unmount
+  useEffect(() => {
+    return () => {
+      [...beforeImagePreviews, ...afterImagePreviews, ...galleryImagePreviews].forEach(url => {
+        URL.revokeObjectURL(url);
+      });
+    };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -638,18 +681,21 @@ const AddProjectForm = ({ project, onClose, onSuccess, onError, isModal = false 
       const imageUploads = [];
 
       if (formData.is_before_after) {
-        if (beforeImage) {
-          const beforeUrl = await uploadImage(beforeImage, `before-${Date.now()}`);
-          imageUploads.push({ project_id: projectResult.id, image_url: beforeUrl, image_type: 'before', display_order: 1 });
+        // Upload all before images
+        for (let i = 0; i < beforeImages.length; i++) {
+          const beforeUrl = await uploadImage(beforeImages[i], `before-${Date.now()}-${i}`);
+          imageUploads.push({ project_id: projectResult.id, image_url: beforeUrl, image_type: 'before', display_order: i + 1 });
         }
-        if (afterImage) {
-          const afterUrl = await uploadImage(afterImage, `after-${Date.now()}`);
-          imageUploads.push({ project_id: projectResult.id, image_url: afterUrl, image_type: 'after', display_order: 2 });
+        // Upload all after images
+        for (let i = 0; i < afterImages.length; i++) {
+          const afterUrl = await uploadImage(afterImages[i], `after-${Date.now()}-${i}`);
+          imageUploads.push({ project_id: projectResult.id, image_url: afterUrl, image_type: 'after', display_order: i + 1 });
         }
       } else {
-        if (galleryImage) {
-          const galleryUrl = await uploadImage(galleryImage, `gallery-${Date.now()}`);
-          imageUploads.push({ project_id: projectResult.id, image_url: galleryUrl, image_type: 'gallery', display_order: 1 });
+        // Upload all gallery images
+        for (let i = 0; i < galleryImages.length; i++) {
+          const galleryUrl = await uploadImage(galleryImages[i], `gallery-${Date.now()}-${i}`);
+          imageUploads.push({ project_id: projectResult.id, image_url: galleryUrl, image_type: 'gallery', display_order: i + 1 });
         }
       }
 
@@ -662,6 +708,11 @@ const AddProjectForm = ({ project, onClose, onSuccess, onError, isModal = false 
         if (imagesError) throw imagesError;
       }
 
+      // Cleanup preview URLs before resetting
+      [...beforeImagePreviews, ...afterImagePreviews, ...galleryImagePreviews].forEach(url => {
+        URL.revokeObjectURL(url);
+      });
+
       // Reset form and close
       setFormData({
         title: '',
@@ -670,9 +721,12 @@ const AddProjectForm = ({ project, onClose, onSuccess, onError, isModal = false 
         location: '',
         is_before_after: false
       });
-      setBeforeImage(null);
-      setAfterImage(null);
-      setGalleryImage(null);
+      setBeforeImages([]);
+      setAfterImages([]);
+      setGalleryImages([]);
+      setBeforeImagePreviews([]);
+      setAfterImagePreviews([]);
+      setGalleryImagePreviews([]);
       onSuccess(isEditing ? 'Project updated successfully!' : 'Project added successfully!');
     } catch (error) {
       console.error('Error saving project:', error);
@@ -813,62 +867,194 @@ const AddProjectForm = ({ project, onClose, onSuccess, onError, isModal = false 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
             <div>
               <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: '#374151' }}>
-                Before Image
+                Before Images {beforeImages.length > 0 && `(${beforeImages.length} selected)`}
               </label>
               <input
                 type="file"
                 accept="image/*"
+                multiple
                 onChange={(e) => handleImageChange('before', e)}
-                required
+                required={!isEditing && beforeImages.length === 0}
                 style={{
                   width: '100%',
                   padding: '0.5rem',
                   border: '1px solid #d1d5db',
                   borderRadius: '8px',
                   fontSize: '1rem',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  marginBottom: '0.5rem'
                 }}
               />
+              {beforeImages.length > 0 && (
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))', gap: '0.5rem', marginTop: '0.5rem' }}>
+                  {beforeImages.map((file, index) => (
+                    <div key={index} style={{ position: 'relative' }}>
+                      <img
+                        src={beforeImagePreviews[index]}
+                        alt={`Before ${index + 1}`}
+                        style={{
+                          width: '100%',
+                          height: '80px',
+                          objectFit: 'cover',
+                          borderRadius: '4px',
+                          border: '1px solid #d1d5db'
+                        }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeImage('before', index)}
+                        style={{
+                          position: 'absolute',
+                          top: '-8px',
+                          right: '-8px',
+                          background: '#dc2626',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '50%',
+                          width: '24px',
+                          height: '24px',
+                          cursor: 'pointer',
+                          fontSize: '14px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                        }}
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
             <div>
               <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: '#374151' }}>
-                After Image
+                After Images {afterImages.length > 0 && `(${afterImages.length} selected)`}
               </label>
               <input
                 type="file"
                 accept="image/*"
+                multiple
                 onChange={(e) => handleImageChange('after', e)}
-                required
+                required={!isEditing && afterImages.length === 0}
                 style={{
                   width: '100%',
                   padding: '0.5rem',
                   border: '1px solid #d1d5db',
                   borderRadius: '8px',
                   fontSize: '1rem',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  marginBottom: '0.5rem'
                 }}
               />
+              {afterImages.length > 0 && (
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))', gap: '0.5rem', marginTop: '0.5rem' }}>
+                  {afterImages.map((file, index) => (
+                    <div key={index} style={{ position: 'relative' }}>
+                      <img
+                        src={afterImagePreviews[index]}
+                        alt={`After ${index + 1}`}
+                        style={{
+                          width: '100%',
+                          height: '80px',
+                          objectFit: 'cover',
+                          borderRadius: '4px',
+                          border: '1px solid #d1d5db'
+                        }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeImage('after', index)}
+                        style={{
+                          position: 'absolute',
+                          top: '-8px',
+                          right: '-8px',
+                          background: '#dc2626',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '50%',
+                          width: '24px',
+                          height: '24px',
+                          cursor: 'pointer',
+                          fontSize: '14px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                        }}
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         ) : (
           <div style={{ marginBottom: '1.5rem' }}>
             <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: '#374151' }}>
-              Gallery Image
+              Gallery Images {galleryImages.length > 0 && `(${galleryImages.length} selected)`}
             </label>
             <input
               type="file"
               accept="image/*"
+              multiple
               onChange={(e) => handleImageChange('gallery', e)}
-              required
+              required={!isEditing && galleryImages.length === 0}
               style={{
                 width: '100%',
                 padding: '0.5rem',
                 border: '1px solid #d1d5db',
                 borderRadius: '8px',
                 fontSize: '1rem',
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
+                marginBottom: '0.5rem'
               }}
             />
+            {galleryImages.length > 0 && (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))', gap: '0.5rem', marginTop: '0.5rem' }}>
+                {galleryImages.map((file, index) => (
+                  <div key={index} style={{ position: 'relative' }}>
+                    <img
+                      src={galleryImagePreviews[index]}
+                      alt={`Gallery ${index + 1}`}
+                      style={{
+                        width: '100%',
+                        height: '80px',
+                        objectFit: 'cover',
+                        borderRadius: '4px',
+                        border: '1px solid #d1d5db'
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => removeImage('gallery', index)}
+                      style={{
+                        position: 'absolute',
+                        top: '-8px',
+                        right: '-8px',
+                        background: '#dc2626',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '50%',
+                        width: '24px',
+                        height: '24px',
+                        cursor: 'pointer',
+                        fontSize: '14px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                      }}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
