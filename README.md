@@ -164,7 +164,7 @@ Access the admin dashboard at `/admin/login` to:
 All images should be placed in `/public/images/`:
 
 - `logo.png` - Company logo (used in header, hero, favicon)
-- Service images: `remodel.jpg`, `restore.jpg`, `roof.JPEG`, `sheetrock.JPG`, `tile.jpg`, `lawn.jpg`
+- Service images: `remodel.jpg`, `restore.jpg`, `sheetrock.JPG`, `tile.jpg`, `lawn.jpg`
 - Portfolio before/after pairs: `kitchen-before/after.jpg`, `bathroom-before/after.jpg`, etc.
 
 ## 🔐 Security

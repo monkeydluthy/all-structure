@@ -21,11 +21,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://all-structure-maintenance.netlify.app/services/roofing</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://all-structure-maintenance.netlify.app/services/painting</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

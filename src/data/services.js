@@ -21,7 +21,7 @@ export const servicesList = [
       },
       {
         title: 'Storm Damage Repair',
-        description: 'Emergency tarping, structural stabilization, and rebuild after severe weather.',
+        description: 'Emergency containment, structural stabilization, and rebuild after severe weather.',
       },
       {
         title: 'Mold Remediation',
@@ -170,92 +170,6 @@ export const servicesList = [
       url: 'https://portal.ct.gov/DCP/Common-Elements/Common-Elements/Applications-Updated/Home-Improvement-Contractor-Registration',
     },
     ctaBlurb: 'Ready to sketch your dream kitchen or bathroom? Schedule a free design consultation with our Meriden remodeling team.',
-  },
-  {
-    key: 'roofing',
-    slug: 'roofing',
-    icon: '🏠',
-    heroImage: '/images/roof.JPEG',
-    heroHeading: 'Roofing Contractor in Wallingford & Meriden, CT',
-    listTitle: 'Roofing & Gutter Protection',
-    cardDescription:
-      'Emergency roof repair, replacements, and gutter maintenance for Connecticut homes. Protect your investment before storms strike again.',
-    overview:
-      'Searching for a roofing contractor near Wallingford, CT? Our certified installers handle emergency leak repairs, full roof replacements, and preventative gutter maintenance for homeowners across New Haven County. We inspect every shingle, flashing detail, and gutter run so your home stays protected during New England weather swings.',
-    services: [
-      {
-        title: 'Emergency Roof Repair',
-        description: 'Rapid leak detection, temporary tarping, and permanent fixes for storm or wind damage.',
-      },
-      {
-        title: 'Roof Replacement',
-        description: 'Architectural shingles, metal roofing, and flat roof systems with manufacturer warranties.',
-      },
-      {
-        title: 'Gutter Cleaning & Guards',
-        description: 'Seasonal gutter cleaning, fascia repairs, and leaf guard installation to prevent overflow.',
-      },
-      {
-        title: 'Roof Inspections',
-        description: 'Detailed roof condition reports for insurance or property sale requirements.',
-      },
-      {
-        title: 'Ice Dam Prevention',
-        description: 'Heat cable installation and attic ventilation upgrades to reduce winter ice dams.',
-      },
-      {
-        title: 'Skylight Repair & Installation',
-        description: 'Velux skylight replacements and leak-proof flashing upgrades.',
-      },
-    ],
-    process: [
-      { text: 'Multi-Point Roof & Attic Inspection', icon: '🔎' },
-      { text: 'Detailed Estimate & Material Options', icon: '📋' },
-      { text: 'Protection of Landscaping & Property', icon: '🛡️' },
-      { text: 'Certified Installation & Cleanup', icon: '⚒️' },
-      { text: 'Warranty Registration & Follow-Up', icon: '📞' },
-    ],
-    benefits: [
-      'Owens Corning preferred contractor materials',
-      'Emergency roof repair in under 24 hours',
-      'Ice and water shield protection on eaves and valleys',
-      'Photo documentation before, during, and after the job',
-      'Financing options for full replacements',
-      'Workmanship warranty backed by local references',
-    ],
-    serviceAreas: ['Wallingford, CT', 'Meriden, CT', 'North Haven, CT', 'Hamden, CT', 'Durham, CT'],
-    faq: [
-      {
-        question: 'Do you offer emergency roof repair in Connecticut?',
-        answer:
-          'Yes. We provide emergency roof repair across Meriden, Wallingford, and surrounding towns. Our crew can tarp exposed sections the same day to prevent interior damage before completing permanent repairs.',
-      },
-      {
-        question: 'How often should I clean my gutters in CT?',
-        answer:
-          'Most Connecticut homes need gutter cleaning at least twice a year—once in late spring after pollen and once in late fall after leaves drop. Homes with pine trees or steep roof pitches may need quarterly service to prevent overflow.',
-      },
-      {
-        question: 'What roofing materials do you recommend for New England weather?',
-        answer:
-          'Architectural asphalt shingles rated for 130 mph winds are the most popular choice in New Haven County. We also install metal and rubber membrane systems for specific designs. We review the pros, cons, and warranties for each option during your consultation.',
-      },
-    ],
-    metaTitle: 'Roofing Contractor Wallingford CT | Emergency Roof Repair Connecticut',
-    metaDescription:
-      'All Structure Maintenance delivers emergency roof repair, replacements, and gutter maintenance for Wallingford, Meriden, and New Haven County homeowners. Schedule a roof inspection today.',
-    keywords: [
-      'roofing contractor wallingford ct',
-      'emergency roof repair connecticut',
-      'roof inspection meriden ct',
-      'gutter cleaning wallingford ct',
-    ],
-    primaryKeyword: 'roofing contractor Wallingford CT',
-    externalResource: {
-      label: 'Connecticut Roofing Contractor guidelines',
-      url: 'https://portal.ct.gov/DCP/Common-Elements/Common-Elements/Licensing-Requirements',
-    },
-    ctaBlurb: 'Protect your home before the next storm. Book a certified roof inspection or same-day leak repair.',
   },
   {
     key: 'painting',
@@ -443,7 +357,7 @@ export const servicesList = [
     services: [
       {
         title: 'Seasonal Maintenance',
-        description: 'Spring and fall cleanups, gutter service, and winterization to prevent costly repairs.',
+        description: 'Spring and fall cleanups and winterization to prevent costly repairs.',
       },
       {
         title: 'HVAC & Mechanical Checks',

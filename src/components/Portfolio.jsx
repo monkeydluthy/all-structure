@@ -29,15 +29,6 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: 'Roof Repair',
-      description: 'Complete roof restoration',
-      beforeImage: '/images/roof-before.jpg',
-      afterImage: '/images/roof-after.jpg',
-      service: 'Roofing',
-      location: 'Southington, CT',
-    },
-    {
-      id: 4,
       title: 'Basement Finishing',
       description: 'Unfinished to finished basement',
       beforeImage: '/images/basement-before.jpg',
@@ -46,7 +37,7 @@ const Portfolio = () => {
       location: 'Cheshire, CT',
     },
     {
-      id: 5,
+      id: 4,
       title: 'Water Damage Restoration',
       description: 'Complete restoration after flood',
       beforeImage: '/images/water-restore-before.jpg',
@@ -55,7 +46,7 @@ const Portfolio = () => {
       location: 'Meriden, CT',
     },
     {
-      id: 6,
+      id: 5,
       title: 'Tile Installation',
       description: 'Floor tiling',
       beforeImage: '/images/tiling-before.jpg',

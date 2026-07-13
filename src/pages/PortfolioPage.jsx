@@ -15,12 +15,11 @@ const PortfolioPage = () => {
   usePageMetadata({
     title: 'Construction Portfolio Meriden CT | All Structure Maintenance Projects',
     description:
-      'Browse remodeling, roofing, restoration, and property maintenance projects completed by All Structure Maintenance in Meriden, Wallingford, Cheshire, and across Connecticut.',
+      'Browse remodeling, restoration, and property maintenance projects completed by All Structure Maintenance in Meriden, Wallingford, Cheshire, and across Connecticut.',
     keywords: [
       'general contractor meriden ct portfolio',
       'kitchen remodeling connecticut projects',
       'bathroom renovation meriden ct before and after',
-      'roofing contractor wallingford ct photos',
       'water damage restoration meriden examples',
       'best general contractor near meriden work',
     ],
@@ -28,7 +27,7 @@ const PortfolioPage = () => {
     openGraph: {
       title: 'Project Portfolio | All Structure Maintenance',
       description:
-        'See before-and-after photos from Connecticut remodeling, roofing, restoration, and maintenance projects completed by All Structure Maintenance.',
+        'See before-and-after photos from Connecticut remodeling, restoration, and maintenance projects completed by All Structure Maintenance.',
       type: 'website',
       image: `${SITE_URL}/images/kitchen-after.jpg`,
     },
@@ -41,7 +40,7 @@ const PortfolioPage = () => {
           name: 'All Structure Maintenance Project Portfolio',
           url: `${SITE_URL}/portfolio`,
           description:
-            'Remodeling, roofing, restoration, painting, tile, and property maintenance projects completed across Meriden, Wallingford, Cheshire, and surrounding Connecticut communities.',
+            'Remodeling, restoration, painting, tile, and property maintenance projects completed across Meriden, Wallingford, Cheshire, and surrounding Connecticut communities.',
         },
       },
     ],
@@ -69,15 +68,6 @@ const PortfolioPage = () => {
     },
     {
       id: 3,
-      title: 'Roof Repair',
-      description: 'Complete roof restoration',
-      beforeImage: '/images/roof-before.jpg',
-      afterImage: '/images/roof-after.jpg',
-      service: 'Roofing',
-      location: 'Southington, CT',
-    },
-    {
-      id: 4,
       title: 'Basement Finishing',
       description: 'Unfinished to finished basement',
       beforeImage: '/images/basement-before.jpg',
@@ -86,7 +76,7 @@ const PortfolioPage = () => {
       location: 'Cheshire, CT',
     },
     {
-      id: 5,
+      id: 4,
       title: 'Water Damage Restoration',
       description: 'Complete restoration after flood',
       beforeImage: '/images/water-restore-before.jpg',
@@ -95,7 +85,7 @@ const PortfolioPage = () => {
       location: 'Meriden, CT',
     },
     {
-      id: 6,
+      id: 5,
       title: 'Tile Installation',
       description: 'Floor tiling',
       beforeImage: '/images/tiling-before.jpg',
@@ -124,14 +114,6 @@ const PortfolioPage = () => {
     },
     {
       id: 3,
-      title: 'Roofing Excellence',
-      description: 'Professional roof installation',
-      image: '/images/roof.JPEG',
-      service: 'Roofing',
-      location: 'Southington, CT',
-    },
-    {
-      id: 4,
       title: 'Sheetrock Installation',
       description: 'Smooth sheetrock finishing',
       image: '/images/sheetrock.JPG',
@@ -139,7 +121,7 @@ const PortfolioPage = () => {
       location: 'Cheshire, CT',
     },
     {
-      id: 5,
+      id: 4,
       title: 'Tile Work',
       description: 'Custom tile installation',
       image: '/images/tile.jpg',
@@ -147,7 +129,7 @@ const PortfolioPage = () => {
       location: 'Meriden, CT',
     },
     {
-      id: 6,
+      id: 5,
       title: 'Property Maintenance',
       description: 'Well-maintained outdoor space',
       image: '/images/lawn.jpg',
@@ -259,7 +241,7 @@ const PortfolioPage = () => {
         <div className="container">
           <h1>General Contractor Portfolio in Meriden &amp; Connecticut</h1>
           <p>
-            Explore how All Structure Maintenance—Meriden’s trusted general contractor—delivers kitchen remodeling, bathroom renovation, emergency water damage restoration, roofing repairs, and property maintenance across Connecticut. Each project highlights our commitment to clean job sites, detailed craftsmanship, and responsive communication.
+            Explore how All Structure Maintenance—Meriden’s trusted general contractor—delivers kitchen remodeling, bathroom renovation, emergency water damage restoration, and property maintenance across Connecticut. Each project highlights our commitment to clean job sites, detailed craftsmanship, and responsive communication.
           </p>
           <p>
             Looking for inspiration? Review the transformations below, then schedule a consultation to discuss your project in Meriden, Wallingford, Cheshire, or nearby towns. You can also revisit our{' '}
@@ -270,7 +252,6 @@ const PortfolioPage = () => {
           </p>
           <div className="portfolio-hero-links">
             <Link to="/services/remodeling">Kitchen &amp; Bathroom Remodeling</Link>
-            <Link to="/services/roofing">Roofing &amp; Gutter Projects</Link>
             <Link to="/services/restoration">Water Damage Restoration</Link>
             <Link to="/services/maintenance">Property Maintenance Programs</Link>
             <Link to="/contact">Request a Project Estimate</Link>

@@ -599,7 +599,7 @@ const AddProjectForm = ({ project, onClose, onSuccess, onError, isModal = false 
   const [galleryImagePreviews, setGalleryImagePreviews] = useState([]);
   const [uploading, setUploading] = useState(false);
 
-  const services = ['Remodeling', 'Restoration', 'Roofing', 'Painting', 'Tile', 'Maintenance'];
+  const services = ['Remodeling', 'Restoration', 'Painting', 'Tile', 'Maintenance'];
 
   const handleImageChange = (type, e) => {
     const files = Array.from(e.target.files);

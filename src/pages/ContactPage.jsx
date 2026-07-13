@@ -15,7 +15,6 @@ const ContactPage = () => {
     keywords: [
       'contact general contractor meriden ct',
       'free estimate kitchen remodeling connecticut',
-      'roofing contractor wallingford ct contact',
       'property maintenance cheshire ct quote',
       'water damage restoration meriden contact',
     ],
@@ -23,7 +22,7 @@ const ContactPage = () => {
     openGraph: {
       title: 'Contact All Structure Maintenance | Meriden, CT',
       description:
-        'Reach out to Meriden’s trusted general contractor for remodeling, restoration, roofing, painting, tile, and maintenance projects across Connecticut.',
+        'Reach out to Meriden’s trusted general contractor for remodeling, restoration, painting, tile, and maintenance projects across Connecticut.',
       type: 'website',
     },
     structuredData: [
@@ -35,7 +34,7 @@ const ContactPage = () => {
           name: 'Contact All Structure Maintenance',
           url: `${SITE_URL}/contact`,
           description:
-            'Contact All Structure Maintenance to schedule remodeling, restoration, roofing, painting, tile, or property maintenance services in Connecticut.',
+            'Contact All Structure Maintenance to schedule remodeling, restoration, painting, tile, or property maintenance services in Connecticut.',
         },
       },
     ],
@@ -106,7 +105,6 @@ const ContactPage = () => {
   const services = [
     'Full Restoration & Repairs',
     'Remodeling & Renovations',
-    'Roof Repair & Gutter Cleaning',
     'Painting & Sheetrock',
     'Tile Installation',
     'Property Maintenance',
@@ -178,14 +176,6 @@ const ContactPage = () => {
                 Emergency mitigation, drying, and rebuilds for homes and businesses across Meriden.
               </p>
               <Link to="/services/restoration" className="cta-text-link">Learn about restoration →</Link>
-            </div>
-            <div className="contact-service-card">
-              <span className="contact-service-icon">🔧</span>
-              <h3>Roof Repair &amp; Gutter Care</h3>
-              <p>
-                Leak repair, replacements, and maintenance programs for Wallingford and surrounding towns.
-              </p>
-              <Link to="/services/roofing" className="cta-text-link">Roofing solutions →</Link>
             </div>
             <div className="contact-service-card">
               <span className="contact-service-icon">🎨</span>

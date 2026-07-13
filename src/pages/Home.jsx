@@ -23,11 +23,6 @@ const Home = () => {
       link: '/services/restoration',
     },
     {
-      title: 'Roofing Contractor Serving Wallingford & Meriden',
-      description: 'Leak repairs, full replacements, and gutter protection to keep your property secure.',
-      link: '/services/roofing',
-    },
-    {
       title: 'Property Maintenance Services Near Me',
       description: 'Seasonal upkeep, preventative inspections, and on-call technicians for peace of mind.',
       link: '/services/maintenance',
@@ -42,12 +37,11 @@ const Home = () => {
   usePageMetadata({
     title: 'General Contractor Meriden CT | All Structure Maintenance',
     description:
-      'All Structure Maintenance is a licensed general contractor serving Meriden, Wallingford, and Cheshire, CT. We deliver kitchen remodeling, bathroom renovations, roofing, painting, water damage restoration, and property maintenance.',
+      'All Structure Maintenance is a licensed general contractor serving Meriden, Wallingford, and Cheshire, CT. We deliver kitchen remodeling, bathroom renovations, painting, water damage restoration, and property maintenance.',
     keywords: [
       'general contractor meriden ct',
       'kitchen remodeling connecticut',
       'bathroom renovation meriden ct',
-      'roofing contractor wallingford ct',
       'property maintenance cheshire ct',
       'water damage restoration meriden',
       'painting contractor connecticut',
@@ -56,7 +50,7 @@ const Home = () => {
     openGraph: {
       title: 'All Structure Maintenance | General Contractor in Meriden, CT',
       description:
-        'Licensed and insured Connecticut contractors providing remodeling, restoration, roofing, painting, tile, and property maintenance.',
+        'Licensed and insured Connecticut contractors providing remodeling, restoration, painting, tile, and property maintenance.',
       type: 'website',
       image: `${SITE_URL}/images/kitchen-after.jpg`,
     },
@@ -68,7 +62,7 @@ const Home = () => {
           '@type': 'LocalBusiness',
           name: 'All Structure Maintenance',
           description:
-            'Licensed general contractor providing remodeling, restoration, roofing, painting, tile, and property maintenance in Meriden, Connecticut.',
+            'Licensed general contractor providing remodeling, restoration, painting, tile, and property maintenance in Meriden, Connecticut.',
           url: SITE_URL,
           telephone: '+1-203-233-3862',
           areaServed: [
@@ -123,7 +117,7 @@ const Home = () => {
               When you search for a general contractor in Meriden, CT, you want a partner who can manage every detail—from design consultations and permitting to the final cleanup. All Structure Maintenance brings licensed expertise to kitchen remodeling across Connecticut, bathroom renovation projects in Meriden, and emergency water damage restoration for New Haven County homeowners. Our crew responds quickly, communicates clearly, and documents every milestone so you always know what is happening inside your property.
             </p>
             <p>
-              We support busy homeowners, landlords, and commercial property managers with preventive maintenance plans, emergency roof repairs, interior and exterior painting, and custom tile installations. Explore our most popular services:
+              We support busy homeowners, landlords, and commercial property managers with preventive maintenance plans, interior and exterior painting, and custom tile installations. Explore our most popular services:
             </p>
           </div>
           <div className="home-seo-grid">

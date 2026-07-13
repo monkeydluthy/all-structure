@@ -83,7 +83,6 @@ const Contact = () => {
   const services = [
     'Full Restoration & Repairs',
     'Remodeling & Renovations',
-    'Roof Repair & Gutter Cleaning',
     'Painting & Sheetrock',
     'Tile Installation',
     'Property Maintenance',

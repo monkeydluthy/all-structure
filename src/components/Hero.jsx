@@ -37,8 +37,8 @@ const Hero = () => {
             <h1>Connecticut's Trusted General Contractor</h1>
             <p className="hero-subtitle">Licensed • Insured • Reliable</p>
             <p className="hero-description">
-              From full restoration to roof repairs, gutter cleaning, and
-              remodeling - we deliver exceptional results with a steadfast
+              From full restoration to remodeling, painting, and property
+              maintenance - we deliver exceptional results with a steadfast
               commitment to client satisfaction.
             </p>
             <div className="hero-buttons">

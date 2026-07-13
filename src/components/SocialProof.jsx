@@ -11,7 +11,7 @@ const SocialProof = () => {
     {
       name: 'Mike R.',
       location: 'Wallingford, CT',
-      text: 'Outstanding roof repair service. They fixed our leak quickly and the work has held up perfectly for years.',
+      text: 'Outstanding restoration service. They fixed our water damage quickly and the work has held up perfectly for years.',
       rating: 5,
     },
     {

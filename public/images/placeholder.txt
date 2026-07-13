@@ -8,7 +8,6 @@ This directory should contain the following images for the All Structure Mainten
 ## Services Images
 - service-restoration.jpg (400x300px)
 - service-remodeling.jpg (400x300px) 
-- service-roofing.jpg (400x300px)
 - service-painting.jpg (400x300px)
 - service-tile.jpg (400x300px)
 - service-maintenance.jpg (400x300px)
@@ -18,8 +17,6 @@ This directory should contain the following images for the All Structure Mainten
 - portfolio-kitchen-after.jpg (600x400px)
 - portfolio-bathroom-before.jpg (600x400px)
 - portfolio-bathroom-after.jpg (600x400px)
-- portfolio-roof-before.jpg (600x400px)
-- portfolio-roof-after.jpg (600x400px)
 - portfolio-basement-before.jpg (600x400px)
 - portfolio-basement-after.jpg (600x400px)
 - portfolio-water-before.jpg (600x400px)

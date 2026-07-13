@@ -6,7 +6,7 @@ const AboutPage = () => {
   usePageMetadata({
     title: 'About All Structure Maintenance | Meriden CT General Contractor',
     description:
-      'Learn about All Structure Maintenance, a licensed general contractor based in Meriden, CT providing remodeling, restoration, roofing, painting, tile, and property maintenance services across Connecticut.',
+      'Learn about All Structure Maintenance, a licensed general contractor based in Meriden, CT providing remodeling, restoration, painting, tile, and property maintenance services across Connecticut.',
     keywords: [
       'general contractor meriden ct',
       'about all structure maintenance',
@@ -87,8 +87,8 @@ const AboutPage = () => {
               </p>
               <p>
                 Today, we continue to build on our reputation for excellence, offering a full range 
-                of services including restoration, remodeling, roofing, painting, tiling, and property 
-                maintenance. Our team brings years of experience, attention to detail, and a genuine 
+                of services including restoration, remodeling, painting, tiling, and property
+                maintenance. Our team brings years of experience, attention to detail, and a genuine
                 passion for transforming properties and exceeding expectations.
               </p>
             </div>

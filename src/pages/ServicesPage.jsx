@@ -10,12 +10,12 @@ const ServicesPage = () => {
       {
         question: 'How do I choose the best general contractor near Meriden, CT?',
         answer:
-          'Start by confirming Connecticut licensing, adequate insurance coverage, and proven experience with projects similar to yours. All Structure Maintenance is a licensed general contractor based in Meriden that delivers restoration, remodeling, roofing, and property maintenance backed by clear estimates, real client reviews, and photo documentation.',
+          'Start by confirming Connecticut licensing, adequate insurance coverage, and proven experience with projects similar to yours. All Structure Maintenance is a licensed general contractor based in Meriden that delivers restoration, remodeling, and property maintenance backed by clear estimates, real client reviews, and photo documentation.',
       },
       {
         question: 'Do I need permits for remodeling projects in Connecticut?',
         answer:
-          'Yes. Kitchen remodeling, bathroom renovations, roofing projects, and structural changes usually require permits from your local building department. Our team prepares drawings, submits applications, and schedules inspections across Meriden, Wallingford, and Cheshire so your project stays compliant.',
+          'Yes. Kitchen remodeling, bathroom renovations, and structural changes usually require permits from your local building department. Our team prepares drawings, submits applications, and schedules inspections across Meriden, Wallingford, and Cheshire so your project stays compliant.',
       },
       {
         question: 'What should I look for in a property maintenance contractor?',
@@ -29,12 +29,11 @@ const ServicesPage = () => {
   usePageMetadata({
     title: 'General Contractor Meriden CT | All Structure Maintenance Services',
     description:
-      'Explore remodeling, roofing, restoration, painting, tile, and property maintenance services from All Structure Maintenance—licensed general contractors serving Meriden, Wallingford, and Cheshire, CT.',
+      'Explore remodeling, restoration, painting, tile, and property maintenance services from All Structure Maintenance—licensed general contractors serving Meriden, Wallingford, and Cheshire, CT.',
     keywords: [
       'general contractor meriden ct',
       'kitchen remodeling connecticut',
       'bathroom renovation meriden ct',
-      'roofing contractor wallingford ct',
       'property maintenance cheshire ct',
       'water damage restoration meriden',
       'painting contractor connecticut',
@@ -43,7 +42,7 @@ const ServicesPage = () => {
     openGraph: {
       title: 'Meriden CT General Contractor Services | All Structure Maintenance',
       description:
-        'Licensed general contractor offering remodeling, restoration, roofing, painting, tile, and property maintenance across Connecticut.',
+        'Licensed general contractor offering remodeling, restoration, painting, tile, and property maintenance across Connecticut.',
       type: 'website',
     },
     structuredData: [
@@ -77,11 +76,6 @@ const ServicesPage = () => {
       link: '/services/restoration',
     },
     {
-      title: 'Roofing Contractor near Wallingford, CT',
-      description: 'Leak repair, full replacements, and gutter protection to keep your property weather-ready.',
-      link: '/services/roofing',
-    },
-    {
       title: 'Property Maintenance Services in Cheshire, CT',
       description: 'Scheduled upkeep, preventative inspections, and on-call technicians for homeowners and landlords.',
       link: '/services/maintenance',
@@ -105,7 +99,7 @@ const ServicesPage = () => {
         <div className="container">
           <h1>General Contractor Services in Meriden, CT</h1>
           <p className="services-hero-description">
-            All Structure Maintenance is the go-to general contractor for Meriden, Wallingford, and Cheshire, CT. From kitchen remodeling and bathroom renovations to emergency roof repair and property maintenance programs, our licensed team delivers reliable craftsmanship on every project.
+            All Structure Maintenance is the go-to general contractor for Meriden, Wallingford, and Cheshire, CT. From kitchen remodeling and bathroom renovations to emergency water damage restoration and property maintenance programs, our licensed team delivers reliable craftsmanship on every project.
           </p>
         </div>
       </section>
@@ -116,7 +110,7 @@ const ServicesPage = () => {
           <div className="services-overview-intro">
             <h2>Licensed Remodeling, Restoration, and Maintenance Experts</h2>
             <p>
-              As a full-service general contractor in Meriden, CT, we help homeowners and commercial property owners tackle projects of every size. Our specialists manage kitchen remodeling across Connecticut, deliver bathroom renovation upgrades in Meriden, and deploy emergency roof repair teams throughout Wallingford and New Haven County. With proactive property maintenance plans in Cheshire and rapid water damage restoration in Meriden, we keep your property safe, efficient, and beautiful year-round.
+              As a full-service general contractor in Meriden, CT, we help homeowners and commercial property owners tackle projects of every size. Our specialists manage kitchen remodeling across Connecticut, deliver bathroom renovation upgrades in Meriden, and provide rapid water damage restoration throughout Wallingford and New Haven County. With proactive property maintenance plans in Cheshire, we keep your property safe, efficient, and beautiful year-round.
             </p>
             <p>
               We follow state guidelines for contractor licensing and permitting. Review the latest requirements from the{' '}
@@ -187,7 +181,7 @@ const ServicesPage = () => {
           <div className="services-cta-card">
             <h2>Ready to Work With Meriden’s Trusted Contractors?</h2>
             <p>
-              Schedule a consultation to discuss your project goals, timeline, and budget. We’ll provide a detailed estimate and roadmap whether you need kitchen remodeling, bathroom renovations, roofing, painting, tile work, or a custom property maintenance plan.
+              Schedule a consultation to discuss your project goals, timeline, and budget. We’ll provide a detailed estimate and roadmap whether you need kitchen remodeling, bathroom renovations, painting, tile work, or a custom property maintenance plan.
             </p>
             <div className="cta-buttons">
               <a href="tel:2032333862" className="cta-primary">
