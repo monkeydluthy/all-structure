@@ -8,7 +8,7 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import Contact from '../components/Contact';
 import usePageMetadata from '../hooks/usePageMetadata';
 
-const SITE_URL = 'https://all-structure-maintenance.netlify.app';
+const SITE_URL = 'https://allstructuremaintenance.com';
 
 const Home = () => {
   const highlightServices = [

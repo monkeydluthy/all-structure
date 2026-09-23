@@ -69,7 +69,7 @@ const AdminDashboard = () => {
             <div className="admin-header-right" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
               <span className="admin-welcome-text">Welcome, {user?.email === 'luthdigitalconsult@gmail.com' ? 'Anthony' : user?.email === 'AllstructureMainLLC@yahoo.com' ? 'Steve' : user?.email}</span>
               <a 
-                href="https://all-structure-maintenance.netlify.app/"
+                href="https://allstructuremaintenance.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

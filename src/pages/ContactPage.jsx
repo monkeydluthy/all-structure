@@ -5,7 +5,7 @@ import { emailConfig } from '../config/emailConfig';
 import { trackFormSubmit, trackPhoneCall, trackEmailClick } from '../utils/analytics';
 import usePageMetadata from '../hooks/usePageMetadata';
 
-const SITE_URL = 'https://all-structure-maintenance.netlify.app';
+const SITE_URL = 'https://allstructuremaintenance.com';
 
 const ContactPage = () => {
   usePageMetadata({

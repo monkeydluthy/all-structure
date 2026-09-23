@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const SITE_URL = 'https://all-structure-maintenance.netlify.app';
+const SITE_URL = 'https://allstructuremaintenance.com';
 
 const upsertMetaTag = (selector, attributes = {}) => {
   let tag = document.head.querySelector(selector);

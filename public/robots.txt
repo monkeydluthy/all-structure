@@ -4,4 +4,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/login
 
-Sitemap: https://all-structure-maintenance.netlify.app/sitemap.xml
+Sitemap: https://allstructuremaintenance.com/sitemap

@@ -5,7 +5,7 @@ import usePageMetadata from '../hooks/usePageMetadata';
 import { servicesByKey, servicesList } from '../data/services';
 import FaqAccordion from '../components/FaqAccordion';
 
-const SITE_URL = 'https://all-structure-maintenance.netlify.app';
+const SITE_URL = 'https://allstructuremaintenance.com';
 
 const ServicePage = () => {
   const { serviceKey: paramKey } = useParams();

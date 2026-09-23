@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { supabase } from '../config/supabaseConfig';
 import usePageMetadata from '../hooks/usePageMetadata';
 
-const SITE_URL = 'https://all-structure-maintenance.netlify.app';
+const SITE_URL = 'https://allstructuremaintenance.com';
 
 const PortfolioPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
