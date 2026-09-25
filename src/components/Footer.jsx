@@ -117,6 +117,16 @@ const Footer = () => {
               &copy; {currentYear} All Structure Maintenance LLC. All rights
               reserved.
             </p>
+            <p className="footer-credit">
+              Site by{' '}
+              <a
+                href="https://digitaldynamicsolution.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                DDS
+              </a>
+            </p>
             <div className="footer-links">
               <Link to="/privacy">Privacy Policy</Link>
               <Link to="/terms">Terms of Service</Link>

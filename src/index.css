@@ -2580,6 +2580,21 @@ body.admin-page {
   gap: 1rem;
 }
 
+.footer-credit {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.footer-credit a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.footer-credit a:hover {
+  color: #d4a017;
+}
+
 .footer-links {
   display: flex;
   gap: 2rem;
