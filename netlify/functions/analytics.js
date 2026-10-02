@@ -119,7 +119,8 @@ export const handler = async (event, context) => {
     })) || [];
     
     // Extract specific conversion events
-    const formSubmits = events.find(e => e.event === 'form_submit')?.count || 0;
+    const formSubmits = (events.find(e => e.event === 'generate_lead')?.count || 0)
+      + (events.find(e => e.event === 'form_submit')?.count || 0);
     const phoneCalls = events.find(e => e.event === 'phone_click')?.count || 0;
     const emailClicks = events.find(e => e.event === 'email_click')?.count || 0;
     const ctaClicks = events.find(e => e.event === 'cta_click')?.count || 0;

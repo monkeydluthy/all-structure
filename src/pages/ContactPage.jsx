@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/emailConfig';
-import { trackFormSubmit, trackPhoneCall, trackEmailClick } from '../utils/analytics';
+import { trackGenerateLead } from '../lib/analytics';
 import usePageMetadata from '../hooks/usePageMetadata';
 
 const SITE_URL = 'https://allstructuremaintenance.com';
@@ -61,6 +61,8 @@ const ContactPage = () => {
   });
   const [showServiceModal, setShowServiceModal] = React.useState(false);
   const [submitted, setSubmitted] = React.useState(false);
+  const [submitSucceeded, setSubmitSucceeded] = React.useState(false);
+  const submitLock = React.useRef(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -68,8 +70,14 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (submitLock.current) return;
+    submitLock.current = true;
+
+    const serviceSelected = formData.service;
     
     setSubmitted(true);
+    setSubmitSucceeded(false);
     
     emailjs.send(emailConfig.serviceId, emailConfig.templateId, {
       to_email: emailConfig.recipientEmail,
@@ -81,15 +89,21 @@ const ContactPage = () => {
     }, emailConfig.publicKey)
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text);
-      trackFormSubmit('Contact Page Form', formData.service);
+      setSubmitSucceeded(true);
+      trackGenerateLead({
+        formLocation: 'contact_page',
+        serviceSelected,
+      });
     })
     .catch((error) => {
       console.log('FAILED...', error);
       // Fallback to mailto if EmailJS fails
-      const subject = `Free Estimate Request - ${formData.service}`;
-      const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\n${formData.message}`;
+      const subject = `Free Estimate Request - ${serviceSelected}`;
+      const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${serviceSelected}\n\n${formData.message}`;
       window.location.href = `mailto:${emailConfig.recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      trackFormSubmit('Contact Page Form (Failed)', formData.service);
+    })
+    .finally(() => {
+      submitLock.current = false;
     });
     
     setFormData({
@@ -128,8 +142,8 @@ const ContactPage = () => {
             Ready to schedule kitchen remodeling, bathroom renovations, emergency water damage restoration, or property maintenance in Connecticut? Reach out for a free, no-obligation estimate and fast support across Meriden, Wallingford, Cheshire, and nearby towns.
           </p>
           <p>
-            Call <a href="tel:2032333862" onClick={() => trackPhoneCall('203.233.3862')}>203.233.3862</a>, email{' '}
-            <a href="mailto:AllstructureMainLLC@yahoo.com" onClick={() => trackEmailClick('AllstructureMainLLC@yahoo.com')}>
+            Call <a href="tel:2032333862">203.233.3862</a>, email{' '}
+            <a href="mailto:AllstructureMainLLC@yahoo.com">
               AllstructureMainLLC@yahoo.com
             </a>, or complete the form below to start your project.
           </p>
@@ -278,8 +292,8 @@ const ContactPage = () => {
                   />
                 </div>
 
-                <button type="submit" className="submit-btn">
-                  {submitted ? (
+                <button type="submit" className="submit-btn" disabled={submitted}>
+                  {submitted && !submitSucceeded ? (
                     <>
                       ✅ Sending...
                       <p style={{ fontSize: '0.9rem', marginTop: '0.5rem', fontWeight: 'normal' }}>
@@ -290,6 +304,12 @@ const ContactPage = () => {
                     'Get Free Estimate →'
                   )}
                 </button>
+
+                {submitSucceeded && (
+                  <div className="success-message">
+                    Thanks, we'll respond within 24 hours
+                  </div>
+                )}
               </form>
 
               {/* Service Selection Modal */}
@@ -335,13 +355,13 @@ const ContactPage = () => {
                 <div className="contact-card">
                   <div className="contact-card-icon">📞</div>
                   <h4>Call Us</h4>
-                  <a href="tel:2032333862" className="contact-card-link phone-link" onClick={() => trackPhoneCall('203.233.3862')}>
+                  <a href="tel:2032333862" className="contact-card-link phone-link">
                     203.233.3862
                   </a>
                   <p>Available 7 days a week</p>
                 </div>
 
-                <a href="mailto:AllstructureMainLLC@yahoo.com" className="contact-card" style={{ textDecoration: 'none' }} onClick={() => trackEmailClick('AllstructureMainLLC@yahoo.com')}>
+                <a href="mailto:AllstructureMainLLC@yahoo.com" className="contact-card" style={{ textDecoration: 'none' }}>
                   <div className="contact-card-icon">✉️</div>
                   <h4>Email Us</h4>
                   <p>We respond within 24 hours</p>
@@ -386,7 +406,7 @@ const ContactPage = () => {
                 for emergency situations.
               </p>
               <div className="cta-buttons">
-                <a href="tel:2032333862" className="cta-primary" onClick={() => trackPhoneCall('203.233.3862')}>
+                <a href="tel:2032333862" className="cta-primary">
                   📞 Call 203.233.3862 Now
                 </a>
               </div>

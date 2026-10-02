@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { trackPhoneCall, trackCTAClick } from '../utils/analytics';
+import { trackCTAClick } from '../utils/analytics';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,7 +56,7 @@ const Header = () => {
           </nav>
 
           <div className="header-cta">
-            <a href="tel:2032333862" className="phone-btn" onClick={() => trackPhoneCall('203.233.3862')}>
+            <a href="tel:2032333862" className="phone-btn">
               📞 203.233.3862
             </a>
             <a
@@ -86,7 +86,7 @@ const Header = () => {
             <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
             <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             <div className="mobile-cta">
-              <a href="tel:2032333862" className="phone-btn" onClick={() => trackPhoneCall('203.233.3862')}>
+              <a href="tel:2032333862" className="phone-btn">
                 📞 203.233.3862
               </a>
               <Link to="/contact" className="cta-btn" onClick={() => { trackCTAClick('Mobile Get Free Estimate'); setIsMenuOpen(false); }}>

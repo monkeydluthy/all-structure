@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { emailConfig } from '../config/emailConfig';
-import { trackFormSubmit, trackPhoneCall, trackEmailClick } from '../utils/analytics';
+import { formLocationFromPath, trackGenerateLead } from '../lib/analytics';
 
 const Contact = () => {
+  const { pathname } = useLocation();
+  const submitLock = useRef(false);
+
   // Initialize EmailJS
   useEffect(() => {
     emailjs.init(emailConfig.publicKey);
@@ -38,6 +42,12 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (submitLock.current) return;
+    submitLock.current = true;
+
+    const serviceSelected = formData.service;
+    const formLocation = formLocationFromPath(pathname);
     
     setIsSubmitting(true);
     
@@ -52,17 +62,20 @@ const Contact = () => {
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text);
       setSubmitStatus('success');
-      // Track form submission
-      trackFormSubmit('Homepage Contact Form', formData.service);
+      trackGenerateLead({
+        formLocation,
+        serviceSelected,
+      });
     })
     .catch((error) => {
       console.log('FAILED...', error);
       // Fallback to mailto if EmailJS fails
-      const subject = `Free Estimate Request - ${formData.service}`;
-      const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\n${formData.message}`;
+      const subject = `Free Estimate Request - ${serviceSelected}`;
+      const body = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${serviceSelected}\n\n${formData.message}`;
       window.location.href = `mailto:${emailConfig.recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      // Track form submission attempt (even if failed)
-      trackFormSubmit('Homepage Contact Form (Failed)', formData.service);
+    })
+    .finally(() => {
+      submitLock.current = false;
     });
     
     setFormData({
@@ -105,7 +118,7 @@ const Contact = () => {
               <span style={{ fontSize: '1.5rem', color: '#3b82f6' }}>📞</span>
               <div>
                 <h4>Call Us</h4>
-                <a href="tel:2032333862" onClick={() => trackPhoneCall('203.233.3862')}>203.233.3862</a>
+                <a href="tel:2032333862">203.233.3862</a>
                 <p>Available 7 days a week</p>
               </div>
             </div>
@@ -114,7 +127,7 @@ const Contact = () => {
               <span style={{ fontSize: '1.5rem', color: '#3b82f6' }}>✉️</span>
               <div>
                 <h4>Email Us</h4>
-                <a href="mailto:AllstructureMainLLC@yahoo.com" onClick={() => trackEmailClick('AllstructureMainLLC@yahoo.com')}>
+                <a href="mailto:AllstructureMainLLC@yahoo.com">
                   AllstructureMainLLC@yahoo.com
                 </a>
                 <p>We respond within 24 hours</p>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { trackPhoneCall, trackEmailClick } from '../utils/analytics';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -88,11 +87,11 @@ const Footer = () => {
             <div className="contact-details">
               <div className="contact-detail">
                 📞
-                <a href="tel:2032333862" onClick={() => trackPhoneCall('203.233.3862')}>203.233.3862</a>
+                <a href="tel:2032333862">203.233.3862</a>
               </div>
               <div className="contact-detail">
                 ✉️
-                <a href="mailto:AllstructureMainLLC@yahoo.com" onClick={() => trackEmailClick('AllstructureMainLLC@yahoo.com')}>
+                <a href="mailto:AllstructureMainLLC@yahoo.com">
                   AllstructureMainLLC@yahoo.com
                 </a>
               </div>

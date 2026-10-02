@@ -12,14 +12,21 @@ import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
+import { initContactLinkTracking, trackRouteChange } from './lib/analytics';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    trackRouteChange(pathname);
   }, [pathname]);
 
+  return null;
+}
+
+function ContactLinkTracking() {
+  useEffect(() => initContactLinkTracking(), []);
   return null;
 }
 
@@ -39,6 +46,7 @@ function App() {
   return (
     <div className="App">
       <ScrollToTop />
+      <ContactLinkTracking />
       {!isAdminPage && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
