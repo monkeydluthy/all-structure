@@ -1,3 +1,12 @@
+# Specific redirects must come before the SPA fallback.
 /services/roofing  /services  301
-/sitemap           /sitemap.xml  200
-/*    /index.html   200
+/index.html  /  301!
+
+# Netlify site name is all-structure-maintenance (see package.json).
+https://all-structure-maintenance.netlify.app/*  https://allstructuremaintenance.com/:splat  301!
+
+# Same direction as the apex primary domain. No apex -> www rule, so this cannot loop.
+https://www.allstructuremaintenance.com/*  https://allstructuremaintenance.com/:splat  301!
+
+/sitemap  /sitemap.xml  200
+/*  /index.html  200

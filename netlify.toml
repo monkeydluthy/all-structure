@@ -10,3 +10,14 @@
 # Function configuration
 [functions]
   node_bundler = "esbuild"
+
+# Deploy previews and branch deploys only. Production does not get this header.
+[[context.deploy-preview.headers]]
+  for = "/*"
+  [context.deploy-preview.headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[context.branch-deploy.headers]]
+  for = "/*"
+  [context.branch-deploy.headers.values]
+    X-Robots-Tag = "noindex, nofollow"
