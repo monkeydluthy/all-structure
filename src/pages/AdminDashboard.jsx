@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../config/supabaseConfig';
+import { stripImageMetadata } from '../utils/stripImageMetadata';
 import AnalyticsWidget from '../components/AnalyticsWidget';
 
 const AdminDashboard = () => {
@@ -737,12 +738,13 @@ const AddProjectForm = ({ project, onClose, onSuccess, onError, isModal = false 
   };
 
   const uploadImage = async (file, filename) => {
-    const fileExt = file.name.split('.').pop();
+    const prepared = await stripImageMetadata(file);
+    const fileExt = prepared.name.split('.').pop();
     const finalFilename = `${filename}.${fileExt}`;
 
     const { data, error } = await supabase.storage
       .from('project-images')
-      .upload(finalFilename, file);
+      .upload(finalFilename, prepared, { contentType: prepared.type });
 
     if (error) throw error;
 

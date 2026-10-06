@@ -139,7 +139,7 @@ const Contact = () => {
               <div>
                 <h4>Visit Us</h4>
                 <p>Meriden, CT 06451</p>
-                <p>Serving all of Connecticut</p>
+                <p>Serving central Connecticut</p>
               </div>
             </div>
 

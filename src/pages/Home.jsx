@@ -6,6 +6,7 @@ import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Contact from '../components/Contact';
+import { GOOGLE_REVIEW_URL } from '../config/business';
 import usePageMetadata from '../hooks/usePageMetadata';
 
 const SITE_URL = 'https://allstructuremaintenance.com';
@@ -18,13 +19,13 @@ const Home = () => {
       link: '/services/remodeling',
     },
     {
-      title: '24/7 Water Damage Restoration in Meriden',
+      title: 'Emergency Water Damage Restoration in Meriden',
       description: 'Emergency dry-out, remediation, and structural repairs handled by licensed pros.',
       link: '/services/restoration',
     },
     {
       title: 'Property Maintenance Services Near Me',
-      description: 'Seasonal upkeep, preventative inspections, and on-call technicians for peace of mind.',
+      description: 'Seasonal upkeep and preventative inspections for peace of mind.',
       link: '/services/maintenance',
     },
     {
@@ -37,7 +38,7 @@ const Home = () => {
   usePageMetadata({
     title: 'General Contractor Meriden CT | All Structure Maintenance',
     description:
-      'All Structure Maintenance is a licensed general contractor serving Meriden, Wallingford, and Cheshire, CT. We deliver kitchen remodeling, bathroom renovations, painting, water damage restoration, and property maintenance.',
+      'All Structure Maintenance is a licensed general contractor serving Meriden, Wallingford, Cheshire, Southington, and Wolcott, CT. We deliver kitchen remodeling, bathroom renovations, painting, water damage restoration, and property maintenance.',
     keywords: [
       'general contractor meriden ct',
       'kitchen remodeling connecticut',
@@ -71,6 +72,7 @@ const Home = () => {
             { '@type': 'City', name: 'Cheshire, CT' },
             { '@type': 'City', name: 'Middletown, CT' },
             { '@type': 'City', name: 'Southington, CT' },
+            { '@type': 'City', name: 'Wolcott, CT' },
           ],
           address: {
             '@type': 'PostalAddress',
@@ -101,7 +103,7 @@ const Home = () => {
           </p>
           <a
             className="cta-primary"
-            href="https://www.google.com/search?q=all+structure+maintenance&oq=all+structure+maintenance&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MggIARAAGBYYHjINCAIQABiGAxiABBiKBTINCAMQABiGAxiABBiKBTIKCAQQABiABBiiBDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBCDMwNDNqMGo0qAIBsAIB8QWX_cOS5lrdKQ&sourceid=chrome&ie=UTF-8#lrd=0x81581fb96d39545:0x28e82c0a03449e84,3,,,,"
+            href={GOOGLE_REVIEW_URL}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -114,7 +116,7 @@ const Home = () => {
           <div className="home-seo-intro">
             <h2>Meriden&apos;s Trusted General Contractor for Remodeling &amp; Restoration</h2>
             <p>
-              When you search for a general contractor in Meriden, CT, you want a partner who can manage every detail—from design consultations and permitting to the final cleanup. All Structure Maintenance brings licensed expertise to kitchen remodeling across Connecticut, bathroom renovation projects in Meriden, and emergency water damage restoration for New Haven County homeowners. Our crew responds quickly, communicates clearly, and documents every milestone so you always know what is happening inside your property.
+              When you search for a general contractor in Meriden, CT, you want a partner who can manage every detail—from design consultations and permitting to the final cleanup. All Structure Maintenance brings licensed expertise to kitchen remodeling across central Connecticut, bathroom renovation projects in Meriden, and emergency water damage restoration for nearby New Haven-area homeowners. Our crew responds quickly, communicates clearly, and documents every milestone so you always know what is happening inside your property.
             </p>
             <p>
               We support busy homeowners, landlords, and commercial property managers with preventive maintenance plans, interior and exterior painting, and custom tile installations. Explore our most popular services:

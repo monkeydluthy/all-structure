@@ -2486,6 +2486,21 @@ body.admin-page {
   margin-bottom: 0.5rem;
 }
 
+.contractor-registration a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.services-hero .contractor-registration,
+.service-hero .contractor-registration {
+  margin-top: 1rem;
+}
+
+.services-hero .contractor-registration a,
+.service-hero .contractor-registration a {
+  color: #facc15;
+}
+
 .footer-section ul {
   list-style: none;
 }

@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import Contact from '../components/Contact';
+import ContractorRegistration from '../components/ContractorRegistration';
 import usePageMetadata from '../hooks/usePageMetadata';
 import { servicesByKey, servicesList } from '../data/services';
 import FaqAccordion from '../components/FaqAccordion';
@@ -89,6 +90,7 @@ const ServicePage = () => {
           <div className="service-hero-content">
             <div className="service-hero-text">
               <h1>{service.heroHeading}</h1>
+              {service.slug === 'restoration' && <ContractorRegistration />}
               <p className="service-hero-description">
                 {service.overview}
               </p>
@@ -143,7 +145,7 @@ const ServicePage = () => {
       {/* Service Areas */}
       <section className="service-areas">
         <div className="container">
-          <h2>Service Areas Across Connecticut</h2>
+          <h2>Service Areas Across Central Connecticut</h2>
           <p>
             We regularly perform {service.primaryKeyword.toLowerCase()} projects in:
           </p>

@@ -15,12 +15,12 @@ const ServicesPage = () => {
       {
         question: 'Do I need permits for remodeling projects in Connecticut?',
         answer:
-          'Yes. Kitchen remodeling, bathroom renovations, and structural changes usually require permits from your local building department. Our team prepares drawings, submits applications, and schedules inspections across Meriden, Wallingford, and Cheshire so your project stays compliant.',
+          'Yes. Kitchen remodeling, bathroom renovations, and structural changes usually require permits from your local building department. Our team prepares drawings, submits applications, and schedules inspections across Meriden, Wallingford, Cheshire, Southington, and Wolcott so your project stays compliant.',
       },
       {
         question: 'What should I look for in a property maintenance contractor?',
         answer:
-          'Select a contractor that offers preventative maintenance schedules, rapid emergency response, and transparent reporting. We build property maintenance plans for Cheshire- and Meriden-area owners that include seasonal tune-ups, on-call repairs, and proactive equipment checks to avoid costly downtime.',
+          'Select a contractor that offers preventative maintenance schedules, rapid emergency response, and transparent reporting. We build property maintenance plans for Cheshire- and Meriden-area owners that include seasonal tune-ups, repairs, and proactive equipment checks to avoid costly downtime.',
       },
     ],
     []
@@ -29,7 +29,7 @@ const ServicesPage = () => {
   usePageMetadata({
     title: 'General Contractor Meriden CT | All Structure Maintenance Services',
     description:
-      'Explore remodeling, restoration, painting, tile, and property maintenance services from All Structure Maintenance—licensed general contractors serving Meriden, Wallingford, and Cheshire, CT.',
+      'Explore remodeling, restoration, painting, tile, and property maintenance services from All Structure Maintenance—licensed general contractors serving Meriden, Wallingford, Cheshire, Southington, and Wolcott, CT.',
     keywords: [
       'general contractor meriden ct',
       'kitchen remodeling connecticut',
@@ -42,7 +42,7 @@ const ServicesPage = () => {
     openGraph: {
       title: 'Meriden CT General Contractor Services | All Structure Maintenance',
       description:
-        'Licensed general contractor offering remodeling, restoration, painting, tile, and property maintenance across Connecticut.',
+        'Licensed general contractor offering remodeling, restoration, painting, tile, and property maintenance across central Connecticut.',
       type: 'website',
     },
     structuredData: [
@@ -72,12 +72,12 @@ const ServicesPage = () => {
     },
     {
       title: 'Water Damage Restoration in Meriden, CT',
-      description: '24/7 emergency dry-out, remediation, and rebuilds handled by licensed restoration specialists.',
+      description: 'Emergency dry-out, remediation, and rebuilds handled by licensed restoration specialists.',
       link: '/services/restoration',
     },
     {
       title: 'Property Maintenance Services in Cheshire, CT',
-      description: 'Scheduled upkeep, preventative inspections, and on-call technicians for homeowners and landlords.',
+      description: 'Scheduled upkeep and preventative inspections for homeowners and landlords.',
       link: '/services/maintenance',
     },
     {
@@ -99,7 +99,7 @@ const ServicesPage = () => {
         <div className="container">
           <h1>General Contractor Services in Meriden, CT</h1>
           <p className="services-hero-description">
-            All Structure Maintenance is the go-to general contractor for Meriden, Wallingford, and Cheshire, CT. From kitchen remodeling and bathroom renovations to emergency water damage restoration and property maintenance programs, our licensed team delivers reliable craftsmanship on every project.
+            All Structure Maintenance is the go-to general contractor for Meriden, Wallingford, Cheshire, Southington, and Wolcott, CT. From kitchen remodeling and bathroom renovations to emergency water damage restoration and property maintenance programs, our licensed team delivers reliable craftsmanship on every project.
           </p>
         </div>
       </section>
@@ -110,7 +110,7 @@ const ServicesPage = () => {
           <div className="services-overview-intro">
             <h2>Licensed Remodeling, Restoration, and Maintenance Experts</h2>
             <p>
-              As a full-service general contractor in Meriden, CT, we help homeowners and commercial property owners tackle projects of every size. Our specialists manage kitchen remodeling across Connecticut, deliver bathroom renovation upgrades in Meriden, and provide rapid water damage restoration throughout Wallingford and New Haven County. With proactive property maintenance plans in Cheshire, we keep your property safe, efficient, and beautiful year-round.
+              As a full-service general contractor in Meriden, CT, we help homeowners and commercial property owners tackle projects of every size. Our specialists manage kitchen remodeling across central Connecticut, deliver bathroom renovation upgrades in Meriden, and provide rapid water damage restoration throughout Wallingford, Southington, and Wolcott and in nearby New Haven County. With proactive property maintenance plans in Cheshire, we keep your property safe, efficient, and beautiful year-round.
             </p>
             <p>
               We follow state guidelines for contractor licensing and permitting. Review the latest requirements from the{' '}

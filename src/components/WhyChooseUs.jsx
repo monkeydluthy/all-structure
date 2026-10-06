@@ -1,4 +1,5 @@
 import React from 'react';
+import { yearsOfExperience } from '../config/business';
 
 const WhyChooseUs = () => {
   const features = [
@@ -29,17 +30,14 @@ const WhyChooseUs = () => {
   ];
 
   const stats = [
-    { number: '7+', label: 'Years Experience' },
+    { number: `${yearsOfExperience()}+`, label: 'Years Experience' },
     { number: '500+', label: 'Projects Completed' },
-    { number: '100%', label: 'Customer Satisfaction' },
-    { number: '24/7', label: 'Emergency Service' },
   ];
 
   const guarantees = [
     'Licensed & Insured General Contractor',
     'Free Estimates on All Projects',
-    '7+ Years of Proven Experience',
-    '100% Satisfaction Guarantee',
+    `${yearsOfExperience()}+ Years of Proven Experience`,
     'Emergency Service Available',
     'Quality Materials & Workmanship',
   ];

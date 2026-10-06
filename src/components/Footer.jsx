@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ContractorRegistration from './ContractorRegistration';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -20,9 +21,10 @@ const Footer = () => {
           <div className="footer-section">
             <h3>All Structure Maintenance</h3>
             <p>
-              Connecticut's trusted general contractor since 2016. Licensed,
+              Connecticut's trusted general contractor. Licensed,
               insured, and committed to excellence in every project.
             </p>
+            <ContractorRegistration />
             <div className="social-links">
               <a
                 href="https://www.facebook.com/allstructuremaintenance/"

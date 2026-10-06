@@ -9,7 +9,7 @@ export const servicesList = [
     cardDescription:
       'Emergency water, fire, and storm damage restoration for homes and businesses throughout Meriden, CT and the surrounding Connecticut shoreline.',
     overview:
-      'Need fast water damage restoration in Meriden, CT? All Structure Maintenance responds 24/7 with licensed contractors who dry, sanitize, and rebuild your property the right way. From sump pump failures to storm surge, we manage every step—including insurance paperwork—so you can get back to normal quickly and safely.',
+      'Need fast water damage restoration in Meriden, CT? All Structure Maintenance responds to emergencies with licensed contractors who dry, sanitize, and rebuild your property the right way. From sump pump failures to storm surge, we manage every step so you can get back to normal quickly and safely.',
     services: [
       {
         title: 'Water Damage Restoration',
@@ -25,15 +25,11 @@ export const servicesList = [
       },
       {
         title: 'Mold Remediation',
-        description: 'Containment and removal by certified pros to protect your indoor air quality.',
+        description: 'Containment and removal to protect your indoor air quality.',
       },
       {
         title: 'Structural Repairs',
         description: 'Foundation, framing, and load-bearing corrections to restore integrity.',
-      },
-      {
-        title: 'Insurance Claim Assistance',
-        description: 'Detailed documentation, adjuster coordination, and transparent estimates.',
       },
     ],
     process: [
@@ -41,27 +37,20 @@ export const servicesList = [
       { text: 'Moisture Mapping & Drying Plan', icon: '🗺️' },
       { text: 'Mitigation & Remediation', icon: '🛠️' },
       { text: 'Structural Repairs & Finishes', icon: '🏡' },
-      { text: 'Insurance Walkthrough & Sign-Off', icon: '✅' },
     ],
     benefits: [
       'Licensed & insured Connecticut general contractors',
-      '24/7 emergency response in Meriden, Wallingford & Cheshire',
+      'Emergency response in Meriden, Wallingford, Cheshire, Southington & Wolcott',
       'Moisture meters and industrial drying equipment',
-      'Direct insurance billing support',
       'Clean, safe job sites with full sanitization',
       'Workmanship warranty on every restoration',
     ],
-    serviceAreas: ['Meriden, CT', 'Wallingford, CT', 'Cheshire, CT', 'Middletown, CT', 'North Haven, CT'],
+    serviceAreas: ['Meriden, CT', 'Wallingford, CT', 'Cheshire, CT', 'Middletown, CT', 'North Haven, CT', 'Southington, CT', 'Wolcott, CT'],
     faq: [
       {
         question: 'How long does water damage restoration take in Connecticut?',
         answer:
           'Most water damage restoration projects in Meriden take three to seven days for drying, followed by targeted repairs that can range from a few additional days to several weeks depending on the extent of demolition and rebuild. We provide a detailed schedule up front so you always know the next step.',
-      },
-      {
-        question: 'Will my insurance cover emergency water removal?',
-        answer:
-          'If the water damage is sudden and accidental—like a burst pipe, appliance failure, or storm intrusion—most Connecticut homeowner policies cover mitigation. We document moisture levels, photograph damage, and communicate with your adjuster to streamline approvals.',
       },
       {
         question: 'Do I need to hire a licensed contractor for restoration work?',
@@ -71,7 +60,7 @@ export const servicesList = [
     ],
     metaTitle: 'Water Damage Restoration Meriden CT | All Structure Maintenance',
     metaDescription:
-      'All Structure Maintenance provides 24/7 water damage restoration, mold remediation, and structural repairs in Meriden, CT. Call 203-233-3862 for emergency service.',
+      'All Structure Maintenance provides emergency water damage restoration, mold remediation, and structural repairs in Meriden, CT. Call 203-233-3862 for emergency service.',
     keywords: [
       'water damage restoration meriden',
       'emergency restoration meriden ct',
@@ -83,7 +72,7 @@ export const servicesList = [
       label: 'Connecticut contractor licensing requirements',
       url: 'https://portal.ct.gov/DCP/License-Services-Division/All-License-Applications/Contractor-Registration',
     },
-    ctaBlurb: 'Need emergency help right now? Call 203.233.3862—we answer 24/7 for Meriden area homeowners.',
+    ctaBlurb: 'Need emergency help right now? Call 203.233.3862 for Meriden area homeowners.',
   },
   {
     key: 'remodeling',
@@ -130,14 +119,14 @@ export const servicesList = [
       { text: 'Final Walkthrough & Warranty', icon: '🎉' },
     ],
     benefits: [
-      'Licensed, insured, and lead-safe certified remodelers',
+      'Licensed and insured remodelers',
       'Dedicated project manager and transparent timelines',
       'Access to trade discounts on cabinets, tile, and fixtures',
       'Clean job sites with dust control and daily communication',
       'Permit coordination with local Meriden, Wallingford & Cheshire officials',
       'Workmanship warranty and punch-list completion guarantee',
     ],
-    serviceAreas: ['Meriden, CT', 'Southington, CT', 'Middletown, CT', 'Wallingford, CT', 'Cheshire, CT'],
+    serviceAreas: ['Meriden, CT', 'Southington, CT', 'Middletown, CT', 'Wallingford, CT', 'Cheshire, CT', 'Wolcott, CT'],
     faq: [
       {
         question: 'How much does kitchen remodeling cost in CT?',
@@ -147,7 +136,7 @@ export const servicesList = [
       {
         question: 'Do I need a permit to remodel my kitchen in CT?',
         answer:
-          'Yes. Most kitchen or bathroom renovations that involve plumbing, electrical, or structural changes require permits through your local building department. We prepare drawings, submit applications, and coordinate inspections for Meriden, Cheshire, Wallingford, and neighboring towns.',
+          'Yes. Most kitchen or bathroom renovations that involve plumbing, electrical, or structural changes require permits through your local building department. We prepare drawings, submit applications, and coordinate inspections for Meriden, Cheshire, Wallingford, Southington, Wolcott, and neighboring towns.',
       },
       {
         question: 'How long does a bathroom renovation take?',
@@ -157,7 +146,7 @@ export const servicesList = [
     ],
     metaTitle: 'Kitchen Remodeling Connecticut | Bathroom Renovation Meriden CT',
     metaDescription:
-      'Upgrade your home with licensed kitchen and bathroom remodeling contractors serving Meriden, Wallingford, and Cheshire, CT. Book a free design consultation today.',
+      'Upgrade your home with licensed kitchen and bathroom remodeling contractors serving Meriden, Wallingford, Cheshire, Southington, and Wolcott, CT. Book a free design consultation today.',
     keywords: [
       'kitchen remodeling connecticut',
       'bathroom renovation meriden ct',
@@ -216,14 +205,12 @@ export const servicesList = [
       { text: 'Touch-Up Kit & Warranty', icon: '📦' },
     ],
     benefits: [
-      'Lead-safe certified painters',
       'Dust containment and floor protection on every job',
       'Sherwin-Williams and Benjamin Moore partnerships',
       'Flexible scheduling for occupied homes and offices',
       'Detailed punch lists and touch-up appointments',
-      'Satisfaction guarantee with written warranty',
     ],
-    serviceAreas: ['Meriden, CT', 'New Haven, CT', 'Cheshire, CT', 'Wallingford, CT', 'Hartford County, CT'],
+    serviceAreas: ['Meriden, CT', 'Cheshire, CT', 'Wallingford, CT', 'Southington, CT', 'Wolcott, CT'],
     faq: [
       {
         question: 'How often should I repaint exterior siding in Connecticut?',
@@ -243,7 +230,7 @@ export const servicesList = [
     ],
     metaTitle: 'Painting Contractor Connecticut | Sheetrock Repair Meriden CT',
     metaDescription:
-      'Hire an experienced painting contractor in Connecticut for interior, exterior, and drywall projects. Serving Meriden, New Haven, and Cheshire homeowners.',
+      'Hire an experienced painting contractor in Connecticut for interior, exterior, and drywall projects. Serving Meriden, Cheshire, Southington, and Wolcott homeowners, and nearby New Haven.',
     keywords: [
       'painting contractor connecticut',
       'sheetrock repair meriden ct',
@@ -304,12 +291,11 @@ export const servicesList = [
     benefits: [
       'Licensed general contractor overseeing every trade',
       'Laser-leveled tile lines and minimal lippage',
-      'Schluter-certified waterproofing installers',
       'Dust mitigation and clean job sites',
       'Samples and mockups before installation',
       'Comprehensive warranty on labor and materials',
     ],
-    serviceAreas: ['Meriden, CT', 'Berlin, CT', 'Southington, CT', 'Cromwell, CT', 'Middletown, CT'],
+    serviceAreas: ['Meriden, CT', 'Berlin, CT', 'Southington, CT', 'Cromwell, CT', 'Middletown, CT', 'Wolcott, CT'],
     faq: [
       {
         question: 'How do I choose the right tile for high-traffic areas?',
@@ -360,14 +346,6 @@ export const servicesList = [
         description: 'Spring and fall cleanups and winterization to prevent costly repairs.',
       },
       {
-        title: 'HVAC & Mechanical Checks',
-        description: 'Filter changes, system diagnostics, and scheduling with licensed HVAC partners.',
-      },
-      {
-        title: 'Plumbing & Electrical',
-        description: 'Leak detection, fixture replacements, and safety inspections for multifamily and commercial properties.',
-      },
-      {
         title: 'Exterior Maintenance',
         description: 'Power washing, deck sealing, painting touch-ups, and masonry repairs.',
       },
@@ -395,12 +373,12 @@ export const servicesList = [
       'Clear reporting and maintenance history logs',
       'Priority scheduling for repeat clients',
     ],
-    serviceAreas: ['Cheshire, CT', 'Meriden, CT', 'Wallingford, CT', 'North Haven, CT', 'Southington, CT'],
+    serviceAreas: ['Cheshire, CT', 'Meriden, CT', 'Wallingford, CT', 'North Haven, CT', 'Southington, CT', 'Wolcott, CT'],
     faq: [
       {
         question: 'What does property maintenance include?',
         answer:
-          'Our property maintenance plans cover seasonal inspections, preventative HVAC, plumbing, and electrical checks, minor repairs, and emergency response. We tailor the plan to match your property type and budget.',
+          'Our property maintenance plans cover seasonal inspections, minor repairs, and emergency response. We tailor the plan to match your property type and budget.',
       },
       {
         question: 'Can you manage multiple rental properties?',
@@ -408,14 +386,14 @@ export const servicesList = [
           'Yes. We work with landlords and commercial owners across Cheshire and Meriden to create maintenance schedules, coordinate vendors, and provide ongoing reporting.',
       },
       {
-        question: 'How quickly can you respond to emergency maintenance requests?',
+        question: 'How do I reach you for emergency maintenance?',
         answer:
-          'Our on-call technicians respond to most emergency requests within a few hours. We prioritize issues like leaks, electrical hazards, and heating outages, especially during peak seasons in Connecticut.',
+          'Call 203.233.3862 about emergency maintenance, especially during peak seasons in Connecticut.',
       },
     ],
     metaTitle: 'Property Maintenance Cheshire CT | Facility Services Meriden',
     metaDescription:
-      'All Structure Maintenance delivers proactive property maintenance in Cheshire, Meriden, and Wallingford, CT. Request a tailored maintenance plan for your property portfolio.',
+      'All Structure Maintenance delivers proactive property maintenance in Cheshire, Meriden, Wallingford, Southington, and Wolcott, CT. Request a tailored maintenance plan for your property portfolio.',
     keywords: [
       'property maintenance cheshire ct',
       'property maintenance services near me',

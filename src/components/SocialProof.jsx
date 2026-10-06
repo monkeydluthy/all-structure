@@ -1,23 +1,21 @@
 import React from 'react';
+import { GOOGLE_REVIEW_URL, yearsOfExperience } from '../config/business';
 
 const SocialProof = () => {
   const testimonials = [
     {
-      name: 'Sarah M.',
-      location: 'Meriden, CT',
-      text: 'All Structure Maintenance transformed our kitchen completely. Professional, on-time, and the quality exceeded our expectations.',
+      name: 'Noah H.',
+      text: 'Steve was super friendly, easy to talk to, quick, and efficient with his work. And for the first time in what feels like forever we actually had a contractor show up on time!',
       rating: 5,
     },
     {
-      name: 'Mike R.',
-      location: 'Wallingford, CT',
-      text: 'Outstanding restoration service. They fixed our water damage quickly and the work has held up perfectly for years.',
+      name: 'Cheryl E.',
+      text: "Steve has done work for me before - always courteous, skilled and does a great job. Reasonable prices and cleans up after the work is done. He is prompt in his replies, and doesn't take forever to get back to you like others. Dependable - He shows up when he says he will, unlike others.",
       rating: 5,
     },
     {
-      name: 'Jennifer L.',
-      location: 'Southington, CT',
-      text: "Reliable, honest, and fair pricing. They've been maintaining our property for 3 years and we couldn't be happier.",
+      name: 'Kristen C.',
+      text: 'All structure maintenance remodeled my kitchen and did a phenomenal job. Very professional, clean, attentive. Highly recommend',
       rating: 5,
     },
   ];
@@ -41,20 +39,26 @@ const SocialProof = () => {
               <p>"{testimonial.text}"</p>
               <div className="testimonial-author">
                 <strong>{testimonial.name}</strong>
-                <span>{testimonial.location}</span>
               </div>
             </div>
           ))}
         </div>
+        <p style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <a
+            className="cta-text-link"
+            href={GOOGLE_REVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read more reviews on Google
+          </a>
+        </p>
         <div className="trust-badges">
           <div className="badge">
             🛡️ <span>Licensed & Insured</span>
           </div>
           <div className="badge">
-            🏆 <span>7+ Years Experience</span>
-          </div>
-          <div className="badge">
-            👥 <span>100% Satisfaction</span>
+            🏆 <span>{yearsOfExperience()}+ Years Experience</span>
           </div>
         </div>
       </div>

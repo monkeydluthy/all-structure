@@ -11,7 +11,7 @@ const ContactPage = () => {
   usePageMetadata({
     title: 'Contact All Structure Maintenance | Meriden CT General Contractor',
     description:
-      'Request a free estimate from All Structure Maintenance, a licensed general contractor serving Meriden, Wallingford, Cheshire, and surrounding Connecticut towns.',
+      'Request a free estimate from All Structure Maintenance, a licensed general contractor serving Meriden, Wallingford, Cheshire, Southington, Wolcott, and surrounding Connecticut towns.',
     keywords: [
       'contact general contractor meriden ct',
       'free estimate kitchen remodeling connecticut',
@@ -139,7 +139,7 @@ const ContactPage = () => {
           <div className="contact-hero-content">
             <h1>Contact Meriden&apos;s Trusted General Contractor</h1>
           <p className="services-hero-description">
-            Ready to schedule kitchen remodeling, bathroom renovations, emergency water damage restoration, or property maintenance in Connecticut? Reach out for a free, no-obligation estimate and fast support across Meriden, Wallingford, Cheshire, and nearby towns.
+            Ready to schedule kitchen remodeling, bathroom renovations, emergency water damage restoration, or property maintenance in Connecticut? Reach out for a free, no-obligation estimate and fast support across Meriden, Wallingford, Cheshire, Southington, Wolcott, and nearby towns.
           </p>
           <p>
             Call <a href="tel:2032333862">203.233.3862</a>, email{' '}
@@ -185,7 +185,7 @@ const ContactPage = () => {
             </div>
             <div className="contact-service-card">
               <span className="contact-service-icon">💧</span>
-              <h3>24/7 Water Damage Restoration</h3>
+              <h3>Emergency Water Damage Restoration</h3>
               <p>
                 Emergency mitigation, drying, and rebuilds for homes and businesses across Meriden.
               </p>
@@ -211,7 +211,7 @@ const ContactPage = () => {
               <span className="contact-service-icon">🛠️</span>
               <h3>Property Maintenance Programs</h3>
               <p>
-                Seasonal upkeep, preventative inspections, and on-call technicians serving Cheshire &amp; New Haven County.
+                Seasonal upkeep and preventative inspections serving Cheshire and nearby towns.
               </p>
               <Link to="/services/maintenance" className="cta-text-link">Maintenance plans →</Link>
             </div>
@@ -371,7 +371,7 @@ const ContactPage = () => {
                   <div className="contact-card-icon">📍</div>
                   <h4>Visit Us</h4>
                   <p>Meriden, CT 06451</p>
-                  <p>Serving all of Connecticut</p>
+                  <p>Serving central Connecticut</p>
                 </div>
 
                 <div className="contact-card">
@@ -386,8 +386,9 @@ const ContactPage = () => {
               <div className="service-areas-card">
                 <h4>Service Areas</h4>
                 <p>
-                  We proudly serve all of Connecticut, including Meriden, New Haven, Hartford, 
-                  Middletown, and surrounding communities.
+                  We proudly serve central Connecticut, including Meriden, Wallingford, Cheshire,
+                  Southington, Wolcott, Middletown, and nearby New Haven and Hartford-area
+                  communities.
                 </p>
               </div>
             </div>
@@ -402,8 +403,7 @@ const ContactPage = () => {
             <div className="cta-content">
               <h3>Need Immediate Assistance?</h3>
               <p>
-                For emergency services or urgent repairs, call us right now. We're available 24/7 
-                for emergency situations.
+                For emergency services or urgent repairs, call us right now.
               </p>
               <div className="cta-buttons">
                 <a href="tel:2032333862" className="cta-primary">

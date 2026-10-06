@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ContractorRegistration from '../components/ContractorRegistration';
+import { yearsOfExperience } from '../config/business';
 import usePageMetadata from '../hooks/usePageMetadata';
 
 const AboutPage = () => {
   usePageMetadata({
     title: 'About All Structure Maintenance | Meriden CT General Contractor',
     description:
-      'Learn about All Structure Maintenance, a licensed general contractor based in Meriden, CT providing remodeling, restoration, painting, tile, and property maintenance services across Connecticut.',
+      'Learn about All Structure Maintenance, a licensed general contractor based in Meriden, CT providing remodeling, restoration, painting, tile, and property maintenance services across central Connecticut.',
     keywords: [
       'general contractor meriden ct',
       'about all structure maintenance',
@@ -50,7 +52,6 @@ const AboutPage = () => {
   ];
 
   const milestones = [
-    { year: '2017', title: 'Founded', description: 'Started serving Connecticut communities' },
     { year: '2019', title: 'Expanded', description: 'Added emergency restoration services' },
     { year: '2021', title: '500+ Projects', description: 'Completed our 500th project' },
     { year: '2024', title: 'Today', description: 'Continuing to serve with excellence' },
@@ -63,8 +64,9 @@ const AboutPage = () => {
         <div className="container">
           <h1>About Our Meriden, CT General Contracting Team</h1>
           <p className="services-hero-description">
-            Your trusted partner for all your property maintenance and improvement needs across Connecticut.
+            Your trusted partner for all your property maintenance and improvement needs across central Connecticut.
           </p>
+          <ContractorRegistration />
         </div>
       </section>
 
@@ -75,7 +77,7 @@ const AboutPage = () => {
             <div className="about-text">
               <h2>Our Story</h2>
               <p>
-                Founded in 2017, All Structure Maintenance began with a simple mission: to provide 
+                All Structure Maintenance began with a simple mission: to provide 
                 Connecticut homeowners and businesses with reliable, high-quality general contracting 
                 services they could trust.
               </p>
@@ -140,20 +142,12 @@ const AboutPage = () => {
           <div className="stats-section">
             <div className="stats-grid">
               <div className="stat-item">
-                <div className="stat-number">7+</div>
+                <div className="stat-number">{yearsOfExperience()}+</div>
                 <div className="stat-label">Years Experience</div>
               </div>
               <div className="stat-item">
                 <div className="stat-number">500+</div>
                 <div className="stat-label">Projects Completed</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">100%</div>
-                <div className="stat-label">Customer Satisfaction</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">24/7</div>
-                <div className="stat-label">Emergency Service</div>
               </div>
             </div>
           </div>
@@ -169,10 +163,7 @@ const AboutPage = () => {
                 ✅ <span>Free Estimates on All Projects</span>
               </div>
               <div className="guarantee-item">
-                ✅ <span>7+ Years of Proven Experience</span>
-              </div>
-              <div className="guarantee-item">
-                ✅ <span>100% Satisfaction Guarantee</span>
+                ✅ <span>{yearsOfExperience()}+ Years of Proven Experience</span>
               </div>
               <div className="guarantee-item">
                 ✅ <span>Emergency Service Available</span>
