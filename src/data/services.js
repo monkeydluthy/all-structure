@@ -7,9 +7,9 @@ export const servicesList = [
     heroHeading: 'Water Damage Restoration in Meriden, CT',
     listTitle: 'Water Damage Restoration & Repairs',
     cardDescription:
-      'Emergency water, fire, and storm damage restoration for homes and businesses throughout Meriden, CT and the surrounding Connecticut shoreline.',
+      'Emergency water, fire, and storm damage restoration for homes and businesses throughout Meriden, CT and surrounding central Connecticut towns.',
     overview:
-      'Need fast water damage restoration in Meriden, CT? All Structure Maintenance responds to emergencies with licensed contractors who dry, sanitize, and rebuild your property the right way. From sump pump failures to storm surge, we manage every step so you can get back to normal quickly and safely.',
+      'Need fast water damage restoration in Meriden, CT? All Structure Maintenance responds to emergencies with licensed contractors who dry, sanitize, and rebuild your property the right way. From sump pump failures to flooding, we manage every step so you can get back to normal quickly and safely.',
     services: [
       {
         title: 'Water Damage Restoration',

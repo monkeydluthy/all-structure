@@ -1,4 +1,5 @@
 const MEASUREMENT_ID = 'G-Z0Q9V5RXYS';
+const PRODUCTION_HOST = 'allstructuremaintenance.com';
 
 const CLICK_EVENTS = {
   tel: 'phone_click',
@@ -10,7 +11,11 @@ let contactLinksListening = false;
 let lastPagePath = null;
 
 export function trackEvent(eventName, params = {}) {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
+  if (
+    typeof window === 'undefined' ||
+    window.location.hostname !== PRODUCTION_HOST ||
+    typeof window.gtag !== 'function'
+  ) {
     return;
   }
 

@@ -34,12 +34,21 @@ function App() {
   const location = useLocation();
   const isAdminPage = location.pathname.startsWith('/admin');
 
-  // Add class to body for admin pages
+  // Add class to body for admin pages, and keep admin routes out of the index.
   useEffect(() => {
     if (isAdminPage) {
       document.body.classList.add('admin-page');
+      let robots = document.head.querySelector('meta[name="robots"][data-admin-robots]');
+      if (!robots) {
+        robots = document.createElement('meta');
+        robots.setAttribute('name', 'robots');
+        robots.setAttribute('data-admin-robots', '');
+        document.head.appendChild(robots);
+      }
+      robots.setAttribute('content', 'noindex');
     } else {
       document.body.classList.remove('admin-page');
+      document.head.querySelector('meta[name="robots"][data-admin-robots]')?.remove();
     }
   }, [isAdminPage]);
 
