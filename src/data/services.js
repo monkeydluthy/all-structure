@@ -407,6 +407,119 @@ export const servicesList = [
     },
     ctaBlurb: 'Keep your property running smoothly year-round. Request a custom maintenance plan today.',
   },
+  {
+    key: 'bathroom-remodeling',
+    slug: 'bathroom-remodeling',
+    icon: '🛁',
+    heroImage: '/images/bathroom-after.jpg',
+    heroHeading: 'Bathroom Remodeling in Meriden, CT',
+    listTitle: 'Bathroom Remodeling',
+    cardDescription:
+      'Full bathroom remodels, tub-to-shower conversions, tile, vanities, and repairs after water damage in central Connecticut.',
+    overview:
+      'Steve Johnson remodels bathrooms for homeowners in central Connecticut. All Structure Maintenance does full bathroom remodels, tub-to-shower conversions, tile and waterproofing, vanities, and repairs after water damage. When a bathroom needs dry-out and a rebuild, the same contractor handles both, with no handoff between companies.',
+    services: [
+      {
+        title: 'Full Bathroom Remodels',
+        description: 'Rebuild the bathroom from demolition and prep through tile, vanities, and finish work.',
+      },
+      {
+        title: 'Tub-to-Shower Conversions',
+        description: 'Replace a tub with a walk-in shower, including the tile and waterproofing for that shower.',
+      },
+      {
+        title: 'Tile and Waterproofing',
+        description: 'Bathroom tile and waterproofing, handled as part of the remodel.',
+      },
+      {
+        title: 'Vanities',
+        description: 'Vanities and storage built into the bathroom remodel.',
+      },
+      {
+        title: 'Repairs After Water Damage',
+        description: 'Repair the bathroom after water damage, including the rebuild that follows dry-out.',
+      },
+    ],
+    process: [
+      { text: 'Consultation and Estimate', icon: '📋' },
+      { text: 'Planning', icon: '🧭' },
+      { text: 'Demolition and Prep', icon: '🛠️' },
+      { text: 'Waterproofing and Tile', icon: '💧' },
+      { text: 'Finish Work', icon: '🖌️' },
+      { text: 'Final Walkthrough', icon: '✅' },
+    ],
+    benefits: [
+      'Bathroom remodels in central Connecticut',
+      'Full bathroom remodels and tub-to-shower conversions',
+      'Tile and waterproofing handled with the remodel',
+      'Vanities and finish work',
+      'Bathroom repairs after water damage',
+    ],
+    serviceAreas: ['Meriden, CT', 'Wallingford, CT', 'Cheshire, CT', 'Southington, CT', 'Wolcott, CT', 'Middletown, CT'],
+    areaNote: 'Nearby New Haven and Hartford-area communities are served as well.',
+    gallery: [
+      {
+        src: '/images/bathroom-before.jpg',
+        alt: 'Bathroom remodel in Wallingford, CT, before',
+      },
+      {
+        src: '/images/bathroom-after.jpg',
+        alt: 'Bathroom remodel in Wallingford, CT, after',
+      },
+      {
+        src: 'https://lvuobcpxuhykkaneqsrk.supabase.co/storage/v1/object/public/project-images/gallery-1765249916272-0.jpg',
+        alt: 'Bathroom remodel in Southington, CT, before',
+      },
+      {
+        src: 'https://lvuobcpxuhykkaneqsrk.supabase.co/storage/v1/object/public/project-images/gallery-1765249917380-2.jpg',
+        alt: 'Bathroom remodel in Southington, CT, after',
+      },
+      {
+        src: 'https://lvuobcpxuhykkaneqsrk.supabase.co/storage/v1/object/public/project-images/gallery-1765249919373-6.jpg',
+        alt: 'Bathroom remodel in Southington, CT, after',
+      },
+    ],
+    faq: [
+      {
+        question: 'What is included in a bathroom remodeling estimate?',
+        answer:
+          'The estimate describes the bathroom work we review with you, such as a full remodel, a tub-to-shower conversion, tile and waterproofing, vanities, or repairs after water damage. We write the scope down after looking at the bathroom.',
+      },
+      {
+        question: 'How should I prepare the home during the remodel?',
+        answer:
+          'Move personal items out of the bathroom before demolition and prep. Leave a clear path from the entrance to the bathroom so materials can come in and out.',
+      },
+      {
+        question: 'Is bathroom tile handled in-house?',
+        answer:
+          'Yes. Tile and waterproofing are part of the bathroom remodel and are done by All Structure Maintenance.',
+      },
+      {
+        question: 'Can a tub be changed to a shower?',
+        answer:
+          'Yes. A tub-to-shower conversion is part of our bathroom remodeling work, along with the tile and waterproofing for the new shower.',
+      },
+      {
+        question: 'How do I get started?',
+        answer:
+          'Call 203.233.3862, send a text, or use the estimate form on this page and tell us about the bathroom.',
+      },
+    ],
+    metaTitle: 'Bathroom Remodeling Meriden, CT | All Structure Maintenance',
+    metaDescription:
+      'Bathroom remodeling for central Connecticut homes, including full remodels, tub-to-shower conversions, tile, vanities, and repairs after water damage.',
+    keywords: [
+      'bathroom remodeling',
+      'bathroom renovation contractor',
+      'bathroom renovation contractor near me',
+      'bath remodeling companies',
+      'bathroom tile installers',
+    ],
+    primaryKeyword: 'bathroom remodeling',
+    ctaLabel: 'Get a Free Estimate',
+    ctaBlurb: 'Tell us about the bathroom and request an estimate.',
+  },
 ];
 
 export const servicesByKey = servicesList.reduce((acc, service) => {

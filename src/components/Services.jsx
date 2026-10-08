@@ -28,7 +28,7 @@ const Services = () => {
                 <h3>{service.listTitle}</h3>
                 <p>{service.cardDescription}</p>
                 <Link to={`/services/${service.slug}`} className="service-btn">
-                  Learn More →
+                  {service.slug === 'bathroom-remodeling' ? 'bathroom remodeling' : 'Learn More →'}
                 </Link>
               </div>
             </div>

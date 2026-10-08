@@ -90,13 +90,15 @@ const ServicePage = () => {
           <div className="service-hero-content">
             <div className="service-hero-text">
               <h1>{service.heroHeading}</h1>
-              {service.slug === 'restoration' && <ContractorRegistration />}
+              {(service.slug === 'restoration' || service.slug === 'bathroom-remodeling') && <ContractorRegistration />}
               <p className="service-hero-description">
                 {service.overview}
               </p>
-              <p>
-                As licensed general contractors serving {service.serviceAreas[0]} and nearby Connecticut towns, we manage every stage—from planning and permits to the final walkthrough—so you can enjoy stress-free results. Whether you need {service.primaryKeyword.toLowerCase()} or want to explore related upgrades, our team delivers craftsmanship backed by warranties and real local references.
-              </p>
+              {service.slug !== 'bathroom-remodeling' && (
+                <p>
+                  As licensed general contractors serving {service.serviceAreas[0]} and nearby Connecticut towns, we manage every stage—from planning and permits to the final walkthrough—so you can enjoy stress-free results. Whether you need {service.primaryKeyword.toLowerCase()} or want to explore related upgrades, our team delivers craftsmanship backed by warranties and real local references.
+                </p>
+              )}
               {service.externalResource && (
                 <p className="service-external-resource">
                   Stay informed: review the latest guidelines from{' '}
@@ -117,7 +119,7 @@ const ServicePage = () => {
           <div className="service-hero-actions">
             <a href="#contact-section" className="cta-primary">
               <span aria-hidden="true">⭐</span>
-              <span>Get Free Estimate</span>
+              <span>{service.ctaLabel || 'Get Free Estimate'}</span>
             </a>
             <a href="tel:2032333862" className="cta-secondary">
               <span aria-hidden="true">📞</span>
@@ -139,6 +141,11 @@ const ServicePage = () => {
               </div>
             ))}
           </div>
+          {(service.slug === 'remodeling' || service.slug === 'tile') && (
+            <p>
+              <Link to="/services/bathroom-remodeling">bathroom remodeling</Link>
+            </p>
+          )}
         </div>
       </section>
 
@@ -154,8 +161,24 @@ const ServicePage = () => {
               <li key={area}>📍 {area}</li>
             ))}
           </ul>
+          {service.areaNote && <p>{service.areaNote}</p>}
         </div>
       </section>
+
+      {service.gallery?.length > 0 && (
+        <section className="service-details">
+          <div className="container">
+            <h2>Bathroom Remodel Photos</h2>
+            <div className="portfolio-grid">
+              {service.gallery.map((photo) => (
+                <div key={photo.src} className="portfolio-single-image">
+                  <img src={photo.src} alt={photo.alt} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Process Section */}
       <section className="service-process">

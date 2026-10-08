@@ -8,6 +8,7 @@ const Footer = () => {
   const services = [
     { name: 'Full Restoration', link: '/services/restoration' },
     { name: 'Remodeling', link: '/services/remodeling' },
+    { name: 'bathroom remodeling', link: '/services/bathroom-remodeling' },
     { name: 'Painting', link: '/services/painting' },
     { name: 'Tile Installation', link: '/services/tile' },
     { name: 'Maintenance', link: '/services/maintenance' },
