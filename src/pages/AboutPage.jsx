@@ -52,7 +52,7 @@ const AboutPage = () => {
   ];
 
   const milestones = [
-    { year: '2019', title: 'Expanded', description: 'Added emergency restoration services' },
+    { year: '', title: 'Expanded', description: 'Added emergency restoration services' },
     { year: '2021', title: '500+ Projects', description: 'Completed our 500th project' },
     { year: '2024', title: 'Today', description: 'Continuing to serve with excellence' },
   ];
@@ -148,28 +148,6 @@ const AboutPage = () => {
               <div className="stat-item">
                 <div className="stat-number">500+</div>
                 <div className="stat-label">Projects Completed</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Guarantees Section */}
-          <div className="guarantees-section">
-            <h3>Our Guarantees</h3>
-            <div className="guarantees-grid">
-              <div className="guarantee-item">
-                ✅ <span>Licensed & Insured General Contractor</span>
-              </div>
-              <div className="guarantee-item">
-                ✅ <span>Free Estimates on All Projects</span>
-              </div>
-              <div className="guarantee-item">
-                ✅ <span>{yearsOfExperience()}+ Years of Proven Experience</span>
-              </div>
-              <div className="guarantee-item">
-                ✅ <span>Emergency Service Available</span>
-              </div>
-              <div className="guarantee-item">
-                ✅ <span>Quality Materials & Workmanship</span>
               </div>
             </div>
           </div>

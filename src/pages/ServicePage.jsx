@@ -90,13 +90,13 @@ const ServicePage = () => {
           <div className="service-hero-content">
             <div className="service-hero-text">
               <h1>{service.heroHeading}</h1>
-              {(service.slug === 'restoration' || service.slug === 'bathroom-remodeling') && <ContractorRegistration />}
+              {(service.slug === 'restoration' || service.slug === 'bathroom-remodeling' || service.slug === 'kitchen-remodeling') && <ContractorRegistration />}
               <p className="service-hero-description">
                 {service.overview}
               </p>
-              {service.slug !== 'bathroom-remodeling' && (
+              {service.slug !== 'bathroom-remodeling' && service.slug !== 'kitchen-remodeling' && (
                 <p>
-                  As licensed general contractors serving {service.serviceAreas[0]} and nearby Connecticut towns, we manage every stage—from planning and permits to the final walkthrough—so you can enjoy stress-free results. Whether you need {service.primaryKeyword.toLowerCase()} or want to explore related upgrades, our team delivers craftsmanship backed by warranties and real local references.
+                  As licensed general contractors serving {service.serviceAreas[0]} and nearby Connecticut towns, we manage every stage—from planning and permits to the final walkthrough—so you can enjoy stress-free results. Whether you need {service.primaryKeyword.toLowerCase()} or want to explore related upgrades, our team delivers craftsmanship and real local references.
                 </p>
               )}
               {service.externalResource && (
@@ -146,6 +146,11 @@ const ServicePage = () => {
               <Link to="/services/bathroom-remodeling">bathroom remodeling</Link>
             </p>
           )}
+          {(service.slug === 'remodeling' || service.slug === 'tile' || service.slug === 'bathroom-remodeling') && (
+            <p>
+              <Link to="/services/kitchen-remodeling">kitchen remodeling</Link>
+            </p>
+          )}
         </div>
       </section>
 
@@ -168,7 +173,7 @@ const ServicePage = () => {
       {service.gallery?.length > 0 && (
         <section className="service-details">
           <div className="container">
-            <h2>Bathroom Remodel Photos</h2>
+            <h2>{service.galleryHeading || 'Bathroom Remodel Photos'}</h2>
             <div className="portfolio-grid">
               {service.gallery.map((photo) => (
                 <div key={photo.src} className="portfolio-single-image">

@@ -405,6 +405,9 @@ const ContactPage = () => {
               <p>
                 For emergency services or urgent repairs, call us right now.
               </p>
+              <p>
+                Emergency calls outside posted hours are answered, typically within a few hours.
+              </p>
               <div className="cta-buttons">
                 <a href="tel:2032333862" className="cta-primary">
                   📞 Call 203.233.3862 Now

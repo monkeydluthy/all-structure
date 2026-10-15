@@ -34,14 +34,6 @@ const WhyChooseUs = () => {
     { number: '500+', label: 'Projects Completed' },
   ];
 
-  const guarantees = [
-    'Licensed & Insured General Contractor',
-    'Free Estimates on All Projects',
-    `${yearsOfExperience()}+ Years of Proven Experience`,
-    'Emergency Service Available',
-    'Quality Materials & Workmanship',
-  ];
-
   return (
     <section id="about" className="why-choose-us">
       <div className="container">
@@ -68,18 +60,6 @@ const WhyChooseUs = () => {
               <p>{feature.description}</p>
             </div>
           ))}
-        </div>
-
-        {/* Guarantees Section */}
-        <div className="guarantees-section">
-          <h3>Our Guarantees</h3>
-          <div className="guarantees-grid">
-            {guarantees.map((guarantee, index) => (
-              <div key={index} className="guarantee-item">
-                ✅ <span>{guarantee}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* CTA Section */}

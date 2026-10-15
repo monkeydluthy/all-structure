@@ -158,7 +158,11 @@ const ServicesPage = () => {
                   </ul>
 
                   <Link to={`/services/${service.slug}`} className="service-btn learn-more-btn">
-                    {service.slug === 'bathroom-remodeling' ? 'bathroom remodeling' : 'Learn More →'}
+                    {service.slug === 'bathroom-remodeling'
+                      ? 'bathroom remodeling'
+                      : service.slug === 'kitchen-remodeling'
+                        ? 'kitchen remodeling'
+                        : 'Learn More →'}
                   </Link>
                 </div>
               </div>

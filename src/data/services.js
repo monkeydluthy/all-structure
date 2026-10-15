@@ -9,7 +9,7 @@ export const servicesList = [
     cardDescription:
       'Emergency water, fire, and storm damage restoration for homes and businesses throughout Meriden, CT and surrounding central Connecticut towns.',
     overview:
-      'Need fast water damage restoration in Meriden, CT? All Structure Maintenance responds to emergencies with licensed contractors who dry, sanitize, and rebuild your property the right way. From sump pump failures to flooding, we manage every step so you can get back to normal quickly and safely.',
+      'Need fast water damage restoration in Meriden, CT? All Structure Maintenance responds to emergencies with licensed contractors who dry, sanitize, and rebuild your property the right way. From sump pump failures to flooding, we manage every step so you can get back to normal quickly and safely. Emergency calls outside posted hours are answered, typically within a few hours.',
     services: [
       {
         title: 'Water Damage Restoration',
@@ -43,7 +43,6 @@ export const servicesList = [
       'Emergency response in Meriden, Wallingford, Cheshire, Southington & Wolcott',
       'Moisture meters and industrial drying equipment',
       'Clean, safe job sites with full sanitization',
-      'Workmanship warranty on every restoration',
     ],
     serviceAreas: ['Meriden, CT', 'Wallingford, CT', 'Cheshire, CT', 'Middletown, CT', 'North Haven, CT', 'Southington, CT', 'Wolcott, CT'],
     faq: [
@@ -116,7 +115,7 @@ export const servicesList = [
       { text: 'Detailed Proposal & Permits', icon: '📑' },
       { text: 'Material Procurement & Scheduling', icon: '📦' },
       { text: 'Professional Build & Project Updates', icon: '🔨' },
-      { text: 'Final Walkthrough & Warranty', icon: '🎉' },
+      { text: 'Final Walkthrough', icon: '🎉' },
     ],
     benefits: [
       'Licensed and insured remodelers',
@@ -124,7 +123,6 @@ export const servicesList = [
       'Access to trade discounts on cabinets, tile, and fixtures',
       'Clean job sites with dust control and daily communication',
       'Permit coordination with local Meriden, Wallingford & Cheshire officials',
-      'Workmanship warranty and punch-list completion guarantee',
     ],
     serviceAreas: ['Meriden, CT', 'Southington, CT', 'Middletown, CT', 'Wallingford, CT', 'Cheshire, CT', 'Wolcott, CT'],
     faq: [
@@ -202,7 +200,6 @@ export const servicesList = [
       { text: 'Surface Prep & Repairs', icon: '🧹' },
       { text: 'Professional Painting & Finishing', icon: '🖌️' },
       { text: 'Detailed Cleanup & Inspection', icon: '🧽' },
-      { text: 'Touch-Up Kit & Warranty', icon: '📦' },
     ],
     benefits: [
       'Dust containment and floor protection on every job',
@@ -293,7 +290,6 @@ export const servicesList = [
       'Laser-leveled tile lines and minimal lippage',
       'Dust mitigation and clean job sites',
       'Samples and mockups before installation',
-      'Comprehensive warranty on labor and materials',
     ],
     serviceAreas: ['Meriden, CT', 'Berlin, CT', 'Southington, CT', 'Cromwell, CT', 'Middletown, CT', 'Wolcott, CT'],
     faq: [
@@ -519,6 +515,107 @@ export const servicesList = [
     primaryKeyword: 'bathroom remodeling',
     ctaLabel: 'Get a Free Estimate',
     ctaBlurb: 'Tell us about the bathroom and request an estimate.',
+  },
+  {
+    key: 'kitchen-remodeling',
+    slug: 'kitchen-remodeling',
+    icon: '🍳',
+    heroImage: '/images/tiling-after.jpg',
+    heroHeading: 'Kitchen Remodeling in Meriden, CT',
+    listTitle: 'Kitchen Remodeling',
+    cardDescription:
+      'Full kitchen remodels, cabinets, countertops, and tile backsplash and flooring in central Connecticut.',
+    overview:
+      'Steve Johnson remodels kitchens for homeowners in central Connecticut. All Structure Maintenance does full kitchen remodels, from demolition and prep through cabinets, countertops, and tile backsplash and flooring. When a kitchen needs dry-out and a rebuild, the same contractor handles both, with no handoff between companies.',
+    services: [
+      {
+        title: 'Full Kitchen Remodels',
+        description: 'Rebuild the kitchen from demolition and prep through cabinets, countertops, tile, and finish work.',
+      },
+      {
+        title: 'Cabinets',
+        description: 'Cabinets installed as part of the kitchen remodel.',
+      },
+      {
+        title: 'Countertops',
+        description: 'Countertops installed as part of the kitchen remodel.',
+      },
+      {
+        title: 'Tile Backsplash and Flooring',
+        description: 'Kitchen tile for the backsplash and the floor, handled as part of the remodel.',
+      },
+    ],
+    process: [
+      { text: 'Consultation and Estimate', icon: '📋' },
+      { text: 'Planning', icon: '🧭' },
+      { text: 'Demolition and Prep', icon: '🛠️' },
+      { text: 'Cabinets and Countertops', icon: '🗄️' },
+      { text: 'Tile and Finish Work', icon: '💧' },
+      { text: 'Final Walkthrough', icon: '✅' },
+    ],
+    benefits: [
+      'Kitchen remodels in central Connecticut',
+      'Full kitchen remodels from demolition to finish',
+      'Cabinets and countertops',
+      'Tile backsplash and flooring handled with the remodel',
+      'Kitchen rebuild after water damage',
+    ],
+    serviceAreas: ['Meriden, CT', 'Wallingford, CT', 'Cheshire, CT', 'Southington, CT', 'Wolcott, CT', 'Middletown, CT'],
+    areaNote: 'Nearby New Haven and Hartford-area communities are served as well.',
+    galleryHeading: 'Kitchen Remodel Photos',
+    gallery: [
+      {
+        src: '/images/kitchen-before.jpg',
+        alt: 'Kitchen remodel in Meriden, CT, before',
+      },
+      {
+        src: '/images/tiling-before.jpg',
+        alt: 'Kitchen tile floor in Wallingford, CT, before',
+      },
+      {
+        src: '/images/tiling-after.jpg',
+        alt: 'Kitchen tile floor in Wallingford, CT, after',
+      },
+    ],
+    faq: [
+      {
+        question: 'What is included in a kitchen remodeling estimate?',
+        answer:
+          'The estimate describes the kitchen work we review with you, such as a full remodel, cabinets, countertops, or tile backsplash and flooring. We write the scope down after looking at the kitchen.',
+      },
+      {
+        question: 'How should I prepare the home during the remodel?',
+        answer:
+          'Move personal items out of the kitchen before demolition and prep. Leave a clear path from the entrance to the kitchen so materials can come in and out.',
+      },
+      {
+        question: 'Is kitchen tile handled in-house?',
+        answer:
+          'Yes. Tile backsplash and flooring are part of the kitchen remodel and are done by All Structure Maintenance.',
+      },
+      {
+        question: 'Does a full kitchen remodel include cabinets and countertops?',
+        answer:
+          'Yes. A full kitchen remodel includes cabinets and countertops, along with tile backsplash and flooring.',
+      },
+      {
+        question: 'How do I get started?',
+        answer:
+          'Call 203.233.3862, send a text, or use the estimate form on this page and tell us about the kitchen.',
+      },
+    ],
+    metaTitle: 'Kitchen Remodeling Meriden, CT | All Structure Maintenance',
+    metaDescription:
+      'Kitchen remodeling for central Connecticut homes, including full remodels, cabinets, countertops, and tile.',
+    keywords: [
+      'kitchen remodel contractor',
+      'kitchen renovation contractors',
+      'kitchen remodeling',
+      'kitchen renovation',
+    ],
+    primaryKeyword: 'kitchen remodeling',
+    ctaLabel: 'Get a Free Estimate',
+    ctaBlurb: 'Tell us about the kitchen and request an estimate.',
   },
 ];
 
