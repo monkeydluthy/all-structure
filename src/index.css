@@ -2032,9 +2032,10 @@ body.admin-page {
 }
 
 .process-steps {
+  --process-gap: 2rem;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(var(--process-count, 5), minmax(0, 1fr));
+  gap: var(--process-gap);
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
@@ -2043,11 +2044,12 @@ body.admin-page {
 .process-steps::before {
   content: '';
   position: absolute;
-  top: 25%;
-  left: 10%;
-  right: 10%;
+  top: calc(2px + 2rem + 3rem + 1rem + 25px);
+  left: calc((100% - (var(--process-count, 5) - 1) * var(--process-gap)) / var(--process-count, 5) / 2);
+  right: calc((100% - (var(--process-count, 5) - 1) * var(--process-gap)) / var(--process-count, 5) / 2);
   height: 3px;
-  background: linear-gradient(to right, #d4a017 0%, #d4a017 100%);
+  transform: translateY(-50%);
+  background: #d4a017;
   z-index: 0;
 }
 
@@ -2071,6 +2073,7 @@ body.admin-page {
 
 .process-icon {
   font-size: 3rem;
+  line-height: 1;
   margin-bottom: 1rem;
   display: block;
 }
@@ -2627,6 +2630,17 @@ body.admin-page {
 
 .footer-links a:hover {
   color: #d4a017;
+}
+
+/* Keep the process line on one row. Below this width the steps wrap, so drop the line. */
+@media (max-width: 1100px) {
+  .process-steps {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .process-steps::before {
+    display: none;
+  }
 }
 
 /* Responsive Design */

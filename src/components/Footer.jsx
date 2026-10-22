@@ -7,10 +7,10 @@ const Footer = () => {
 
   const services = [
     { name: 'Full Restoration', link: '/services/restoration' },
-    { name: 'fire and smoke damage restoration', link: '/services/fire-damage-restoration' },
+    { name: 'Fire and Smoke Damage Restoration', link: '/services/fire-damage-restoration' },
     { name: 'Remodeling', link: '/services/remodeling' },
-    { name: 'bathroom remodeling', link: '/services/bathroom-remodeling' },
-    { name: 'kitchen remodeling', link: '/services/kitchen-remodeling' },
+    { name: 'Bathroom Remodeling', link: '/services/bathroom-remodeling' },
+    { name: 'Kitchen Remodeling', link: '/services/kitchen-remodeling' },
     { name: 'Painting', link: '/services/painting' },
     { name: 'Tile Installation', link: '/services/tile' },
     { name: 'Maintenance', link: '/services/maintenance' },

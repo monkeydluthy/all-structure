@@ -196,7 +196,10 @@ const ServicePage = () => {
       <section className="service-process">
         <div className="container">
           <h2>How Our Process Works</h2>
-          <div className="process-steps">
+          <div
+            className="process-steps"
+            style={{ '--process-count': service.process.length }}
+          >
             {service.process.map((step, index) => (
               <div key={step.text} className="process-step">
                 <div className="process-icon">{step.icon}</div>
