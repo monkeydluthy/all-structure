@@ -119,7 +119,7 @@ const Contact = () => {
               <div>
                 <h4>Call Us</h4>
                 <a href="tel:2032333862">203.233.3862</a>
-                <p>Available 7 days a week</p>
+                <p>Monday to Friday 7 to 6, Saturday 8 to 4, Sunday emergency calls only.</p>
               </div>
             </div>
 
@@ -130,7 +130,7 @@ const Contact = () => {
                 <a href="mailto:AllstructureMainLLC@yahoo.com">
                   AllstructureMainLLC@yahoo.com
                 </a>
-                <p>We respond within 24 hours</p>
+                <p>We'll get back to you as soon as we can.</p>
               </div>
             </div>
 
@@ -242,7 +242,7 @@ const Contact = () => {
 
               {submitStatus === 'success' && (
                 <div className="success-message">
-                  ✅ Thank you! We'll contact you within 24 hours.
+                  ✅ Thank you! We'll get back to you as soon as we can.
                 </div>
               )}
             </form>

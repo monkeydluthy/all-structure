@@ -307,7 +307,7 @@ const ContactPage = () => {
 
                 {submitSucceeded && (
                   <div className="success-message">
-                    Thanks, we'll respond within 24 hours
+                    Thanks. We'll get back to you as soon as we can.
                   </div>
                 )}
               </form>
@@ -358,13 +358,13 @@ const ContactPage = () => {
                   <a href="tel:2032333862" className="contact-card-link phone-link">
                     203.233.3862
                   </a>
-                  <p>Available 7 days a week</p>
+                  <p>Monday to Friday 7 to 6, Saturday 8 to 4, Sunday emergency calls only.</p>
                 </div>
 
                 <a href="mailto:AllstructureMainLLC@yahoo.com" className="contact-card" style={{ textDecoration: 'none' }}>
                   <div className="contact-card-icon">✉️</div>
                   <h4>Email Us</h4>
-                  <p>We respond within 24 hours</p>
+                  <p>We'll get back to you as soon as we can.</p>
                 </a>
 
                 <div className="contact-card">

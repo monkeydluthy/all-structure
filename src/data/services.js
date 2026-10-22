@@ -59,7 +59,7 @@ export const servicesList = [
     ],
     metaTitle: 'Water Damage Restoration Meriden CT | All Structure Maintenance',
     metaDescription:
-      'All Structure Maintenance provides emergency water damage restoration, mold remediation, and structural repairs in Meriden, CT. Call 203-233-3862 for emergency service.',
+      'Water damage restoration in Meriden, CT, from dry-out to rebuild with one contractor. Emergency calls answered. Call 203-233-3862.',
     keywords: [
       'water damage restoration meriden',
       'emergency restoration meriden ct',
@@ -616,6 +616,77 @@ export const servicesList = [
     primaryKeyword: 'kitchen remodeling',
     ctaLabel: 'Get a Free Estimate',
     ctaBlurb: 'Tell us about the kitchen and request an estimate.',
+  },
+  {
+    key: 'fire-damage-restoration',
+    slug: 'fire-damage-restoration',
+    icon: '🔥',
+    heroHeading: 'Fire and Smoke Damage Restoration in Meriden, CT',
+    listTitle: 'Fire and Smoke Damage Restoration',
+    cardDescription:
+      'Fire and smoke damage cleanup, removal of damaged materials, and the rebuild in central Connecticut.',
+    overview:
+      'Steve Johnson handles fire and smoke damage restoration for homeowners in central Connecticut. All Structure Maintenance does the cleanup, removes soot and damaged materials, and rebuilds afterward. One contractor handles the cleanup and the rebuild, with no handoff between companies. Emergency calls outside posted hours are answered, typically within a few hours.',
+    services: [
+      {
+        title: 'Fire and Smoke Cleanup',
+        description: 'Remove soot, deodorize, and repair structural damage after house or kitchen fires.',
+      },
+      {
+        title: 'Removal of Damaged Materials',
+        description: 'Remove damaged materials during the fire and smoke cleanup.',
+      },
+      {
+        title: 'Rebuild',
+        description: 'Rebuild after the cleanup.',
+      },
+    ],
+    process: [
+      { text: 'Call and Assessment', icon: '📞' },
+      { text: 'Cleanup and Removal of Damaged Materials', icon: '🧹' },
+      { text: 'Rebuild', icon: '🏡' },
+      { text: 'Final Walkthrough', icon: '✅' },
+    ],
+    benefits: [
+      'Fire and smoke damage restoration in central Connecticut',
+      'Cleanup after a house or kitchen fire',
+      'Soot removal and deodorizing',
+      'Rebuild after the cleanup',
+    ],
+    serviceAreas: ['Meriden, CT', 'Wallingford, CT', 'Cheshire, CT', 'Southington, CT', 'Wolcott, CT', 'Middletown, CT'],
+    areaNote: 'Nearby New Haven and Hartford-area communities are served as well.',
+    faq: [
+      {
+        question: 'What happens first?',
+        answer:
+          'Call 203.233.3862 and tell us about the fire or smoke damage. We look at the damage, then start the cleanup and removal of damaged materials.',
+      },
+      {
+        question: 'Can the same company handle the cleanup and the rebuild?',
+        answer:
+          'Yes. The same contractor handles the fire and smoke cleanup and the rebuild, with no handoff between companies.',
+      },
+      {
+        question: 'What should I do after a fire before calling?',
+        answer:
+          'Wait until the fire department says the building is safe to enter. Then call 203.233.3862.',
+      },
+      {
+        question: 'How do I get started?',
+        answer:
+          'Call 203.233.3862, send a text, or use the estimate form on this page and tell us about the fire or smoke damage.',
+      },
+    ],
+    metaTitle: 'Fire Damage Restoration CT | All Structure Maintenance',
+    metaDescription:
+      'Fire and smoke damage restoration for central Connecticut homes, including cleanup, removal of damaged materials, and the rebuild.',
+    keywords: [
+      'fire damage restoration',
+      'fire damage restoration near me',
+    ],
+    primaryKeyword: 'fire damage restoration',
+    ctaLabel: 'Get a Free Estimate',
+    ctaBlurb: 'Tell us about the fire or smoke damage and request an estimate.',
   },
 ];
 

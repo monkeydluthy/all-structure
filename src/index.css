@@ -1903,6 +1903,10 @@ body.admin-page {
   align-items: center;
 }
 
+.service-hero-content-text {
+  grid-template-columns: 1fr;
+}
+
 .service-hero-text {
   text-align: left;
 }

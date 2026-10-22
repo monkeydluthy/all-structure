@@ -140,12 +140,14 @@ const ServicesPage = () => {
           <div className="services-grid">
             {servicesList.map((service) => (
               <div key={service.key} className="service-card-large">
-                <div className="service-image-large">
-                  <img
-                    src={service.heroImage}
-                    alt={`${service.listTitle} in Connecticut - All Structure Maintenance`}
-                  />
-                </div>
+                {service.heroImage && (
+                  <div className="service-image-large">
+                    <img
+                      src={service.heroImage}
+                      alt={`${service.listTitle} in Connecticut - All Structure Maintenance`}
+                    />
+                  </div>
+                )}
                 <div className="service-content-large">
                   <div className="service-icon-large">{service.icon}</div>
                   <h3>{service.listTitle}</h3>
@@ -162,7 +164,9 @@ const ServicesPage = () => {
                       ? 'bathroom remodeling'
                       : service.slug === 'kitchen-remodeling'
                         ? 'kitchen remodeling'
-                        : 'Learn More →'}
+                        : service.slug === 'fire-damage-restoration'
+                          ? 'fire and smoke damage restoration'
+                          : 'Learn More →'}
                   </Link>
                 </div>
               </div>

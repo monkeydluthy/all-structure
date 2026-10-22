@@ -16,13 +16,15 @@ const Services = () => {
         <div className="services-grid">
           {servicesList.map((service, index) => (
             <div key={index} className="service-card">
-              <div className="service-image">
-                <img
-                  src={service.heroImage}
-                  alt={`${service.listTitle} in Connecticut - All Structure Maintenance`}
-                  loading="lazy"
-                />
-              </div>
+              {service.heroImage && (
+                <div className="service-image">
+                  <img
+                    src={service.heroImage}
+                    alt={`${service.listTitle} in Connecticut - All Structure Maintenance`}
+                    loading="lazy"
+                  />
+                </div>
+              )}
               <div className="service-content">
                 <div className="service-icon">{service.icon}</div>
                 <h3>{service.listTitle}</h3>
@@ -32,7 +34,9 @@ const Services = () => {
                     ? 'bathroom remodeling'
                     : service.slug === 'kitchen-remodeling'
                       ? 'kitchen remodeling'
-                      : 'Learn More →'}
+                      : service.slug === 'fire-damage-restoration'
+                        ? 'fire and smoke damage restoration'
+                        : 'Learn More →'}
                 </Link>
               </div>
             </div>

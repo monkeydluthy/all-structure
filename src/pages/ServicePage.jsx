@@ -76,7 +76,7 @@ const ServicePage = () => {
       title: service.metaTitle,
       description: service.metaDescription,
       type: 'article',
-      image: `${SITE_URL}${service.heroImage}`,
+          image: service.heroImage ? `${SITE_URL}${service.heroImage}` : undefined,
       url: `${SITE_URL}/services/${service.slug}`,
     },
     structuredData,
@@ -87,14 +87,14 @@ const ServicePage = () => {
       {/* Hero Section */}
       <section className="service-hero">
         <div className="container">
-          <div className="service-hero-content">
+          <div className={`service-hero-content${service.heroImage ? '' : ' service-hero-content-text'}`}>
             <div className="service-hero-text">
               <h1>{service.heroHeading}</h1>
-              {(service.slug === 'restoration' || service.slug === 'bathroom-remodeling' || service.slug === 'kitchen-remodeling') && <ContractorRegistration />}
+              {(service.slug === 'restoration' || service.slug === 'bathroom-remodeling' || service.slug === 'kitchen-remodeling' || service.slug === 'fire-damage-restoration') && <ContractorRegistration />}
               <p className="service-hero-description">
                 {service.overview}
               </p>
-              {service.slug !== 'bathroom-remodeling' && service.slug !== 'kitchen-remodeling' && (
+              {service.slug !== 'bathroom-remodeling' && service.slug !== 'kitchen-remodeling' && service.slug !== 'fire-damage-restoration' && (
                 <p>
                   As licensed general contractors serving {service.serviceAreas[0]} and nearby Connecticut towns, we manage every stage—from planning and permits to the final walkthrough—so you can enjoy stress-free results. Whether you need {service.primaryKeyword.toLowerCase()} or want to explore related upgrades, our team delivers craftsmanship and real local references.
                 </p>
@@ -109,12 +109,14 @@ const ServicePage = () => {
                 </p>
               )}
             </div>
-            <div className="service-hero-image">
-              <img
-                src={service.heroImage}
-                alt={`${service.heroHeading} by All Structure Maintenance`}
-              />
-            </div>
+            {service.heroImage && (
+              <div className="service-hero-image">
+                <img
+                  src={service.heroImage}
+                  alt={`${service.heroHeading} by All Structure Maintenance`}
+                />
+              </div>
+            )}
           </div>
           <div className="service-hero-actions">
             <a href="#contact-section" className="cta-primary">
@@ -149,6 +151,11 @@ const ServicePage = () => {
           {(service.slug === 'remodeling' || service.slug === 'tile' || service.slug === 'bathroom-remodeling') && (
             <p>
               <Link to="/services/kitchen-remodeling">kitchen remodeling</Link>
+            </p>
+          )}
+          {service.slug === 'restoration' && (
+            <p>
+              <Link to="/services/fire-damage-restoration">fire and smoke damage restoration</Link>
             </p>
           )}
         </div>
