@@ -621,6 +621,8 @@ export const servicesList = [
     key: 'fire-damage-restoration',
     slug: 'fire-damage-restoration',
     icon: '🔥',
+    heroImage: '/images/ceiling-refinish-containment.jpg',
+    heroAlt: 'Room sealed in plastic sheeting during interior ceiling and wall refinishing by All Structure Maintenance',
     heroHeading: 'Fire and Smoke Damage Restoration in Meriden, CT',
     listTitle: 'Fire and Smoke Damage Restoration',
     cardDescription:

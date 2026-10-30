@@ -23,15 +23,15 @@ const ServicePage = () => {
   const relatedLinks = [
     (service.slug === 'remodeling' || service.slug === 'tile') && {
       to: '/services/bathroom-remodeling',
-      label: 'bathroom remodeling',
+      label: 'Bathroom Remodeling',
     },
     (service.slug === 'remodeling' || service.slug === 'tile' || service.slug === 'bathroom-remodeling') && {
       to: '/services/kitchen-remodeling',
-      label: 'kitchen remodeling',
+      label: 'Kitchen Remodeling',
     },
     service.slug === 'restoration' && {
       to: '/services/fire-damage-restoration',
-      label: 'fire and smoke damage restoration',
+      label: 'Fire and Smoke Damage Restoration',
     },
   ].filter(Boolean);
 
@@ -128,7 +128,7 @@ const ServicePage = () => {
               <div className="service-hero-image">
                 <img
                   src={service.heroImage}
-                  alt={`${service.heroHeading} by All Structure Maintenance`}
+                  alt={service.heroAlt || `${service.heroHeading} by All Structure Maintenance`}
                 />
               </div>
             )}

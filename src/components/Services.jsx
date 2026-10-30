@@ -20,7 +20,7 @@ const Services = () => {
                 <div className="service-image">
                   <img
                     src={service.heroImage}
-                    alt={`${service.listTitle} in Connecticut - All Structure Maintenance`}
+                    alt={service.heroAlt || `${service.listTitle} in Connecticut - All Structure Maintenance`}
                     loading="lazy"
                   />
                 </div>
@@ -30,13 +30,7 @@ const Services = () => {
                 <h3>{service.listTitle}</h3>
                 <p>{service.cardDescription}</p>
                 <Link to={`/services/${service.slug}`} className="service-btn">
-                  {service.slug === 'bathroom-remodeling'
-                    ? 'bathroom remodeling'
-                    : service.slug === 'kitchen-remodeling'
-                      ? 'kitchen remodeling'
-                      : service.slug === 'fire-damage-restoration'
-                        ? 'fire and smoke damage restoration'
-                        : 'Learn More →'}
+                  Learn More →
                 </Link>
               </div>
             </div>

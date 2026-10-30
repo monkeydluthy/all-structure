@@ -144,7 +144,7 @@ const ServicesPage = () => {
                   <div className="service-image-large">
                     <img
                       src={service.heroImage}
-                      alt={`${service.listTitle} in Connecticut - All Structure Maintenance`}
+                      alt={service.heroAlt || `${service.listTitle} in Connecticut - All Structure Maintenance`}
                     />
                   </div>
                 )}
@@ -160,13 +160,7 @@ const ServicesPage = () => {
                   </ul>
 
                   <Link to={`/services/${service.slug}`} className="service-btn learn-more-btn">
-                    {service.slug === 'bathroom-remodeling'
-                      ? 'bathroom remodeling'
-                      : service.slug === 'kitchen-remodeling'
-                        ? 'kitchen remodeling'
-                        : service.slug === 'fire-damage-restoration'
-                          ? 'fire and smoke damage restoration'
-                          : 'Learn More →'}
+                    Learn More →
                   </Link>
                 </div>
               </div>
