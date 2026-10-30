@@ -20,6 +20,21 @@ const ServicePage = () => {
     [service.key]
   );
 
+  const relatedLinks = [
+    (service.slug === 'remodeling' || service.slug === 'tile') && {
+      to: '/services/bathroom-remodeling',
+      label: 'bathroom remodeling',
+    },
+    (service.slug === 'remodeling' || service.slug === 'tile' || service.slug === 'bathroom-remodeling') && {
+      to: '/services/kitchen-remodeling',
+      label: 'kitchen remodeling',
+    },
+    service.slug === 'restoration' && {
+      to: '/services/fire-damage-restoration',
+      label: 'fire and smoke damage restoration',
+    },
+  ].filter(Boolean);
+
   const structuredData = useMemo(
     () => [
       {
@@ -143,20 +158,15 @@ const ServicePage = () => {
               </div>
             ))}
           </div>
-          {(service.slug === 'remodeling' || service.slug === 'tile') && (
-            <p>
-              <Link to="/services/bathroom-remodeling">bathroom remodeling</Link>
-            </p>
-          )}
-          {(service.slug === 'remodeling' || service.slug === 'tile' || service.slug === 'bathroom-remodeling') && (
-            <p>
-              <Link to="/services/kitchen-remodeling">kitchen remodeling</Link>
-            </p>
-          )}
-          {service.slug === 'restoration' && (
-            <p>
-              <Link to="/services/fire-damage-restoration">fire and smoke damage restoration</Link>
-            </p>
+          {relatedLinks.length > 0 && (
+            <div className="service-related-links">
+              <span className="service-related-links-label">Related services:</span>
+              {relatedLinks.map((link) => (
+                <Link key={link.to} to={link.to}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           )}
         </div>
       </section>
