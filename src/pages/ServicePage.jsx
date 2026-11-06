@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import Contact from '../components/Contact';
 import ContractorRegistration from '../components/ContractorRegistration';
@@ -8,13 +8,48 @@ import FaqAccordion from '../components/FaqAccordion';
 
 const SITE_URL = 'https://allstructuremaintenance.com';
 
+const ServiceNotFound = () => {
+  useEffect(() => {
+    document.title = 'Page Not Found | All Structure Maintenance';
+
+    // No canonical on a missing page. Valid service pages add it back on mount.
+    document.head.querySelector('link[rel="canonical"]')?.remove();
+
+    const robots = document.createElement('meta');
+    robots.setAttribute('name', 'robots');
+    robots.setAttribute('content', 'noindex');
+    robots.setAttribute('data-not-found-robots', '');
+    document.head.appendChild(robots);
+
+    return () => robots.remove();
+  }, []);
+
+  return (
+    <section className="service-hero">
+      <div className="container">
+        <h1>Page Not Found</h1>
+        <p>We couldn&apos;t find that service page.</p>
+        <Link to="/services" className="cta-primary">View All Services</Link>
+      </div>
+    </section>
+  );
+};
+
 const ServicePage = () => {
   const { serviceKey: paramKey } = useParams();
   const location = useLocation();
   const stateKey = location.state?.serviceKey;
   const key = (paramKey || stateKey || 'restoration').toLowerCase();
-  const service = servicesByKey[key] || servicesByKey.restoration;
+  const service = servicesByKey[key];
 
+  if (!service) {
+    return <ServiceNotFound />;
+  }
+
+  return <ServiceContent service={service} />;
+};
+
+const ServiceContent = ({ service }) => {
   const relatedServices = useMemo(
     () => servicesList.filter((item) => item.key !== service.key).slice(0, 3),
     [service.key]
