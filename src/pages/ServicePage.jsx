@@ -68,6 +68,14 @@ const ServiceContent = ({ service }) => {
       to: '/services/fire-damage-restoration',
       label: 'Fire and Smoke Damage Restoration',
     },
+    (service.slug === 'remodeling' || service.slug === 'kitchen-remodeling' || service.slug === 'bathroom-remodeling') && {
+      to: '/services/basement-finishing',
+      label: 'Basement Finishing',
+    },
+    service.slug === 'basement-finishing' && {
+      to: '/services/restoration',
+      label: 'Water Damage Restoration',
+    },
   ].filter(Boolean);
 
   const structuredData = useMemo(
@@ -140,11 +148,11 @@ const ServiceContent = ({ service }) => {
           <div className={`service-hero-content${service.heroImage ? '' : ' service-hero-content-text'}`}>
             <div className="service-hero-text">
               <h1>{service.heroHeading}</h1>
-              {(service.slug === 'restoration' || service.slug === 'bathroom-remodeling' || service.slug === 'kitchen-remodeling' || service.slug === 'fire-damage-restoration') && <ContractorRegistration />}
+              {(service.slug === 'restoration' || service.slug === 'bathroom-remodeling' || service.slug === 'kitchen-remodeling' || service.slug === 'fire-damage-restoration' || service.slug === 'basement-finishing') && <ContractorRegistration />}
               <p className="service-hero-description">
                 {service.overview}
               </p>
-              {service.slug !== 'bathroom-remodeling' && service.slug !== 'kitchen-remodeling' && service.slug !== 'fire-damage-restoration' && (
+              {service.slug !== 'bathroom-remodeling' && service.slug !== 'kitchen-remodeling' && service.slug !== 'fire-damage-restoration' && service.slug !== 'basement-finishing' && (
                 <p>
                   As licensed general contractors serving {service.serviceAreas[0]} and nearby Connecticut towns, we manage every stage—from planning and permits to the final walkthrough—so you can enjoy stress-free results. Whether you need {service.primaryKeyword.toLowerCase()} or want to explore related upgrades, our team delivers craftsmanship and real local references.
                 </p>

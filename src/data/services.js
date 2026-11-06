@@ -690,6 +690,97 @@ export const servicesList = [
     ctaLabel: 'Get a Free Estimate',
     ctaBlurb: 'Tell us about the fire or smoke damage and request an estimate.',
   },
+  {
+    key: 'basement-finishing',
+    slug: 'basement-finishing',
+    icon: '🧱',
+    heroImage: '/images/basement-after.jpg',
+    heroAlt: 'Finished basement with a drop ceiling, knotty pine paneled walls, a white boxed support post, and light plank flooring',
+    heroHeading: 'Basement Finishing in Meriden, CT',
+    listTitle: 'Basement Finishing',
+    cardDescription:
+      'Basement finishing with drop ceilings, paneled walls, plank flooring, and wrapped support posts in central Connecticut.',
+    overview:
+      'Steve Johnson finishes basements for homeowners in central Connecticut, with drop ceilings, paneled walls, plank flooring laid over the concrete floor, and wrapped support posts.',
+    services: [
+      {
+        title: 'Drop Ceilings',
+        description: 'A drop ceiling installed across the basement.',
+      },
+      {
+        title: 'Paneled Walls',
+        description: 'Paneled walls as part of the basement finish.',
+      },
+      {
+        title: 'Plank Flooring',
+        description: 'Plank flooring laid over the concrete basement floor.',
+      },
+      {
+        title: 'Wrapped Support Posts',
+        description: 'Support posts wrapped so they finish cleanly with the room.',
+      },
+    ],
+    process: [
+      { text: 'Consultation and Walkthrough', icon: '📋' },
+      { text: 'Plan and Materials', icon: '🧭' },
+      { text: 'Build', icon: '🛠️' },
+      { text: 'Final Walkthrough', icon: '✅' },
+    ],
+    benefits: [
+      'Basement finishing in central Connecticut',
+      'Drop ceilings',
+      'Paneled walls',
+      'Plank flooring over concrete',
+      'Wrapped support posts',
+    ],
+    serviceAreas: ['Meriden, CT', 'Wallingford, CT', 'Cheshire, CT', 'Southington, CT', 'Wolcott, CT', 'Middletown, CT'],
+    areaNote: 'Nearby New Haven and Hartford-area communities are served as well.',
+    galleryHeading: 'Basement Finishing Photos',
+    gallery: [
+      {
+        src: '/images/basement-before.jpg',
+        alt: 'Basement finishing in progress in Cheshire, CT, with a drop ceiling, paneled walls, and plank flooring partly laid',
+      },
+      {
+        src: '/images/basement-after.jpg',
+        alt: 'Finished basement in Cheshire, CT, with a drop ceiling, knotty pine paneled walls, a white boxed support post, and light plank flooring',
+      },
+    ],
+    faq: [
+      {
+        question: 'What is included in basement finishing?',
+        answer:
+          'Basement finishing can include a drop ceiling, paneled walls, plank flooring laid over the concrete floor, and wrapped support posts. We write the scope down after looking at the basement.',
+      },
+      {
+        question: 'What is the estimate walk-through like?',
+        answer:
+          'Estimates are free. We walk through the basement with you, look at the ceiling, walls, floor, and support posts, and talk about what you want the finished room to look like. Then we write down the scope of the work.',
+      },
+      {
+        question: 'Which towns do you serve?',
+        answer:
+          'We finish basements in Meriden, Wallingford, Cheshire, Southington, Wolcott, and Middletown, and in nearby New Haven and Hartford-area communities.',
+      },
+      {
+        question: 'How do I get a free estimate?',
+        answer:
+          'Call 203.233.3862, send a text, or use the estimate form on this page and tell us about the basement.',
+      },
+    ],
+    metaTitle: 'Basement Finishing Meriden, CT | All Structure Maintenance',
+    metaDescription:
+      'Basement finishing for central Connecticut homes, including drop ceilings, paneled walls, plank flooring, and wrapped support posts.',
+    keywords: [
+      'basement finishing Meriden CT',
+      'basement finishing',
+      'finished basement',
+      'basement remodeling',
+    ],
+    primaryKeyword: 'basement finishing Meriden CT',
+    ctaLabel: 'Get a Free Estimate',
+    ctaBlurb: 'Tell us about the basement and request an estimate.',
+  },
 ];
 
 export const servicesByKey = servicesList.reduce((acc, service) => {
