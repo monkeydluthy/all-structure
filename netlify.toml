@@ -11,6 +11,14 @@
 [functions]
   node_bundler = "esbuild"
 
+# Old-host and /services/roofing redirects, run before the Prerender extension.
+# The host check needs every page path, so this matches /* and skips static
+# files (those are still redirected by the forced rule in _redirects).
+[[edge_functions]]
+  path = "/*"
+  excludedPath = ["/assets/*", "/images/*"]
+  function = "legacy-redirects"
+
 # Deploy previews and branch deploys only. Production does not get this header.
 [[context.deploy-preview.headers]]
   for = "/*"
