@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import overrides from '../../seo/titles.json';
+import { titleOverride } from '../lib/titleOverrides';
 
 const SITE_URL = 'https://allstructuremaintenance.com';
 
@@ -28,8 +30,8 @@ const removeExistingStructuredData = (ids) => {
 };
 
 export const usePageMetadata = ({
-  title,
-  description,
+  title: ownTitle,
+  description: ownDescription,
   keywords,
   canonicalPath,
   structuredData = [],
@@ -37,6 +39,11 @@ export const usePageMetadata = ({
   twitter = {},
   robots,
 } = {}) => {
+  // The SEO pod's override (seo/titles.json) wins on indexable pages that name a canonical path.
+  const override = !robots && canonicalPath ? titleOverride(canonicalPath, overrides) : null;
+  const title = override?.title ?? ownTitle;
+  const description = override?.description ?? ownDescription;
+
   useEffect(() => {
     if (title) {
       document.title = title;
